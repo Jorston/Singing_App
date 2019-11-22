@@ -1,7 +1,9 @@
 package com.example.app;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     //actividad principal
     TextView textuser,textpassword;
     Button button;
-    Registro per = new Registro("jorge",1234);
-    Registro per2 = new Registro("gaston",0000);
+    Registro per = new Registro("jorge","1234");
+    Registro per2 = new Registro("gaston","0000");
     ArrayList<Registro> registros = new ArrayList<>();
 
     @Override
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         textpassword = findViewById(R.id.textPassword);
         button = findViewById(R.id.btnLogin);
         button.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 insertar();
@@ -35,11 +38,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void insertar(){
+        String user = this.textuser.getText().toString();
+        String password = this.textpassword.getText().toString();
+        Registro reg = new Registro(user,password);
         registros.add(per);
         registros.add(per2);
-        for (Registro per: registros){
-            System.out.println("PERSONAS"+per.getUser()+" "+per.getPassword());
+        Registro per3 = new Registro(user,password);
+        for (Registro personas: registros){
+            if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())){
+                System.out.println("CHIVATO DE LA PERSONA VERDA"+per3);
+            }else {
+                System.out.println("CHIVATO DE LA PERSONA FALSO" + per3.getUser() + " " + per3.getPassword());
+            }
         }
     }
 }

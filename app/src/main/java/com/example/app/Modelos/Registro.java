@@ -1,10 +1,17 @@
 package com.example.app.Modelos;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.util.Objects;
+
 public class Registro {
     private String user;
-    private int password;
+    private String password;
 
-    public Registro(String user, int password) {
+    public Registro(String user, String password) {
         this.user = user;
         this.password = password;
     }
@@ -17,11 +24,29 @@ public class Registro {
         this.user = user;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @SuppressLint("NewApi")
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Registro registro = (Registro) o;
+        return password == registro.password &&
+                Objects.equals(user, registro.user);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @SuppressLint("NewApi")
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, password);
     }
 }
