@@ -19,7 +19,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="168dp"
+                android:layout_height="190dp"
                 android:layout_marginTop="30dp"
                 app:srcCompat="@drawable/user_gimp" />
 
@@ -30,7 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:gravity="center"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
@@ -40,7 +39,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="281dp"
+            android:layout_height="322dp"
             android:layout_gravity="center"
             android:orientation="vertical">
 
@@ -86,6 +85,19 @@
                 android:layout_marginRight="40dp"
                 android:background="@drawable/background"
                 android:text="Login" />
+
+            <Button
+                android:id="@+id/btnRegistrate"
+                style="@drawable/border_style"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:background="@android:color/transparent"
+                android:shadowColor="@android:color/background_dark"
+                android:singleLine="true"
+                android:text="Registrate" />
 
             <Button
                 android:id="@+id/button4"
