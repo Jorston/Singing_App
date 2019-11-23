@@ -3,11 +3,13 @@ package com.example.app;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.app.Modelos.Registro;
 
@@ -42,16 +44,26 @@ public class MainActivity extends AppCompatActivity {
     public void insertar(){
         String user = this.textuser.getText().toString();
         String password = this.textpassword.getText().toString();
-        Registro reg = new Registro(user,password);
         registros.add(per);
         registros.add(per2);
         Registro per3 = new Registro(user,password);
+        boolean interructor= true;
         for (Registro personas: registros){
-            if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())){
-                System.out.println("CHIVATO DE LA PERSONA VERDA"+per3);
-            }else {
-                System.out.println("CHIVATO DE LA PERSONA FALSO" + per3.getUser() + " " + per3.getPassword());
+            if (interructor){
+                if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())){
+                    Toast.makeText(getApplicationContext(),"usuario accepted",Toast.LENGTH_SHORT).show();
+                    System.out.println("CHIVATO DE LA PERSONA VERDA"+per3);
+                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    startActivity(intent);
+                    interructor = false;
+
+                }else {
+                    Toast.makeText(getApplicationContext(),"usuario no registrado",Toast.LENGTH_SHORT).show();
+                    System.out.println("CHIVATO DE LA PERSONA FALSO" + per3.getUser() + " " + per3.getPassword());
+                }
+
             }
+
         }
     }
 }
