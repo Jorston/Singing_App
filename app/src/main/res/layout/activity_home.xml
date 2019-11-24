@@ -135,44 +135,44 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="btn1" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="btn2" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="btn3" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btn4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="btn4" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/btn5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="btn5" />
         </LinearLayout>
 
     </FrameLayout>
