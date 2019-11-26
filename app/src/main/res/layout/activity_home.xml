@@ -107,14 +107,6 @@
                     android:gravity="center"
                     android:text="MultiAutoCompleteTextView" />
 
-                <MultiAutoCompleteTextView
-                    android:id="@+id/multiAutoCompleteTextView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="MultiAutoCompleteTextView" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -125,8 +117,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="40dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginRight="40dp"
+                        android:background="@drawable/background"
                         android:text="Check in" />
                 </LinearLayout>
 
@@ -153,8 +146,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
-                android:layout_weight="1"
-                android:text="btn1" />
+                android:drawableBottom="@drawable/listado"
+                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/btn2"
