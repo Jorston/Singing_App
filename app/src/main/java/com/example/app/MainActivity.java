@@ -48,20 +48,28 @@ public class MainActivity extends AppCompatActivity {
         registros.add(per);
         registros.add(per2);
         Registro per3 = new Registro(user, password);
+        findUser(per3);
         for (Registro personas : registros) {
             if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())) {
-                Toast.makeText(getApplicationContext(), "usuario accepted", Toast.LENGTH_SHORT).show();
+                showMessage( "usuario accepted");
                 System.out.println("CHIVATO DE LA PERSONA VERDA" + per3);
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
                 finish();
             } else {
                 button.setEnabled(true);
-                Toast.makeText(getApplicationContext(), "usuario no registrado", Toast.LENGTH_SHORT).show();
+                showMessage("usuario no registrado");
                 System.out.println("CHIVATO DE LA PERSONA FALSO" + per3.getUser() + " " + per3.getPassword());
             }
 
         }
 
+    }
+    private void findUser(Registro user){
+        System.out.println(registros.contains(user));
+    }
+
+    private void showMessage(String message){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT);
     }
 }
