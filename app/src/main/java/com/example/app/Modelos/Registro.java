@@ -5,9 +5,11 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Registro {
+public class Registro implements Serializable {
+    private static final long serailVersionUI = 1L;
     private String user;
     private String password;
 
