@@ -12,10 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.app.Modelos.Registro;
+import com.example.app.data.Repositorio;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    Repositorio repositorio = new Repositorio();
     //actividad principal
     TextView textuser, textpassword;
     Button button;
@@ -49,17 +51,17 @@ public class MainActivity extends AppCompatActivity {
         registros.add(per2);
         Registro per3 = new Registro(user, password);
         findUser(per3);
+        repositorio.setContext(this);
+        repositorio.writeUser(per3);
         for (Registro personas : registros) {
             if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())) {
                 showMessage( "usuario accepted");
-                System.out.println("CHIVATO DE LA PERSONA VERDA" + per3);
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
                 finish();
             } else {
                 button.setEnabled(true);
                 showMessage("usuario no registrado");
-                System.out.println("CHIVATO DE LA PERSONA FALSO" + per3.getUser() + " " + per3.getPassword());
             }
 
         }
