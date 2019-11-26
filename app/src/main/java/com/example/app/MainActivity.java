@@ -52,14 +52,12 @@ public class MainActivity extends AppCompatActivity {
         for (Registro personas : registros) {
             if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())) {
                 showMessage( "usuario accepted");
-                System.out.println("CHIVATO DE LA PERSONA VERDA" + per3);
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
                 finish();
             } else {
                 button.setEnabled(true);
                 showMessage("usuario no registrado");
-                System.out.println("CHIVATO DE LA PERSONA FALSO" + per3.getUser() + " " + per3.getPassword());
             }
 
         }
