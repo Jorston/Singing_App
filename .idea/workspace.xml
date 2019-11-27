@@ -16,7 +16,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/app/MainActivity.java" afterDir="false" />
+>>>>>>> desarrollo
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +55,7 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
               <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
@@ -64,6 +69,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="85" column="57" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="57" />
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2115">
+              <caret line="141" selection-start-line="141" selection-end-line="141" />
+>>>>>>> desarrollo
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
@@ -91,12 +101,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/app/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="69">
               <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2611#2612#0" expanded="true" />
                 <element signature="e#2671#2672#0" expanded="true" />
+=======
+            <state relative-caret-position="114">
+              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2555#2556#0" expanded="true" />
+                <element signature="e#2615#2616#0" expanded="true" />
+>>>>>>> desarrollo
               </folding>
             </state>
           </provider>
@@ -173,7 +192,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/app/Modelos/Registro.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/app/data/Repositorio.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/app/MainActivity.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+=======
+>>>>>>> desarrollo
       </list>
     </option>
   </component>
@@ -291,7 +313,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="56" y="27" width="1310" height="741" extended-state="6" />
+=======
+    <frame x="711" y="27" width="655" height="741" extended-state="4" />
+    <editor active="true" />
+>>>>>>> desarrollo
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.5041051" />
@@ -399,12 +426,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="85" column="57" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="57" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+=======
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+>>>>>>> desarrollo
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/app/Segundo.java">
       <provider selected="true" editor-type-id="text-editor" />
@@ -461,8 +497,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="235">
           <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+=======
+        <state relative-caret-position="2115">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+>>>>>>> desarrollo
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
@@ -511,12 +552,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/app/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="69">
           <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2611#2612#0" expanded="true" />
             <element signature="e#2671#2672#0" expanded="true" />
+=======
+        <state relative-caret-position="114">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2555#2556#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
+>>>>>>> desarrollo
           </folding>
         </state>
       </provider>
