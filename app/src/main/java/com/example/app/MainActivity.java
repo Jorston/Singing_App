@@ -12,15 +12,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.app.Modelos.Registro;
+import com.example.app.data.Repositorio;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    Repositorio repositorio = new Repositorio();
     //actividad principal
     TextView textuser, textpassword;
     Button button;
-    Registro per = new Registro("jorge", "1234");
-    Registro per2 = new Registro("gaston", "0000");
+    Registro per = new Registro("Jorge", "1234");
+    Registro per2 = new Registro("Gaston", "0000");
     ArrayList<Registro> registros = new ArrayList<>();
 
     @Override
@@ -49,17 +51,23 @@ public class MainActivity extends AppCompatActivity {
         registros.add(per2);
         Registro per3 = new Registro(user, password);
         findUser(per3);
+        repositorio.setContext(this);
+        repositorio.writeUser(per3);
+        boolean interruptor = true;
         for (Registro personas : registros) {
-            if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())) {
-                showMessage( "usuario accepted");
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-                finish();
-            } else {
-                button.setEnabled(true);
-                showMessage("usuario no registrado");
-            }
+            if (interruptor){
+                if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())) {
+                    showMessage("usuario accepted");
+                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    startActivity(intent);
+                    finish();
+                    interruptor = false;
+                }else {
+                    button.setEnabled(true);
+                    showMessage("usuario no registrado");
+                }
 
+            }
         }
 
     }
@@ -68,6 +76,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showMessage(String message){
-        Toast.makeText(this,message,Toast.LENGTH_SHORT);
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }
