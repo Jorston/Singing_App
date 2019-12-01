@@ -37,8 +37,9 @@
                 android:id="@+id/btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
-                android:drawableBottom="@drawable/listado"
+                android:paddingTop="12dp"
+                android:drawableTop="@drawable/listado"
+                android:background="#f5f5f5"
                 android:layout_weight="1"/>
 
             <Button
@@ -47,6 +48,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
+                android:background="#f5f5f5"
                 android:text="btn2" />
 
             <Button
@@ -55,6 +57,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
+                android:background="#f5f5f5"
                 android:text="btn3" />
 
             <Button
@@ -63,6 +66,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
+                android:background="#f5f5f5"
                 android:text="btn4" />
 
             <Button
@@ -71,6 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
+                android:background="#f5f5f5"
                 android:text="btn5" />
         </LinearLayout>
     </FrameLayout>

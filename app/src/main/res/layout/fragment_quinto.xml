@@ -12,13 +12,16 @@
         android:layout_height="wrap_content"
         android:text="LISTADO DE RECYCLERVIEW"
         android:textSize="20dp"
+        android:textColor="#f5f5f5"
+        android:layout_marginTop="30dp"
+        android:textFontWeight="600"
         android:textAlignment="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:background="#fafafa"
         />
 
