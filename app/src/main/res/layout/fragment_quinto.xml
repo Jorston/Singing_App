@@ -9,11 +9,17 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="QUINTO FRAGMENT" />
+        android:layout_height="wrap_content"
+        android:text="LISTADO DE RECYCLERVIEW"
+        android:textSize="20dp"
+        android:textAlignment="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#fafafa"
+        />
 
 </FrameLayout>
