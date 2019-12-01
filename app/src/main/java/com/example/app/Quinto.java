@@ -5,10 +5,17 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.app.Modelos.CreateDatos;
+import com.example.app.Modelos.Trabajadores;
+
+import java.util.ArrayList;
 
 
 /**
@@ -30,6 +37,9 @@ public class Quinto extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    ArrayList<Trabajadores> listaTrabajadores;
+    RecyclerView recycler;
 
     public Quinto() {
         // Required empty public constructor
@@ -65,9 +75,27 @@ public class Quinto extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quinto, container, false);
+
+        View vista = inflater.inflate(R.layout.fragment_quinto, container, false);
+        listaTrabajadores = new ArrayList<>();
+        recycler = vista.findViewById(R.id.recyclerid);
+        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        llenarLista();
+        CreateDatos adapter =new CreateDatos(listaTrabajadores);
+        recycler.setAdapter(adapter);
+        return vista;
     }
+
+    private void llenarLista() {
+        listaTrabajadores.add( new Trabajadores("trabajador1","apellido1","jefe1","correo1"));
+        listaTrabajadores.add( new Trabajadores("trabajador2","apellido2","jefe2","correo2"));
+        listaTrabajadores.add( new Trabajadores("trabajador3","apellido3","jefe3","correo3"));
+        listaTrabajadores.add( new Trabajadores("trabajador4","apellido4","jefe4","correo4"));
+        listaTrabajadores.add( new Trabajadores("trabajador5","apellido5","jefe5","correo5"));
+
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
