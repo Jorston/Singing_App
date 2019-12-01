@@ -12,6 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre"
+            android:textSize="20dp"
             android:layout_marginRight="20dp">
         </TextView>
         <TextView
@@ -19,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Apellidos"
+            android:textSize="20dp"
             android:layout_marginRight="20dp">
         </TextView>
         <TextView
@@ -26,12 +28,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cargo"
+            android:textSize="20dp"
             android:layout_marginRight="20dp">
         </TextView>
         <TextView
             android:id="@+id/cargo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:text="Correo">
         </TextView>
     </LinearLayout>
