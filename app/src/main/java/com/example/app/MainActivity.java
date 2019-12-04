@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Repositorio repositorio = new Repositorio();
     //actividad principal
     TextView textuser, textpassword;
-    Button button;
+    Button button, botonRegistrate;
     Registro per = new Registro("Jorge", "1234");
     Registro per2 = new Registro("Gaston", "0000");
     ArrayList<Registro> registros = new ArrayList<>();
@@ -38,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 button.setEnabled(false);
                 insertar();
+            }
+        });
+        botonRegistrate = findViewById(R.id.btnRegistrate);
+        botonRegistrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),FormRegister.class );
+                startActivity(intent);
             }
         });
 

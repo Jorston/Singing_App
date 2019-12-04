@@ -94,7 +94,6 @@
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="80dp"
-                android:background="@android:color/transparent"
                 android:shadowColor="@android:color/background_dark"
                 android:singleLine="true"
                 android:text="Registrate" />
