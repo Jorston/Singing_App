@@ -4,17 +4,17 @@ import java.util.Date;
 
 public class Fichaje {
     private String dni, nombre;
-    private Date horaFichada;
+    private String horaFichada;
     private TipoFichaje tipoFichaje;
 
-    public Fichaje(String dni, String nombre, Date horaFichada, TipoFichaje tipoFichaje) {
+    public Fichaje(String dni, String nombre, String horaFichada, TipoFichaje tipoFichaje) {
         this.dni = dni;
         this.nombre = nombre;
         this.horaFichada = horaFichada;
         this.tipoFichaje = tipoFichaje;
     }
 
-    public TipoFichaje getTipoFichaje() {
+    public CharSequence getTipoFichaje() {
         return tipoFichaje;
     }
 
@@ -38,11 +38,11 @@ public class Fichaje {
         this.nombre = nombre;
     }
 
-    public Date getHoraFichada() {
+    public String getHoraFichada() {
         return horaFichada;
     }
 
-    public void setHoraFichada(Date horaFichada) {
+    public void setHoraFichada(String horaFichada) {
         this.horaFichada = horaFichada;
     }
 }

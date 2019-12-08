@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.app.Modelos.MformRegister;
 import com.example.app.Modelos.Registro;
 import com.example.app.data.Repositorio;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Registro per2 = new Registro("Gaston", "0000");
     ArrayList<Registro> registros = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 button.setEnabled(false);
                 insertar();
+
+
             }
         });
         botonRegistrate = findViewById(R.id.btnRegistrate);

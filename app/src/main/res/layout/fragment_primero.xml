@@ -103,7 +103,7 @@
                         android:textSize="20dp" />
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/btnEntrada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
@@ -128,7 +128,7 @@
                         android:textSize="20dp" />
 
                     <ImageButton
-                        android:id="@+id/imageButton1"
+                        android:id="@+id/btnSalida"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"

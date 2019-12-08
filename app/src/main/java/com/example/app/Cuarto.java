@@ -5,10 +5,19 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.app.Modelos.CreateFichajes;
+import com.example.app.Modelos.Fichaje;
+import com.example.app.Modelos.TipoFichaje;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -30,6 +39,10 @@ public class Cuarto extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    ArrayList<Fichaje> listados;
+    RecyclerView fichajesrecycler;
+
 
     public Cuarto() {
         // Required empty public constructor
@@ -66,7 +79,25 @@ public class Cuarto extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cuarto, container, false);
+        View vista = inflater.inflate(R.layout.fragment_cuarto, container, false);
+        listados = new ArrayList<>();
+        fichajesrecycler = vista.findViewById(R.id.recycleridcuarto);
+        fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        llenarFichajes();
+        CreateFichajes adaptador = new CreateFichajes(listados);
+        fichajesrecycler.setAdapter(adaptador);
+        return vista;
+    }
+
+    private void llenarFichajes() {
+        TipoFichaje tipo = TipoFichaje.ENTRADA;
+        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
+        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
+        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
+        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
+        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
+
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
