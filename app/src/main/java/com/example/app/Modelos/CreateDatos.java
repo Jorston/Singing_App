@@ -3,6 +3,7 @@ package com.example.app.Modelos;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +26,7 @@ public class CreateDatos extends RecyclerView.Adapter<CreateDatos.ViewHolderDato
     public void onBindViewHolder(@NonNull CreateDatos.ViewHolderDatos holder, int position) {
         holder.nombretrabajador.setText(listDatos.get(position).getNombre());
         holder.apellidos.setText(listDatos.get(position).getApellidos());
-        holder.correos.setText(listDatos.get(position).getCorreo());
+        holder.cargo.setText(listDatos.get(position).getCargo());
     }
 
     @Override
@@ -35,14 +36,14 @@ public class CreateDatos extends RecyclerView.Adapter<CreateDatos.ViewHolderDato
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-
-        TextView nombretrabajador,apellidos,correos;
+        ImageView imagen;
+        TextView nombretrabajador,apellidos,cargo;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-
+            imagen = itemView.findViewById(R.id.imageTrabajador);
             nombretrabajador = itemView.findViewById(R.id.nombre);
             apellidos = itemView.findViewById(R.id.apellidos);
-            correos = itemView.findViewById(R.id.cargo);
+            cargo = itemView.findViewById(R.id.cargo);
 
         }
     }
