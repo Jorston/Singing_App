@@ -30,29 +30,14 @@ public class FormRegister extends AppCompatActivity {
         buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    MformRegister persona = new MformRegister(nombre.getText().toString(),apellidos.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
+                MformRegister persona = new MformRegister(nombre.getText().toString(),apellidos.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
 
-                    escrituras.serializadionOuput(persona);
-                    Escrituras esc = new Escrituras();
-                    esc.serializadionOuput(persona);
-                    System.out.println("BOTON PRESIONADOOOOOO");
-                    System.out.println("BOTON PRESIONADOOOOOO");
-                    System.out.println("BOTON PRESIONADOOOOOO");
-                    System.out.println("BOTON PRESIONADOOOOOO");
-                    System.out.println("BOTON PRESIONADOOOOOO");
-                    System.out.println("BOTON PRESIONADOOOOOO");
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    System.out.println("////////////////////////////////////////////");
-                    System.out.println("////////////////////////////////////////////");
-                    System.out.println("////////////////////////////////////////////");System.out.println("////////////////////////////////////////////");
-                    System.out.println("////////////////////////////////////////////");
-                    System.out.println("////////////////////////////////////////////");
-
-
-                }
+                System.out.println("BOTON PRESIONADOOOOOO");
+                System.out.println("BOTON PRESIONADOOOOOO");
+                System.out.println("BOTON PRESIONADOOOOOO");
+                System.out.println("BOTON PRESIONADOOOOOO");
+                System.out.println("BOTON PRESIONADOOOOOO");
+                System.out.println("BOTON PRESIONADOOOOOO");
 
             }
         });

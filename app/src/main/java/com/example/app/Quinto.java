@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.app.Modelos.CreateDatos;
 import com.example.app.Modelos.Trabajadores;
 
-import java.util.ArrayList;
+import java.util.ArrayList;import com.example.app.data.Escrituras;
 
 
 /**

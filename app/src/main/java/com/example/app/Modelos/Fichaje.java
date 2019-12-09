@@ -1,15 +1,14 @@
 package com.example.app.Modelos;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class Fichaje {
-    private String dni, nombre;
+public class Fichaje implements Serializable {
+    private String mail;
     private String horaFichada;
     private TipoFichaje tipoFichaje;
 
-    public Fichaje(String dni, String nombre, String horaFichada, TipoFichaje tipoFichaje) {
-        this.dni = dni;
-        this.nombre = nombre;
+    public Fichaje(String nombre, String horaFichada, TipoFichaje tipoFichaje) {
+        this.mail = nombre;
         this.horaFichada = horaFichada;
         this.tipoFichaje = tipoFichaje;
     }
@@ -22,20 +21,12 @@ public class Fichaje {
         this.tipoFichaje = tipoFichaje;
     }
 
-    public String getDni() {
-        return dni;
+    public String getMail() {
+        return mail;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getHoraFichada() {

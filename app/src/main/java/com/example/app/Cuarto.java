@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.app.Modelos.CreateFichajes;
 import com.example.app.Modelos.Fichaje;
 import com.example.app.Modelos.TipoFichaje;
 
@@ -83,21 +82,7 @@ public class Cuarto extends Fragment {
         listados = new ArrayList<>();
         fichajesrecycler = vista.findViewById(R.id.recycleridcuarto);
         fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        llenarFichajes();
-        CreateFichajes adaptador = new CreateFichajes(listados);
-        fichajesrecycler.setAdapter(adaptador);
         return vista;
-    }
-
-    private void llenarFichajes() {
-        TipoFichaje tipo = TipoFichaje.ENTRADA;
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-
-
     }
 
     // TODO: Rename method, update argument and hook method into UI event

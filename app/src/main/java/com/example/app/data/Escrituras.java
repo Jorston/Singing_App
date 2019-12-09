@@ -5,15 +5,14 @@ import android.view.View;
 
 import com.example.app.Modelos.MformRegister;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import com.example.app.Modelos.Fichaje;
 
 public class Escrituras {
     private Context context;
     private String fileName = "archivo.txt";
 
-    public void serializadionOuput(MformRegister persona) throws  IOException{
+    public void serializadionOuput(Fichaje persona){
             try{
                 FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
                 ObjectOutputStream os = new ObjectOutputStream(fos);
@@ -27,13 +26,5 @@ public class Escrituras {
     }
     public void setContext(Context context) {
         this.context = context;
-    }
-
-    private static void imprimirLista(ArrayList<MformRegister> listado) {
-        for (int i=0; i< listado.size();i++){
-            MformRegister persona = (MformRegister) listado.get(i);
-            System.out.println("nombre "+persona.getNombre()+"\napellidos;"+persona.getApellidos()+"\ncorreo: "+persona.getCorreo()
-            +"\ncontraseña: "+persona.getContrasenha()+"\nrep contra: "+persona.getRepcontrasenha());
-        }
     }
 }

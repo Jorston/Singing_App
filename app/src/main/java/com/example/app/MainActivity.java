@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.app.Modelos.MformRegister;
 import com.example.app.Modelos.Registro;
+import com.example.app.data.GlobalUtils;
 import com.example.app.data.Repositorio;
 
 import java.util.ArrayList;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         for (Registro personas : registros) {
             if (interruptor){
                 if (personas.getUser().equals(per3.getUser()) && personas.getPassword().equals(per3.getPassword())) {
+                    GlobalUtils.setMail(per3.getUser());
                     showMessage("usuario accepted");
                     Intent intent = new Intent(getApplicationContext(), Home.class);
                     startActivity(intent);

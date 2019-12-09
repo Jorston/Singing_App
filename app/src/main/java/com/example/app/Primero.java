@@ -2,8 +2,10 @@ package com.example.app;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +14,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.app.Modelos.Fichaje;
+import com.example.app.Modelos.TipoFichaje;
+import com.example.app.data.Escrituras;
+import com.example.app.data.GlobalUtils;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
 
 
 /**
@@ -35,6 +45,7 @@ public class Primero extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     ImageButton botonEntrada;
+    ImageButton botonSalida;
     View vista;
 
     public Primero() {
@@ -74,10 +85,19 @@ public class Primero extends Fragment {
         // Inflate the layout for this fragment
         vista = inflater.inflate(R.layout.fragment_primero, container, false);
         botonEntrada = vista.findViewById(R.id.btnEntrada);
+        botonSalida = vista.findViewById(R.id.btnSalida);
         botonEntrada.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"boton presionadp",Toast.LENGTH_SHORT).show();
+                new Escrituras().serializadionOuput(new Fichaje(GlobalUtils.getMail(), LocalDateTime.now().toString(), TipoFichaje.ENTRADA));
+            }
+        });
+        botonSalida.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+                new Escrituras().serializadionOuput(new Fichaje(GlobalUtils.getMail(), LocalDateTime.now().toString(), TipoFichaje.SALIDA));
             }
         });
 
