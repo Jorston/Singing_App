@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(registros.contains(user));
     }
 
-    private void showMessage(String message){
+    protected void showMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }

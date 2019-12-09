@@ -3,11 +3,12 @@ package com.example.app.Modelos;
 import java.io.Serializable;
 
 public class MformRegister implements Serializable {
-    private String nombre,apellidos,correo,contrasenha,repcontrasenha;
+    private String nombre,apellidos,userNick,correo,contrasenha,repcontrasenha;
 
-    public MformRegister(String nombre, String apellidos, String correo, String contrasenha, String repcontrasenha) {
+    public MformRegister(String nombre, String apellidos, String userNick, String correo, String contrasenha, String repcontrasenha) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.userNick = userNick;
         this.correo = correo;
         this.contrasenha = contrasenha;
         this.repcontrasenha = repcontrasenha;
@@ -20,6 +21,10 @@ public class MformRegister implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public String getUserNick(){return userNick;}
+
+    public void setUserNick(String userNick){this.userNick = userNick;}
 
     public String getApellidos() {
         return apellidos;
@@ -53,14 +58,4 @@ public class MformRegister implements Serializable {
         this.repcontrasenha = repcontrasenha;
     }
 
-    @Override
-    public String toString() {
-        return "MformRegister{" +
-                "nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", correo='" + correo + '\'' +
-                ", contrasenha='" + contrasenha + '\'' +
-                ", repcontrasenha='" + repcontrasenha + '\'' +
-                '}';
-    }
 }
