@@ -8,12 +8,11 @@ import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.app.Modelos.Fichaje;
 import com.example.app.Modelos.TipoFichaje;
@@ -90,14 +89,16 @@ public class Primero extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                new Escrituras().serializadionOuput(new Fichaje(GlobalUtils.getMail(), LocalDateTime.now().toString(), TipoFichaje.ENTRADA));
+                Fichaje ahora = new Fichaje(GlobalUtils.getMail(), LocalDateTime.now().toString(), TipoFichaje.ENTRADA);
+                new Escrituras().writeToFile(ahora,getContext());
             }
         });
         botonSalida.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                new Escrituras().serializadionOuput(new Fichaje(GlobalUtils.getMail(), LocalDateTime.now().toString(), TipoFichaje.SALIDA));
+                Fichaje ahora = new Fichaje(GlobalUtils.getMail(), LocalDateTime.now().toString(), TipoFichaje.SALIDA);
+                new Escrituras().writeToFile(ahora,getContext());
             }
         });
 

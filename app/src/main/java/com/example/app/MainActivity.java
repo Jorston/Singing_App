@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textuser, textpassword;
     Button button, botonRegistrate;
     Registro per = new Registro("Jorge", "1234");
-    Registro per2 = new Registro("Gaston", "0000");
+    Registro per2 = new Registro("", "");
     ArrayList<Registro> registros = new ArrayList<>();
 
 
