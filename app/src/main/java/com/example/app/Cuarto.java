@@ -3,21 +3,19 @@ package com.example.app;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.app.Modelos.CreateFichajes;
 import com.example.app.Modelos.Fichaje;
 import com.example.app.Modelos.TipoFichaje;
-
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 /**
@@ -90,12 +88,16 @@ public class Cuarto extends Fragment {
     }
 
     private void llenarFichajes() {
+        Time today = new Time(Time.getCurrentTimezone());
         TipoFichaje tipo = TipoFichaje.ENTRADA;
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
-        listados.add(new Fichaje("dni1","jorge", "fecha",tipo));
+        TipoFichaje tipoSalida = TipoFichaje.SALIDA;
+        Calendar fecha = new GregorianCalendar();
+        Fichaje per = new Fichaje();
+        listados.add(new Fichaje("dni1","jorge","apellido1","fecha1" ,tipo));
+        listados.add(new Fichaje("dni2","alberto", "apellido2","fecha2",tipoSalida));
+        listados.add(new Fichaje("dni3","marcelo", "apellido3","fecha3",tipo));
+        listados.add(new Fichaje("dni4","maria","apellido4","fecha4",tipoSalida));
+        listados.add(new Fichaje("dni5","gisela","apellido5","fecha5",tipo));
 
 
     }

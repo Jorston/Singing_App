@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Escrituras {
     private Context context;
-    private String fileName = "archivo.txt";
+    private String fileName = "Register.txt";
 
     public void serializadionOuput(MformRegister persona) throws  IOException{
             try{

@@ -1,21 +1,34 @@
 package com.example.app.Modelos;
 
+import java.util.Calendar;
 import java.util.Date;
 
+
 public class Fichaje {
-    private String dni, nombre;
+    private String dni, nombre , apellido;
     private String horaFichada;
     private TipoFichaje tipoFichaje;
 
-    public Fichaje(String dni, String nombre, String horaFichada, TipoFichaje tipoFichaje) {
+    public Fichaje(String dni, String nombre,String apellido, String horaFichada, TipoFichaje tipoFichaje) {
         this.dni = dni;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.horaFichada = horaFichada;
         this.tipoFichaje = tipoFichaje;
     }
 
+    public Fichaje(){}
+
     public CharSequence getTipoFichaje() {
         return tipoFichaje;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public void setTipoFichaje(TipoFichaje tipoFichaje) {

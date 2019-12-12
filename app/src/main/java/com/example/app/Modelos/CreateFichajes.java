@@ -31,6 +31,7 @@ public class CreateFichajes extends RecyclerView.Adapter<CreateFichajes.ViewHold
     public void onBindViewHolder(@NonNull CreateFichajes.ViewHolder holder, int position) {
     holder.dniFichado.setText(listadoFichaje.get(position).getDni());
     holder.nombreFichado.setText(listadoFichaje.get(position).getNombre());
+    holder.apellidoFichaje.setText(listadoFichaje.get(position).getApellido());
     holder.horaFichado.setText((CharSequence) listadoFichaje.get(position).getHoraFichada());
     holder.tipoFichado.setText(listadoFichaje.get(position).getTipoFichaje());
     }
@@ -42,11 +43,12 @@ public class CreateFichajes extends RecyclerView.Adapter<CreateFichajes.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView dniFichado,nombreFichado,horaFichado,tipoFichado;
+        TextView dniFichado,nombreFichado,apellidoFichaje,horaFichado,tipoFichado;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             dniFichado = (TextView) itemView.findViewById(R.id.dniFichaje);
             nombreFichado = (TextView) itemView.findViewById(R.id.nombreFichaje);
+            apellidoFichaje = (TextView) itemView.findViewById(R.id.apellidoFichaje);
             horaFichado = (TextView) itemView.findViewById(R.id.horaFichada);
             tipoFichado = (TextView) itemView.findViewById(R.id.tipoFichaje);
         }
