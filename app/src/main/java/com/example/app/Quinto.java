@@ -87,11 +87,11 @@ public class Quinto extends Fragment {
     }
 
     private void llenarLista() {
-        listaTrabajadores.add( new Trabajadores("trabajador1","apellido1","jefe1","correo1"));
-        listaTrabajadores.add( new Trabajadores("trabajador2","apellido2","jefe2","correo2"));
-        listaTrabajadores.add( new Trabajadores("trabajador3","apellido3","jefe3","correo3"));
-        listaTrabajadores.add( new Trabajadores("trabajador4","apellido4","jefe4","correo4"));
-        listaTrabajadores.add( new Trabajadores("trabajador5","apellido5","jefe5","correo5"));
+        listaTrabajadores.add( new Trabajadores("image1","trabajador1","apellido1","cargo1"));
+        listaTrabajadores.add( new Trabajadores("image2","trabajador2","apellido2","cargo2"));
+        listaTrabajadores.add( new Trabajadores("image3","trabajador3","apellido3","cargo3"));
+        listaTrabajadores.add( new Trabajadores("image4","trabajador4","apellido4","cargo4"));
+        listaTrabajadores.add( new Trabajadores("image5","trabajador5","apellido5","cargo5"));
 
 
     }

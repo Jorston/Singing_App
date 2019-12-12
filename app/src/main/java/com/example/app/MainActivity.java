@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.app.Modelos.MformRegister;
 import com.example.app.Modelos.Registro;
 import com.example.app.data.Repositorio;
 
@@ -20,10 +21,11 @@ public class MainActivity extends AppCompatActivity {
     Repositorio repositorio = new Repositorio();
     //actividad principal
     TextView textuser, textpassword;
-    Button button;
+    Button button, botonRegistrate;
     Registro per = new Registro("Jorge", "1234");
     Registro per2 = new Registro("Gaston", "0000");
     ArrayList<Registro> registros = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 button.setEnabled(false);
                 insertar();
+
+
+            }
+        });
+        botonRegistrate = findViewById(R.id.btnRegistrate);
+        botonRegistrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),FormRegister.class );
+                startActivity(intent);
             }
         });
 
@@ -73,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(registros.contains(user));
     }
 
-    private void showMessage(String message){
+    protected void showMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }

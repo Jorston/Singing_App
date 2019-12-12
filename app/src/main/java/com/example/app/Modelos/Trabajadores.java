@@ -1,13 +1,14 @@
 package com.example.app.Modelos;
 
-public class Trabajadores {
-    private String nombre,apellidos,cargo,correo;
+public class Trabajadores{
+    private String nombre,apellidos,cargo;
+    private  String imagenId;
 
-    public Trabajadores(String nombre, String apellidos, String cargo, String correo) {
+    public Trabajadores(String imagenId,String nombre, String apellidos, String cargo) {
+        this.imagenId = imagenId;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cargo = cargo;
-        this.correo = correo;
     }
 
     public String getNombre() {
@@ -34,12 +35,12 @@ public class Trabajadores {
         this.cargo = cargo;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getImagenId() {
+        return imagenId;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setImagenId(String imagenId) {
+        this.imagenId = imagenId;
     }
 
     @Override
@@ -48,7 +49,7 @@ public class Trabajadores {
                 "nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", cargo='" + cargo + '\'' +
-                ", correo='" + correo + '\'' +
+                ", imagenId=" + imagenId +
                 '}';
     }
 }
