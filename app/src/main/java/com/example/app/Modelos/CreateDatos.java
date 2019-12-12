@@ -44,7 +44,6 @@ public class CreateDatos extends RecyclerView.Adapter<CreateDatos.ViewHolderDato
             nombretrabajador = itemView.findViewById(R.id.nombre);
             apellidos = itemView.findViewById(R.id.apellidos);
             cargo = itemView.findViewById(R.id.cargo);
-
         }
     }
 }

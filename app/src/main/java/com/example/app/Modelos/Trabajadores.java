@@ -43,13 +43,4 @@ public class Trabajadores{
         this.imagenId = imagenId;
     }
 
-    @Override
-    public String toString() {
-        return "Trabajadores{" +
-                "nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", cargo='" + cargo + '\'' +
-                ", imagenId=" + imagenId +
-                '}';
-    }
 }

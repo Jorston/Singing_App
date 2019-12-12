@@ -1,13 +1,10 @@
 package com.example.app.data;
 
 import android.content.Context;
-import android.view.View;
-
 import com.example.app.Modelos.MformRegister;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 public class Escrituras {
     private Context context;
@@ -27,13 +24,5 @@ public class Escrituras {
     }
     public void setContext(Context context) {
         this.context = context;
-    }
-
-    private static void imprimirLista(ArrayList<MformRegister> listado) {
-        for (int i=0; i< listado.size();i++){
-            MformRegister persona = (MformRegister) listado.get(i);
-            System.out.println("nombre "+persona.getNombre()+"\napellidos;"+persona.getApellidos()+"\ncorreo: "+persona.getCorreo()
-            +"\ncontraseña: "+persona.getContrasenha()+"\nrep contra: "+persona.getRepcontrasenha());
-        }
     }
 }

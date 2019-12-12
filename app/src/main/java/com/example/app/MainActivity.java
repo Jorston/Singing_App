@@ -2,7 +2,6 @@ package com.example.app;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,11 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.app.Modelos.MformRegister;
 import com.example.app.Modelos.Registro;
 import com.example.app.data.Repositorio;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     Registro per = new Registro("Jorge", "1234");
     Registro per2 = new Registro("Gaston", "0000");
     ArrayList<Registro> registros = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 button.setEnabled(false);
                 insertar();
-
-
             }
         });
         botonRegistrate = findViewById(R.id.btnRegistrate);
@@ -52,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
