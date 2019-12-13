@@ -1,9 +1,7 @@
 package com.example.app.data;
 
 import android.content.Context;
-
 import com.example.app.Modelos.Registro;
-
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 

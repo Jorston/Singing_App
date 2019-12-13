@@ -3,25 +3,13 @@ package com.example.app;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Primero.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Primero#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Primero extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

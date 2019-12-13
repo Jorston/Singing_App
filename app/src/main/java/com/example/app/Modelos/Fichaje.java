@@ -1,9 +1,5 @@
 package com.example.app.Modelos;
 
-import java.util.Calendar;
-import java.util.Date;
-
-
 public class Fichaje {
     private String dni, nombre , apellido;
     private String horaFichada;

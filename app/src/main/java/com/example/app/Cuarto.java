@@ -17,15 +17,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Cuarto.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Cuarto#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Cuarto extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,15 +37,6 @@ public class Cuarto extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Cuarto.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Cuarto newInstance(String param1, String param2) {
         Cuarto fragment = new Cuarto();
         Bundle args = new Bundle();
@@ -98,8 +80,6 @@ public class Cuarto extends Fragment {
         listados.add(new Fichaje("dni3","marcelo", "apellido3","fecha3",tipo));
         listados.add(new Fichaje("dni4","maria","apellido4","fecha4",tipoSalida));
         listados.add(new Fichaje("dni5","gisela","apellido5","fecha5",tipo));
-
-
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -126,16 +106,6 @@ public class Cuarto extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
