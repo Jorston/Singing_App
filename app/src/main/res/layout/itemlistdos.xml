@@ -12,41 +12,48 @@
         android:textAlignment="center"
         android:paddingTop="20dp"
         android:paddingBottom="20dp">
+
         <TextView
-            android:id="@+id/dniFichaje"
+            android:id="@+id/NombreRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:textSize="15dp"></TextView>
+        <TextView
+            android:id="@+id/ApellidosRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:layout_marginRight="20dp">
         </TextView>
         <TextView
-            android:id="@+id/nombreFichaje"
+            android:id="@+id/UserNickRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:layout_marginRight="20dp">
         </TextView>
         <TextView
-            android:id="@+id/apellidoFichaje"
+            android:id="@+id/CorreoRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:layout_marginRight="20dp">
         </TextView>
         <TextView
-            android:id="@+id/horaFichada"
+            android:id="@+id/ContrasenhaRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:layout_marginRight="20dp">
         </TextView>
+
         <TextView
-            android:id="@+id/tipoFichaje"
+            android:id="@+id/RepContrRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:layout_marginRight="20dp">
-        </TextView>
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
 
