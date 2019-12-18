@@ -5,7 +5,7 @@
     android:id="@+id/fragmento_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_dos"
+    android:background="@color/mainBackGround"
     tools:context=".Primero">
 
     <FrameLayout
