@@ -12,6 +12,7 @@ import com.example.app.data.Escrituras;
 import com.example.app.data.Registros_BD;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class FormRegister extends AppCompatActivity {
@@ -32,17 +33,15 @@ public class FormRegister extends AppCompatActivity {
         btnInsert = findViewById(R.id.btnBaseDatos);
         escrituras.setContext(this);
         final Registros_BD registros_bd = new Registros_BD(this);
-        /*final BBDD_Helper helper = new BBDD_Helper(this);
-        final int[] primarikey = {1};*/
         buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //accion serializacion
                 try {
+                    ArrayList<MformRegister>listadoRegistros = new ArrayList<>();
                     MformRegister persona = new MformRegister(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
-                    escrituras.serializadionOuput(persona);
-                    Escrituras esc = new Escrituras();
-                    esc.serializadionOuput(persona);
+                    listadoRegistros.add(persona);
+                    escrituras.serializadionOuput(listadoRegistros);
                     showMessage("Usuario Serializado");
                 } catch (IOException e) {
                     e.printStackTrace();
