@@ -29,13 +29,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 button.setEnabled(false);
-                listado.lecturaArchivo(textuser.getText().toString(),textpassword.getText().toString());
-                showMessage("usuario new accepted");
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-                finish();
-                button.setEnabled(true);
-                showMessage("usuario no registrado");
+                //textuser.getText().toString(),textpassword.getText().toString()
+                if (listado.lecturaArchivo(textuser.getText().toString(),textpassword.getText().toString())){
+                    showMessage("usuario new accepted");
+                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    button.setEnabled(true);
+                    showMessage("usuario no registrado");
+                }
             }
         });
         botonRegistrate.setOnClickListener(new View.OnClickListener() {
