@@ -9,6 +9,11 @@ public class MformRegister implements Serializable {
     public MformRegister() {
     }
 
+    public  MformRegister(String userNick,String contrasenha){
+        this.userNick = userNick;
+        this.contrasenha = contrasenha;
+    }
+
     public MformRegister(String nombre, String apellidos, String userNick, String correo, String contrasenha, String repcontrasenha) {
         this.nombre = nombre;
         this.apellidos = apellidos;
