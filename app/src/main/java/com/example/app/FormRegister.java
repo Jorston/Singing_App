@@ -38,10 +38,11 @@ public class FormRegister extends AppCompatActivity {
             public void onClick(View v) {
                 //accion serializacion
                 try {
-                    ArrayList<MformRegister>listadoRegistros = new ArrayList<>();
-                    MformRegister persona = new MformRegister(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
-                    listadoRegistros.add(persona);
-                    escrituras.serializadionOuput(listadoRegistros);
+                    escrituras.serializadionOuput(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
+                    //ArrayList<MformRegister>listadoRegistros = new ArrayList<>();
+                   // MformRegister persona = new MformRegister(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
+                    //listadoRegistros.add(persona);
+                   // escrituras.serializadionOuput(listadoRegistros);
                     showMessage("Usuario Serializado");
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -17,9 +17,41 @@ public class Escrituras {
     public void setContext(Context context) {
         this.context = context;
     }
-    public void serializadionOuput(ArrayList<MformRegister> listadoRegistros) throws  IOException{
+
+    public void serializadionOuput(String nombre, String apellidos, String correos, String userNick,String contra,String repContra) throws  IOException {
+        ObjectOutputStream objectOutput = null;
+        ObjectInputStream objectInput = null;
+        ArrayList<MformRegister> list = new ArrayList<MformRegister>();
         try{
-            MformRegister persona = new MformRegister(nombre,apellidos,correos,userNick,contra,repContra);
+            objectInput = new ObjectInputStream(new FileInputStream("/data/data/com.example.app/files/"+fileName));
+            MformRegister nuevo = new MformRegister(nombre,apellidos,correos,userNick,contra,repContra);
+            list = (ArrayList<MformRegister>) objectInput.readObject();
+
+            MformRegister nuevos = new MformRegister(nombre,apellidos,correos,userNick,contra,repContra);
+            list.add(nuevos);
+
+            objectOutput = new ObjectOutputStream(new FileOutputStream("/data/data/com.example.app/files/"+fileName));
+            objectOutput.writeObject(list);
+            System.out.println("ARCHIVOOOOOOOO ESCRITOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"+fileName);
+        } catch (IOException e) {
+            System.out.println("ERROOOOOOOOOOOOOOOOOOOOOOOOOOR111111111111111"+fileName);
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("ERROOOOOOOOOOOOOOOOOOOOOOOOOOR2222222222222222222"+fileName);
+            e.printStackTrace();
+        } finally {
+            if (objectOutput != null) {
+                try {
+                    objectOutput.close();
+                } catch (IOException ignored) {
+                }
+            }
+        }
+        }
+
+
+       /* try {
+            MformRegister persona = new MformRegister(nombre, apellidos, correos, userNick, contra, repContra);
             listadoRegistros.add(persona);
             FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_APPEND);
             ObjectOutputStream os = new ObjectOutputStream(fos);
@@ -27,11 +59,12 @@ public class Escrituras {
             System.out.println("escritura correcta");
             os.close();
             fos.close();
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("no se pudo escribir");
             e.printStackTrace();
         }
-    }
+    }*/
+
 
     public void lecturaArchivo(String userNick,String contrasenha)  {
         try{
