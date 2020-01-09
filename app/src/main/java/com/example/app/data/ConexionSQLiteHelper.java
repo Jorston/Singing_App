@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ConexionSQLiteHelper extends SQLiteOpenHelper {
 
-    final String CREAR_TABLA_USUARIOS = "CREATE TABLE usuarios (id INTEGER, nombre TEXT, telefono TEXT)";
+
 
     public ConexionSQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -14,7 +14,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREAR_TABLA_USUARIOS);
+        db.execSQL(UtilidadesDB.CREAR_TABLA_USUARIOS);
     }
 
     @Override
