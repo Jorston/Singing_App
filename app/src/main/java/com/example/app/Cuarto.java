@@ -6,19 +6,15 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.text.format.Time;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.app.Modelos.CreateRegistrados;
 import com.example.app.Modelos.Fichaje;
 import com.example.app.Modelos.MformRegister;
-import com.example.app.Modelos.TipoFichaje;
-import com.example.app.data.BBDD_Helper;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class Cuarto extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -34,7 +30,6 @@ public class Cuarto extends Fragment {
 
     ArrayList<MformRegister>registrados;
     RecyclerView fichajesrecycler;
-    final BBDD_Helper helperSelect = new BBDD_Helper(getContext());
 
     public Cuarto() {
         // Required empty public constructor
