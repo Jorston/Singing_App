@@ -6,14 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.app.Modelos.MformRegister;
-import com.example.app.data.BBDD_Helper;
 import com.example.app.data.Escrituras;
 import com.example.app.data.Registros_BD;
-
 import java.io.IOException;
-import java.util.ArrayList;
-
 
 public class FormRegister extends AppCompatActivity {
     Escrituras escrituras = new Escrituras();
@@ -39,10 +34,6 @@ public class FormRegister extends AppCompatActivity {
                 //accion serializacion
                 try {
                     escrituras.serializadionOuput(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
-                    //ArrayList<MformRegister>listadoRegistros = new ArrayList<>();
-                   // MformRegister persona = new MformRegister(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
-                    //listadoRegistros.add(persona);
-                   // escrituras.serializadionOuput(listadoRegistros);
                     showMessage("Usuario Serializado");
                 } catch (IOException e) {
                     e.printStackTrace();
