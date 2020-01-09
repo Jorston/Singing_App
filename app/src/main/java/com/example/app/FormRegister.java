@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.app.data.ConexionSQLiteHelper;
 import com.example.app.data.Escrituras;
 
 import java.io.IOException;
@@ -27,6 +29,7 @@ public class FormRegister extends AppCompatActivity {
         buton = findViewById(R.id.btnFormRegister);
         btnInsert = findViewById(R.id.btnBaseDatos);
         escrituras.setContext(this);
+        ConexionSQLiteHelper con = new ConexionSQLiteHelper(this,"db_usuarios",null,1);
         buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
