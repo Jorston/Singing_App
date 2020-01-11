@@ -67,6 +67,7 @@ public class Escrituras {
 
 
     public boolean lecturaArchivo(String userNick, String password){
+        int contador = 0;
         boolean cambio = false;
         try{
             ObjectInputStream lectura = new ObjectInputStream(new FileInputStream("/data/data/com.example.app/files/"+fileName));
@@ -74,11 +75,20 @@ public class Escrituras {
             for (MformRegister list : listadoRegistros){
                 System.out.println("USUARIOS: "+list.getUserNick()+"\n"+list.getContrasenha());
                 if ((userNick.equals(list.getUserNick())) && (password.equals(list.getContrasenha()))){
-                    cambio = true;
+                    System.out.println("CONTADOR ES EQUAL : "+contador);
+                    contador++;
                 }
                 else{
-                    cambio = false;
+                    System.out.println("CONTADOR ES NOOOEQUAL : "+contador);
                 }
+            }
+
+            if (contador>0){
+                System.out.println("CONTADOR VERDA ES : "+contador);
+                cambio=true;
+            }else{
+                System.out.println("CONTADOR FALSO ES : "+contador);
+                cambio=false;
             }
         System.out.println("ARCHIVOOOOOOOOOO LIEDOOOOOOOOOOOOO");
         lectura.close();
