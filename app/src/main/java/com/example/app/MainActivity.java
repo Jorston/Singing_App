@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.app.data.Escrituras;
@@ -16,12 +18,14 @@ public class MainActivity extends AppCompatActivity {
     //actividad principal
     TextView textuser, textpassword;
     Button button, botonRegistrate;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textuser = findViewById(R.id.textUser);
         textpassword = findViewById(R.id.textPassword);
+        progressBar = findViewById(R.id.progressBar);
         button = findViewById(R.id.btnLogin);
         botonRegistrate = findViewById(R.id.btnRegistrate);
         button.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +35,21 @@ public class MainActivity extends AppCompatActivity {
                 button.setEnabled(false);
                 //textuser.getText().toString(),textpassword.getText().toString()
                 if (listado.lecturaArchivo(textuser.getText().toString(),textpassword.getText().toString())){
+                    progressBar.setVisibility(View.VISIBLE);
+                    new CountDownTimer(3000,1000){
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        public void onFinish(){
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }.start();
                     showMessage("usuario new accepted");
                     Intent intent = new Intent(getApplicationContext(), Home.class);
                     startActivity(intent);
