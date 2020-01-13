@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
                 //textuser.getText().toString(),textpassword.getText().toString()
                 if (listado.lecturaArchivo(textuser.getText().toString(),textpassword.getText().toString())){
                     progressBar.setVisibility(View.VISIBLE);
-                    new CountDownTimer(3000,1000){
+                    new CountDownTimer(2000,1000){
                         @Override
                         public void onTick(long millisUntilFinished) {
                             try {
-                                Thread.sleep(3000);
+                                Thread.sleep(1000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }

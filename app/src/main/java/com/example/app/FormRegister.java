@@ -38,10 +38,11 @@ public class FormRegister extends AppCompatActivity {
         buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                escrituras.escrituraArchivoExtra(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
                 //accion serializacion
                 try {
                     escrituras.serializadionOuput(nombre.getText().toString(),apellidos.getText().toString(),userNick.getText().toString(),correo.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
-                    showMessage("Usuario Serializado");
+                    showMessage("Usuario ingresado en el archivo");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
