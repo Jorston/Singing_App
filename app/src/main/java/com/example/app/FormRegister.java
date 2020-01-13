@@ -35,7 +35,6 @@ public class FormRegister extends AppCompatActivity {
         buton = findViewById(R.id.btnFormRegister);
         btnInsert = findViewById(R.id.btnBaseDatos);
         escrituras.setContext(this);
-        ConexionSQLiteHelper con = new ConexionSQLiteHelper(this,"db_usuarios",null,1);
         buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,40 +48,20 @@ public class FormRegister extends AppCompatActivity {
 
             }
         });
-        
+
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insercion();
+                ConexionSQLiteHelper helper = new ConexionSQLiteHelper(getApplicationContext());
+                helper.abrir();
+                helper.insertar(nombre.getText().toString(),apellidos.getText().toString(),correo.getText().toString(),userNick.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
+                helper.cerrar();
+                Toast.makeText(getApplicationContext(),"usuario insertado en la base de datos",Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void insercion() {
-        nombre = findViewById(R.id.textnombre);
-        apellidos = findViewById(R.id.textapellido);
-        userNick = findViewById(R.id.userNick);
-        correo = findViewById(R.id.userCorreo);
-        contrasenha = findViewById(R.id.textcontrasenha);
-        repContrasenha = findViewById(R.id.textRepContrasenha);
-        int contador = 1;
-        ConexionSQLiteHelper dbHelper = new ConexionSQLiteHelper(this,"usuariosTodos",null,1);
-        System.out.println("CONEXION A LA BASE DE DATOS");
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        System.out.println("CONEXION A LA BASE DE DATOS AAAAAAAAAA");
-        ContentValues values = new ContentValues();
-        values.put(UtilidadesDB.CAMPO_ID,contador);
-        values.put(UtilidadesDB.CAMPO_NOMBRE,nombre.getText().toString());
-        values.put(UtilidadesDB.CAMPO_APELLIDOS,apellidos.getText().toString());
-        values.put(UtilidadesDB.CAMPO_CORREO,correo.getText().toString());
-        values.put(UtilidadesDB.CAMPO_USERNICK,userNick.getText().toString());
-        values.put(UtilidadesDB.CAMPO_CONTRASENHA,contrasenha.getText().toString());
-        values.put(UtilidadesDB.CAMPO_REPCONTRASENHA,repContrasenha.getText().toString());
-        long newRowId = db.insert(UtilidadesDB.TABLA_USUARIO, null, values);
-        System.out.println("INSERCION CORRECTA "+ UtilidadesDB.CREAR_TABLA_USUARIOS+" estps campos" + UtilidadesDB.CAMPO_NOMBRE+nombre+UtilidadesDB.CAMPO_APELLIDOS+apellidos);
-        Toast.makeText(getApplicationContext(),"el usuario es"+newRowId,Toast.LENGTH_SHORT).show();
 
-    }
 
     protected void showMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
