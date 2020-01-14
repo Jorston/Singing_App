@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.app.data.EscrituraFichaje;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -66,14 +68,19 @@ public class Primero extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         vista = inflater.inflate(R.layout.fragment_primero, container, false);
+
         final Date date = new Date();
         final SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
         final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        final EscrituraFichaje escritura = new EscrituraFichaje();
+        escritura.setContext(getActivity());
         botonEntrada = vista.findViewById(R.id.btnEntrada);
         botonEntrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                escritura.escrituraFichajes("jorge",date,date,date,date);
                 Toast.makeText(getContext(),dateFormat.format(date)+"boton presionadp"+hourFormat.format(date),Toast.LENGTH_SHORT).show();
+                escritura.lecturaFichajes();
             }
         });
 

@@ -1,11 +1,13 @@
 package com.example.app.Modelos;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FichajeHora implements Serializable {
-    String user;
-    Date fechaEntrada, fechaSalida, horaEntrada, horaSalida;
+    private String user;
+    private Date fechaEntrada, fechaSalida, horaEntrada, horaSalida;
+    private static final long serailVersionUI = 1L;
 
     public FichajeHora(String user, Date fechaEntrada, Date fechaSalida, Date horaEntrada, Date horaSalida) {
         this.user = user;
