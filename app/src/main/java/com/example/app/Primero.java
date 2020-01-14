@@ -4,11 +4,16 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Primero extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -61,11 +66,14 @@ public class Primero extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         vista = inflater.inflate(R.layout.fragment_primero, container, false);
+        final Date date = new Date();
+        final SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         botonEntrada = vista.findViewById(R.id.btnEntrada);
         botonEntrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"boton presionadp",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),dateFormat.format(date)+"boton presionadp"+hourFormat.format(date),Toast.LENGTH_SHORT).show();
             }
         });
 
