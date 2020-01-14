@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Escrituras listado = new Escrituras();
     //actividad principal
     TextView textuser, textpassword;
-    Button button, botonRegistrate;
+    Button button, botonRegistrate,botonGoogle;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         button = findViewById(R.id.btnLogin);
         botonRegistrate = findViewById(R.id.btnRegistrate);
+        botonGoogle = findViewById(R.id.btnGoogle);
         button.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -64,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),FormRegister.class );
+                startActivity(intent);
+            }
+        });
+
+        botonGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),WebViewActivity.class );
                 startActivity(intent);
             }
         });
