@@ -1,6 +1,7 @@
 package com.example.app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 
 import android.os.AsyncTask;
@@ -9,6 +10,7 @@ import android.webkit.WebView;
 
 import com.example.app.data.ConexionWebview;
 
+import java.io.IOException;
 import java.sql.SQLOutput;
 
 public class WebViewActivity extends AppCompatActivity {
@@ -23,10 +25,12 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web_view);
          webView = findViewById(R.id.MiWebview);
          webView.getSettings().setJavaScriptEnabled(true);
+         conexionWebview = new ConexionWebview();
+         final String URL = "https://www.google.com/";
         System.out.println("DESPUES DEL GET");
 
          miHilo hilo = new miHilo();
-         hilo.execute("http://www.google.com");
+         hilo.execute(URL);
 
          conexionWebview.getWeb().observe(this, new Observer<String>() {
              @Override
@@ -44,7 +48,6 @@ public class WebViewActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             System.out.println("ANTES DEL DOINBACKGRON");
             conexionWebview.downloadURL(strings[0]);
-            System.out.println("DESPUES DEL DOINBACKGRON");
             return null;
         }
 
