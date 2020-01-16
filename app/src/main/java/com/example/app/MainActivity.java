@@ -11,31 +11,46 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.app.data.EscrituraFichaje;
 import com.example.app.data.Escrituras;
 
+import java.io.FileNotFoundException;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
-    Escrituras listado = new Escrituras();
-    //actividad principal
+
+    // declaracion variables globales e instancia objeto escritura
     TextView textuser, textpassword;
     Button button, botonRegistrate,botonGoogle;
     ProgressBar progressBar;
-    public final String USUARIO_KEY= "usuario_key";
+    Escrituras listado = new Escrituras();
+    EscrituraFichaje escr = new EscrituraFichaje();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //obtencion de elementos de la vista mediante id
         textuser = findViewById(R.id.textUser);
         textpassword = findViewById(R.id.textPassword);
         progressBar = findViewById(R.id.progressBar);
         button = findViewById(R.id.btnLogin);
+        escr.setContext(this);
         botonRegistrate = findViewById(R.id.btnRegistrate);
         botonGoogle = findViewById(R.id.btnGoogle);
+        //MainActivity validacion login usuario
         button.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 button.setEnabled(false);
-                //textuser.getText().toString(),textpassword.getText().toString()
+                //borrar luego
+                final Date date = new Date();
+                if (escr.validadorFichero("jorge","jorge","jorge","jorge","jorge","jorge")){
+                    System.out.println("VALIDADO POR VERDA");
+                }else {
+                    System.out.println("FALSO RETORNO FALSOOOO");
+                }
                 if (listado.lecturaArchivo(textuser.getText().toString(),textpassword.getText().toString())){
                     progressBar.setVisibility(View.VISIBLE);
                     new CountDownTimer(2000,1000){
@@ -55,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     showMessage("usuario new accepted");
                     Bundle bundle = new Bundle();
                     Intent intent = new Intent(getApplicationContext(), Home.class);
+                    //envio de texto con el valor del usuario
                     bundle.putString("usuario",textuser.getText().toString());
                     intent.putExtras(bundle);
                     startActivity(intent);
@@ -65,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        //registro nuevo usuario FormRegister
         botonRegistrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //registro con google
         botonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //metodo atajo para el toast vista usuario
     protected void showMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
