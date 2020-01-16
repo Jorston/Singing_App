@@ -17,17 +17,49 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class EscrituraFichaje {
-    File file;
+    //variables globales
     private Context context;
+    private boolean cambio = false;
     private String fileNameFichaje = "FichajesHora.txt";
-    private String fileName = "NuevoArchivo.txt";
+    private String fileExtra = "ficheroPrueba.txt";
+    final Date date = new Date();
 
+    //metodo devuelve el mismo contexto en el que esta
     public void setContext(Context context) {
         this.context = context;
     }
 
+    public boolean validadorFichero(String nombre, String apellidos,String correos ,String userNick, String contra,String repContra){
+        File af = new File("/data/data/com.example.app/files/"+fileExtra);
+        if (!af.exists()){
+            try {
+                ArrayList<MformRegister> listadoRegistros = new ArrayList<MformRegister>();
+                FileOutputStream fos = context.getApplicationContext().openFileOutput(fileExtra, Context.MODE_PRIVATE);
+                ObjectOutputStream os = new ObjectOutputStream(fos);
+                MformRegister persona = new MformRegister(nombre, apellidos, correos, userNick, contra, repContra);
+                listadoRegistros.add(persona);
+                os.writeObject(listadoRegistros);
+                os.close();
+                fos.close();
+                cambio = true;
+                System.out.println("escritura correcta");
+                System.out.println("NO EXISTIA LO ESTAMOS ESCRIBIENDO"+cambio);
+
+
+            } catch (Exception e) {
+                System.out.println("no se pudo escribir");
+                e.printStackTrace();
+            }
+
+        }else{
+            cambio = false;
+            System.out.println("YAAAAAAAAAA EXISTE"+cambio);
+
+        }
+    return  cambio;
+    }
+    //escritura fichero Fichajes
     public void escrituraFichajes(String user, Date horaEntrada, Date horaSalida, Date fechaEntrada, Date fechaSalida){
-        file = new File(fileNameFichaje);
         ObjectOutputStream objectOutput = null;
         ObjectInputStream objectInput = null;
         ArrayList<FichajeHora> listaMarcaje = new ArrayList<FichajeHora>();
@@ -82,16 +114,11 @@ public class EscrituraFichaje {
         boolean cambio = false;
         try {
             ObjectInputStream lectura = new ObjectInputStream(new FileInputStream("/data/data/com.example.app/files/"+fileNameFichaje));
-            ObjectInputStream lecturaUsuarios = new ObjectInputStream(new FileInputStream("/data/data/com.example.app/files/"+fileName));
             ArrayList<FichajeHora> listadoRegistros = (ArrayList<FichajeHora>) lectura.readObject();
-            ArrayList<MformRegister> listadoUsuarios = (ArrayList<MformRegister>) lecturaUsuarios.readObject();
             for (FichajeHora fichajes : listadoRegistros){
 
                 System.out.println("FICHAJE ES: "+fichajes.getUser()+" "+fichajes.getHoraEntrada()+" "+fichajes.getHoraSalida()+" "+fichajes.getFechaEntrada()+" "+fichajes.getFechaSalida());
 
-            }
-            for (MformRegister list : listadoUsuarios){
-                System.out.println("USUARIOS: "+list.getUserNick()+" "+list.getContrasenha());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -99,5 +126,4 @@ public class EscrituraFichaje {
             e.printStackTrace();
         }
     }
-
 }
