@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textuser, textpassword;
     Button button, botonRegistrate,botonGoogle;
     ProgressBar progressBar;
+    public final String USUARIO_KEY= "usuario_key";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }.start();
                     showMessage("usuario new accepted");
+                    Bundle bundle = new Bundle();
                     Intent intent = new Intent(getApplicationContext(), Home.class);
+                    bundle.putString("usuario",textuser.getText().toString());
+                    intent.putExtras(bundle);
                     startActivity(intent);
                     finish();
                 }else{
