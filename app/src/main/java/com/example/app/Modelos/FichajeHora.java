@@ -9,6 +9,10 @@ public class FichajeHora implements Serializable {
     private Date fechaEntrada, fechaSalida, horaEntrada, horaSalida;
     private static final long serailVersionUI = 1L;
 
+    public  FichajeHora(){
+
+    }
+
     public FichajeHora(String user,Date fechaEntrada,Date horaEntrada,Date fechaSalida,Date horaSalida) {
         this.user = user;
         this.fechaEntrada = fechaEntrada;
