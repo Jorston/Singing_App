@@ -17,7 +17,7 @@ import java.util.Date;
 public class Primero extends Fragment {
     //declaracion variables globales
     private OnFragmentInteractionListener mListener;
-    ImageButton botonEntrada;
+    ImageButton botonEntrada,botonSalida;
     View vista;
     MainActivity mainActivity;
     TextView textUsuario,textFecha;
@@ -32,20 +32,20 @@ public class Primero extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainActivity = new MainActivity();
+       // mainActivity = new MainActivity();
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        //instaciamos objeto escritura para utilizar sus metodos
         final EscrituraFichaje escritura = new EscrituraFichaje();
-        final String recuperamos_variable_string , fechaComoCadena, horaComoCadena;
+        final String recuperamos_variable_string,fechaComoCadena,horaComoCadena;
+        //le damos valor al objeto escritura con el contexto activity
         escritura.setContext(getActivity());
         //construccion de formateo de fecha
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+        final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        final SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
         fechaComoCadena = sdf.format(new Date());
         horaComoCadena = hourFormat.format(new Date());
         //recuperacion de dato enviado por activity Main
@@ -57,19 +57,45 @@ public class Primero extends Fragment {
         textFecha = vista.findViewById(R.id.textFecha);
         textFecha.setText(fechaComoCadena);
         botonEntrada = vista.findViewById(R.id.btnEntrada);
+        botonSalida = vista.findViewById(R.id.btnSalida);
+        //boton ejecuta el metodo para captura fichaje entrada
         botonEntrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
-                escritura.escrituraFichajes("jorge",date,date,date,date);
-                Toast.makeText(getContext(),"el usuario es: "+recuperamos_variable_string+"  "+horaComoCadena,Toast.LENGTH_SHORT).show();
-                escritura.lecturaFichajes();
+                //metodo validador que escibira el archivo si no existe
+                if (escritura.validadorFichero(recuperamos_variable_string,date,date,date,date)){
+                    escritura.lecturaFichajes();
+                    showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
+                }else {
+                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,date,date);
+                    escritura.lecturaFichajes();
+                    showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
+                }
             }
         });
-
+        //boton ejecuta el metodo para captura fichaje salida
+        botonSalida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //metodo validador que escibira el archivo si no existe
+                if (escritura.validadorFichero(recuperamos_variable_string,date,date,date,date)){
+                    escritura.lecturaFichajes();
+                    showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
+                }else {
+                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,date,date);
+                    escritura.lecturaFichajes();
+                    showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
+                }
+            }
+        });
         return vista;
-
     }
+
+    //metodo atajo para el toast vista usuario
+    protected void showMessage(String message){
+        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -90,3 +116,4 @@ public class Primero extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 }
+
