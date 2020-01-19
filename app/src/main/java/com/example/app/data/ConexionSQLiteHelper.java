@@ -16,15 +16,17 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(UtilidadesDB.CREAR_TABLA_USUARIOS);
+        db.execSQL(UtilidadesDbFichajes.CREAR_TABLA_FICHAJES);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAntigua, int versionNueva) {
-        db.execSQL("DROP TABLE IF EXISTS usuarios");
+        db.execSQL("DROP TABLE IF EXISTS db_usuarios");
+        db.execSQL("DROP TABLE IF EXISTS db_fichajes");
         onCreate(db);
     }
 
-    public void insertar(String nombre,String apellidos,String userNick,String correo,String contra,String repcontra){
+    public void insertar(String nombre,String apellidos,String correo,String userNick,String contra,String repcontra){
         ContentValues valores = new ContentValues();
         valores.put(UtilidadesDB.CAMPO_NOMBRE, nombre);
         valores.put(UtilidadesDB.CAMPO_APELLIDOS, apellidos);
@@ -34,6 +36,17 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         valores.put(UtilidadesDB.CAMPO_REPCONTRASENHA, repcontra);
         this.getWritableDatabase().insert(UtilidadesDB.TABLA_USUARIO,null,valores);
 
+    }
+
+    public void insertarFichajes(String user,String fechaEntrada,String horaEntrada, String tipoFichaje){
+        ContentValues fichajes = new ContentValues();
+        fichajes.put(UtilidadesDbFichajes.USUARIO,user);
+        fichajes.put(UtilidadesDbFichajes.FECHA_ENTRADA,fechaEntrada);
+        fichajes.put(UtilidadesDbFichajes.HORA_ENTRADA,horaEntrada);
+        fichajes.put(UtilidadesDbFichajes.FECHA_SALIDA,fechaEntrada);
+        fichajes.put(UtilidadesDbFichajes.HORA_SALIDA,horaEntrada);
+        fichajes.put(UtilidadesDbFichajes.TIPO_FICHAJE,tipoFichaje);
+        this.getWritableDatabase().insert(UtilidadesDbFichajes.TABLA_FICHAJES,null,fichajes);
     }
 
     public void abrir(){
