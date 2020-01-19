@@ -5,20 +5,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FichajeHora implements Serializable {
-    private String user;
-    private Date fechaEntrada, fechaSalida, horaEntrada, horaSalida;
+    private String user,tipoMarcado;
+    private Date fechaEntrada, horaEntrada;
     private static final long serailVersionUI = 1L;
 
     public  FichajeHora(){
 
     }
 
-    public FichajeHora(String user,Date fechaEntrada,Date horaEntrada,Date fechaSalida,Date horaSalida) {
+    public FichajeHora(String user, Date fechaEntrada, Date horaEntrada, String tipoMarcado) {
         this.user = user;
         this.fechaEntrada = fechaEntrada;
-        this.fechaSalida = fechaSalida;
         this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
+        this.tipoMarcado = tipoMarcado;
     }
 
     public void setUser(String user) {
@@ -29,17 +28,11 @@ public class FichajeHora implements Serializable {
         this.horaEntrada = horaEntrada;
     }
 
-    public void setHoraSalida(Date horaSalida) {
-        this.horaSalida = horaSalida;
-    }
-
     public void setFechaEntrada(Date fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
-        this.fechaSalida = fechaSalida;
-    }
+    public void setTipoMarcado(String tipoMarcado) { this.tipoMarcado = tipoMarcado; }
 
     public String getUser() {
         return user;
@@ -49,15 +42,10 @@ public class FichajeHora implements Serializable {
         return horaEntrada;
     }
 
-    public Date getHoraSalida() {
-        return horaSalida;
-    }
-
     public Date getFechaEntrada() {
         return fechaEntrada;
     }
 
-    public Date getFechaSalida() {
-        return fechaSalida;
-    }
+    public String getTipoMarcado() { return tipoMarcado; }
+
 }

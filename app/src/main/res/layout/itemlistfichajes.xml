@@ -31,20 +31,6 @@
             android:text="00:00:00"
             android:layout_marginRight="20dp"/>
         <TextView
-            android:id="@+id/fechaSalida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingRight="200dp"
-            android:textSize="15dp"
-            android:text="20-02-02"/>
-        <TextView
-            android:id="@+id/horaSalida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingRight="200dp"
-            android:textSize="15dp"
-            android:text="01:01:01"/>
-        <TextView
             android:id="@+id/tipoHorario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

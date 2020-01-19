@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.app.data.EscrituraFichaje;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -63,11 +64,11 @@ public class Primero extends Fragment {
             @Override
             public void onClick(View v) {
                 //metodo validador que escibira el archivo si no existe
-                if (escritura.validadorFichero(recuperamos_variable_string,date,date,date,date)){
+                if (escritura.validadorFichero(recuperamos_variable_string,date,date,"entrada")){
                     escritura.lecturaFichajes();
                     showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
                 }else {
-                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,date,date);
+                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,"entrada");
                     escritura.lecturaFichajes();
                     showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
                 }
@@ -78,11 +79,11 @@ public class Primero extends Fragment {
             @Override
             public void onClick(View v) {
                 //metodo validador que escibira el archivo si no existe
-                if (escritura.validadorFichero(recuperamos_variable_string,date,date,date,date)){
+                if (escritura.validadorFichero(recuperamos_variable_string,date,date,"salida")){
                     escritura.lecturaFichajes();
                     showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
                 }else {
-                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,date,date);
+                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,"salida");
                     escritura.lecturaFichajes();
                     showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
                 }
