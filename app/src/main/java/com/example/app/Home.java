@@ -52,7 +52,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 Fragment primero = new Primero();
                 FragmentTransaction transactionuno = getSupportFragmentManager().beginTransaction();
                 transactionuno.replace(R.id.contenedor_general,primero);
-                Toast.makeText(this,"el usuario es: "+recuperamos_variable_string,Toast.LENGTH_SHORT).show();
                 transactionuno.commit();
                 break;
             case R.id.btn2:

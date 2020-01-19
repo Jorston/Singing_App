@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.app.Modelos.CreateRegistrados;
-import com.example.app.Modelos.Fichaje;
 import com.example.app.Modelos.MformRegister;
 
 import java.util.ArrayList;
@@ -27,8 +26,6 @@ public class Cuarto extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
-    ArrayList<MformRegister>registrados;
     RecyclerView fichajesrecycler;
 
     public Cuarto() {
@@ -58,28 +55,11 @@ public class Cuarto extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_cuarto, container, false);
-        registrados = new ArrayList<>();
         fichajesrecycler = vista.findViewById(R.id.recycleridcuarto);
         fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        llenarFichajes();
-        CreateRegistrados adaptador = new CreateRegistrados(registrados);
-        fichajesrecycler.setAdapter(adaptador);
         return vista;
     }
 
-    private void llenarFichajes() {
-        MformRegister registros = new MformRegister();
-        registrados.add(registros);
-        Fichaje per = new Fichaje();
-        registrados.add(new MformRegister("jj","jorge","fiorilo","user1","f@gmail.com","123"));
-        /*listados.add(new Fichaje("dni1","jorge","apellido1","fecha1" ,tipo));
-        listados.add(new Fichaje("dni2","alberto", "apellido2","fecha2",tipoSalida));
-        listados.add(new Fichaje("dni3","marcelo", "apellido3","fecha3",tipo));
-        listados.add(new Fichaje("dni4","maria","apellido4","fecha4",tipoSalida));
-        listados.add(new Fichaje("dni5","gisela","apellido5","fecha5",tipo));*/
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

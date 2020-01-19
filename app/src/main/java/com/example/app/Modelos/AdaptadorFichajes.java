@@ -33,10 +33,7 @@ public class AdaptadorFichajes extends RecyclerView.Adapter<AdaptadorFichajes.Fi
     public void onBindViewHolder(@NonNull FichajesViewHolder holder, int position) {
         holder.fechaEntrada.setText(sdf.format(listaFichajes.get(position).getFechaEntrada()));
         holder.horaEntrada.setText(hourFormat.format(listaFichajes.get(position).getHoraEntrada()));
-        holder.fechaSalida.setText(sdf.format(listaFichajes.get(position).getFechaSalida()));
-        holder.horaSalida.setText(hourFormat.format(listaFichajes.get(position).getHoraSalida()));
-
-
+        holder.tipoHorario.setText(listaFichajes.get(position).getTipoMarcado());
     }
 
     @Override
@@ -47,13 +44,12 @@ public class AdaptadorFichajes extends RecyclerView.Adapter<AdaptadorFichajes.Fi
 
     //recoge id de los elementos en las variables definidas
     public class FichajesViewHolder extends RecyclerView.ViewHolder {
-        TextView nombreUsuario,fechaEntrada,horaEntrada,fechaSalida,horaSalida;
+        TextView fechaEntrada,horaEntrada,tipoHorario;
         public FichajesViewHolder(@NonNull View itemView) {
             super(itemView);
             fechaEntrada = (TextView) itemView.findViewById(R.id.fechaEntrada);
             horaEntrada = (TextView) itemView.findViewById(R.id.horaEntrada);
-            fechaSalida = (TextView) itemView.findViewById(R.id.fechaSalida);
-            horaSalida = (TextView) itemView.findViewById(R.id.horaSalida);
+            tipoHorario = (TextView) itemView.findViewById(R.id.tipoHorario);
         }
     }
 }

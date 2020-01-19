@@ -25,14 +25,14 @@ public class EscrituraFichaje {
         this.context = context;
     }
 
-    public boolean validadorFichero(String user, Date fechaEntrada, Date horaEntrada,Date FechaSalida, Date horaSalida){
+    public boolean validadorFichero(String user, Date fechaEntrada, Date horaEntrada,String tipoMarcaje){
         File af = new File("/data/data/com.example.app/files/"+fileNameFichaje);
         if (!af.exists()){
             try{
                 ArrayList<FichajeHora> listadoRegistros = new ArrayList<FichajeHora>();
                 FileOutputStream fos = context.getApplicationContext().openFileOutput(fileNameFichaje, Context.MODE_PRIVATE);
                 ObjectOutputStream os = new ObjectOutputStream(fos);
-                FichajeHora persona = new FichajeHora(user,fechaEntrada,horaEntrada,FechaSalida,horaSalida);
+                FichajeHora persona = new FichajeHora(user,fechaEntrada,horaEntrada,tipoMarcaje);
                 listadoRegistros.add(persona);
                 os.writeObject(listadoRegistros);
                 os.close();
@@ -52,14 +52,14 @@ public class EscrituraFichaje {
     return  cambio;
     }
     //escritura fichero Fichajes
-    public void escrituraFichajes(String user,Date fechaEntrada,Date horaEntrada,Date fechaSalida,Date horaSalida){
+    public void escrituraFichajes(String user,Date fechaEntrada,Date horaEntrada,String tipoMarcaje){
         ObjectOutputStream objectOutput = null;
         ObjectInputStream objectInput = null;
         ArrayList<FichajeHora> listaMarcaje = new ArrayList<FichajeHora>();
 
         try {
             objectInput = new ObjectInputStream(new FileInputStream("/data/data/com.example.app/files/"+fileNameFichaje));
-            FichajeHora nuevoMarcaje = new FichajeHora(user,fechaEntrada,horaEntrada,fechaSalida,horaSalida);
+            FichajeHora nuevoMarcaje = new FichajeHora(user,fechaEntrada,horaEntrada,tipoMarcaje);
             listaMarcaje = (ArrayList<FichajeHora>) objectInput.readObject();
             listaMarcaje.add(nuevoMarcaje);
 
@@ -96,7 +96,7 @@ public class EscrituraFichaje {
             ArrayList<FichajeHora> listadoRegistros = (ArrayList<FichajeHora>) lectura.readObject();
             for (FichajeHora fichajes : listadoRegistros){
 
-                System.out.println("FICHAJE ES: "+fichajes.getUser()+" "+fichajes.getFechaEntrada()+" "+fichajes.getHoraEntrada()+" "+fichajes.getFechaSalida()+" "+fichajes.getHoraSalida());
+                System.out.println("FICHAJE ES: "+fichajes.getUser()+" "+fichajes.getFechaEntrada()+" "+fichajes.getHoraEntrada()+fichajes.getTipoMarcado());
 
             }
         } catch (IOException e) {
