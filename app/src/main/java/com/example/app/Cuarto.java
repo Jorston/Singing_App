@@ -10,10 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.app.Modelos.CreateRegistrados;
-import com.example.app.Modelos.MformRegister;
-
-import java.util.ArrayList;
 
 public class Cuarto extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
