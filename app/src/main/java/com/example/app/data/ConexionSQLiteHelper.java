@@ -2,8 +2,18 @@ package com.example.app.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.app.Modelos.FichajeHora;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.app.data.UtilidadesDbFichajes.TABLA_FICHAJES;
 
 public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     public static final String BASEDATOS = "usuariosLogin.db";
@@ -45,6 +55,33 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         fichajes.put(UtilidadesDbFichajes.HORA_FICHAJE,horaFichaje);
         fichajes.put(UtilidadesDbFichajes.TIPO_FICHAJE,tipoFichaje);
         this.getWritableDatabase().insert(UtilidadesDbFichajes.TABLA_FICHAJES,null,fichajes);
+    }
+
+    public ArrayList<FichajeHora> mostrarFichajes() throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SQLiteDatabase bd = getReadableDatabase();
+        Cursor cursor = bd.rawQuery("SELECT * FROM "+TABLA_FICHAJES,null);
+        ArrayList<FichajeHora> listadoFichajes = new ArrayList<FichajeHora>();
+        if (cursor.moveToFirst()){
+            do {
+               listadoFichajes.add(new FichajeHora(cursor.getString(0),dateFormat.parse(cursor.getString(1)),dateFormat.parse(cursor.getString(2)),cursor.getString(3)));
+            }while (cursor.moveToNext());
+        }
+        return listadoFichajes;
+    }
+
+    void consultarListado(SQLiteDatabase db) {
+        /*db.execSQL();
+        SQLiteDatabase db =conexion.getReadableDatabase();
+        FichajeHora fichajeHora = null;
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ TABLA_FICHAJES,null);
+        while (cursor.moveToNext()){
+            fichajeHora = new FichajeHora();
+            fichajeHora.setFechaEntrada(cursor.getString(0));
+            fichajeHora.setHoraEntrada(cursor.getString(1));
+            fichajeHora.setTipoMarcado(cursor.getString(2));
+            listadoDBFrag.add(fichajeHora);
+        }*/
     }
 
     public void abrir(){
