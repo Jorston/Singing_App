@@ -13,4 +13,5 @@ public class UtilidadesDB {
     public static final String CAMPO_CONTRASENHA = "contrasenha";
     public static final String CAMPO_REPCONTRASENHA = "repcontrasenha";
     public static final String CREAR_TABLA_USUARIOS ="CREATE TABLE "+TABLA_USUARIO+" ( "+_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_NOMBRE+" TEXT, "+CAMPO_APELLIDOS+" TEXT, "+CAMPO_CORREO+" TEXT, "+CAMPO_USERNICK+" TEXT, "+CAMPO_CONTRASENHA+" TEXT, "+CAMPO_REPCONTRASENHA+" TEXT );";
+
 }
