@@ -8,7 +8,7 @@ public class UtilidadesDbFichajes {
     public static final String HORA_FICHAJE ="horaFichaje";
     public static final String TIPO_FICHAJE ="tipoFichaje";
     public static final String CREAR_TABLA_FICHAJES =
-            "CREATE TABLE db_fichajes(usuario text,fechaFichaje Date,horaFichaje Date,tipoFichaje text)";
+            "CREATE TABLE "+TABLA_FICHAJES+" ( "+USUARIO+" text,"+FECHA_FICHAJE+" Date,"+HORA_FICHAJE+" Date,"+TIPO_FICHAJE+" text);";
 
             //"CREATE TABLE "+TABLA_FICHAJES+"("+FECHA_ENTRADA+" Date,"+HORA_ENTRADA+" Date,"+FECHA_SALIDA+" Date,"+HORA_SALIDA+" Date,"+TIPO_FICHAJE+" text,"+USUARIO+" text, FOREIGN KEY ("+USUARIO+") REFERENCES "+UtilidadesDB.TABLA_USUARIO+"("+UtilidadesDB.CAMPO_USERNICK+"));";
 

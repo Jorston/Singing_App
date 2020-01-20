@@ -75,12 +75,10 @@ public class Primero extends Fragment {
                 }
 
                 //metodo para insertar en BD
-                System.out.println("BEFORE INSERT");
                 ConexionSQLiteHelper helperentrada = new ConexionSQLiteHelper(getContext());
                 helperentrada.abrir();
                 helperentrada.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada");
                 helperentrada.cerrar();
-                System.out.println("AFTER INSERT");
                 showMessage("fichaje con la entrada registrada");
             }
         });
@@ -99,12 +97,10 @@ public class Primero extends Fragment {
                 }
 
                 //metodo para insertar en BD
-                System.out.println("BEFORE INSERT SALIDA");
                 ConexionSQLiteHelper helpersalida = new ConexionSQLiteHelper(getContext());
                 helpersalida.abrir();
                 helpersalida.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida");
                 helpersalida.cerrar();
-                System.out.println("AFTER INSERT SALIDA");
                 showMessage("fichaje con la salida registrada");
             }
         });
