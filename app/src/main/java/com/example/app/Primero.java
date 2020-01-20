@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.app.data.ConexionSQLiteHelper;
 import com.example.app.data.EscrituraFichaje;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,6 +73,13 @@ public class Primero extends Fragment {
                     escritura.lecturaFichajes();
                     showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
                 }
+
+                //metodo para insertar en BD
+                ConexionSQLiteHelper helperentrada = new ConexionSQLiteHelper(getContext());
+                helperentrada.abrir();
+                helperentrada.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada");
+                helperentrada.cerrar();
+                showMessage("fichaje con la entrada registrada");
             }
         });
         //boton ejecuta el metodo para captura fichaje salida
@@ -87,6 +95,13 @@ public class Primero extends Fragment {
                     escritura.lecturaFichajes();
                     showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
                 }
+
+                //metodo para insertar en BD
+                ConexionSQLiteHelper helpersalida = new ConexionSQLiteHelper(getContext());
+                helpersalida.abrir();
+                helpersalida.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida");
+                helpersalida.cerrar();
+                showMessage("fichaje con la salida registrada");
             }
         });
         return vista;

@@ -11,50 +11,39 @@
         android:paddingRight="20dp"
         android:textAlignment="center"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:background="@drawable/border_rectangulo"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
 
         <TextView
-            android:id="@+id/NombreRegistro"
+            android:id="@+id/NombreUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:textSize="15dp"></TextView>
-        <TextView
-            android:id="@+id/ApellidosRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:layout_marginRight="20dp">
-        </TextView>
-        <TextView
-            android:id="@+id/UserNickRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:layout_marginRight="20dp">
-        </TextView>
-        <TextView
-            android:id="@+id/CorreoRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:layout_marginRight="20dp">
-        </TextView>
-        <TextView
-            android:id="@+id/ContrasenhaRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:layout_marginRight="20dp">
-        </TextView>
+            android:text="user"/>
 
         <TextView
-            android:id="@+id/RepContrRegistro"
+            android:id="@+id/fechaFichaje"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:layout_marginRight="20dp" />
+            android:text="fechaFich"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:id="@+id/horaFichaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="horaFich"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:id="@+id/tipoFichaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginRight="20dp"
+            android:text="tipoFich"/>
     </LinearLayout>
-
-
 </LinearLayout>

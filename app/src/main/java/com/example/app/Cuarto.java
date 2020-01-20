@@ -51,7 +51,7 @@ public class Cuarto extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_cuarto, container, false);
-        fichajesrecycler = vista.findViewById(R.id.recycleridcuarto);
+        fichajesrecycler = vista.findViewById(R.id.recyclerFichajesDb);
         fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         return vista;
     }
