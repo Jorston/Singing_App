@@ -22,6 +22,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAntigua, int versionNueva) {
         db.execSQL("DROP TABLE IF EXISTS db_usuarios");
+        System.out.println("PASANDO A LA OTRA TABLA");
         db.execSQL("DROP TABLE IF EXISTS db_fichajes");
         onCreate(db);
     }
@@ -38,13 +39,11 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertarFichajes(String user,String fechaEntrada,String horaEntrada, String tipoFichaje){
+    public void insertarFichajes(String user,String fechaFichaje,String horaFichaje, String tipoFichaje){
         ContentValues fichajes = new ContentValues();
         fichajes.put(UtilidadesDbFichajes.USUARIO,user);
-        fichajes.put(UtilidadesDbFichajes.FECHA_ENTRADA,fechaEntrada);
-        fichajes.put(UtilidadesDbFichajes.HORA_ENTRADA,horaEntrada);
-        fichajes.put(UtilidadesDbFichajes.FECHA_SALIDA,fechaEntrada);
-        fichajes.put(UtilidadesDbFichajes.HORA_SALIDA,horaEntrada);
+        fichajes.put(UtilidadesDbFichajes.FECHA_FICHAJE,fechaFichaje);
+        fichajes.put(UtilidadesDbFichajes.HORA_FICHAJE,horaFichaje);
         fichajes.put(UtilidadesDbFichajes.TIPO_FICHAJE,tipoFichaje);
         this.getWritableDatabase().insert(UtilidadesDbFichajes.TABLA_FICHAJES,null,fichajes);
     }
