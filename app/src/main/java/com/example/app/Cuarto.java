@@ -70,9 +70,9 @@ public class Cuarto extends Fragment {
         // Inflate the layout for this fragment
         //usuarioFichaje
         View vista = inflater.inflate(R.layout.fragment_cuarto, container, false);
-        usuarioRegistrado = vista.findViewById(R.id.usuarioFichaje);
+        //usuarioRegistrado = vista.findViewById(R.id.usuarioFichaje);
         recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
-        usuarioRegistrado.setText(recuperamos_variable_string);
+        //usuarioRegistrado.setText(recuperamos_variable_string);
         listadoDBFrag = new ArrayList<>();
         fichajesrecycler = vista.findViewById(R.id.recyclerFichajesDb);
         fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));

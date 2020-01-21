@@ -65,11 +65,11 @@ public class Primero extends Fragment {
             @Override
             public void onClick(View v) {
                 //metodo validador que escibira el archivo si no existe
-                if (escritura.validadorFichero(recuperamos_variable_string,date,date,"entrada")){
+                if (escritura.validadorFichero(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada")){
                     escritura.lecturaFichajes();
                     showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
                 }else {
-                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,"entrada");
+                    escritura.escrituraFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada");
                     escritura.lecturaFichajes();
                     showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
                 }
@@ -87,11 +87,11 @@ public class Primero extends Fragment {
             @Override
             public void onClick(View v) {
                 //metodo validador que escibira el archivo si no existe
-                if (escritura.validadorFichero(recuperamos_variable_string,date,date,"salida")){
+                if (escritura.validadorFichero(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida")){
                     escritura.lecturaFichajes();
                     showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
                 }else {
-                    escritura.escrituraFichajes(recuperamos_variable_string,date,date,"salida");
+                    escritura.escrituraFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida");
                     escritura.lecturaFichajes();
                     showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
                 }

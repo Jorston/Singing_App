@@ -1,19 +1,18 @@
 package com.example.app.Modelos;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FichajeHora implements Serializable {
-    private String user,tipoMarcado;
-    private Date fechaEntrada, horaEntrada;
+    private String user,tipoMarcado,fechaEntrada, horaEntrada;
+    //private Date fechaEntrada, horaEntrada;
     private static final long serailVersionUI = 1L;
 
     public  FichajeHora(){
 
     }
 
-    public FichajeHora(String user, Date fechaEntrada, Date horaEntrada, String tipoMarcado) {
+    public FichajeHora(String user, String fechaEntrada, String horaEntrada, String tipoMarcado) {
         this.user = user;
         this.fechaEntrada = fechaEntrada;
         this.horaEntrada = horaEntrada;
@@ -24,11 +23,11 @@ public class FichajeHora implements Serializable {
         this.user = user;
     }
 
-    public void setHoraEntrada(Date horaEntrada) {
+    public void setHoraEntrada(String horaEntrada) {
         this.horaEntrada = horaEntrada;
     }
 
-    public void setFechaEntrada(Date fechaEntrada) {
+    public void setFechaEntrada(String fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
 
@@ -38,11 +37,11 @@ public class FichajeHora implements Serializable {
         return user;
     }
 
-    public Date getHoraEntrada() {
+    public String getHoraEntrada() {
         return horaEntrada;
     }
 
-    public Date getFechaEntrada() {
+    public String getFechaEntrada() {
         return fechaEntrada;
     }
 

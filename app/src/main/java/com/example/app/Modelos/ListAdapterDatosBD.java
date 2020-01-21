@@ -31,8 +31,9 @@ public class ListAdapterDatosBD extends RecyclerView.Adapter<ListAdapterDatosBD.
 
     @Override
     public void onBindViewHolder(@NonNull ListAdapterDatosBD.ListadoDBViewHolder holder, int position) {
-        holder.fechaFichaje.setText(listaFichajesDB.get(position).getHoraEntrada().toString());
-        holder.horaFichaje.setText(listaFichajesDB.get(position).getHoraEntrada().toString());
+        holder.usuario.setText(listaFichajesDB.get(position).getUser());
+        holder.fechaFichaje.setText(listaFichajesDB.get(position).getHoraEntrada());
+        holder.horaFichaje.setText(listaFichajesDB.get(position).getHoraEntrada());
         holder.tipoHorario.setText(listaFichajesDB.get(position).getTipoMarcado());
     }
 
@@ -40,9 +41,10 @@ public class ListAdapterDatosBD extends RecyclerView.Adapter<ListAdapterDatosBD.
     public int getItemCount() { return listaFichajesDB.size(); }
 
     public class ListadoDBViewHolder extends RecyclerView.ViewHolder {
-        TextView fechaFichaje,horaFichaje,tipoHorario;
+        TextView usuario,fechaFichaje,horaFichaje,tipoHorario;
         public ListadoDBViewHolder(@NonNull View itemView) {
             super(itemView);
+            usuario = (TextView) itemView.findViewById(R.id.usuario);
             fechaFichaje = (TextView) itemView.findViewById(R.id.fechaFichaje);
             horaFichaje = (TextView) itemView.findViewById(R.id.horaFichaje);
             tipoHorario = (TextView) itemView.findViewById(R.id.tipoFichaje);

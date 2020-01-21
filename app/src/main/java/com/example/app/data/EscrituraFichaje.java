@@ -25,7 +25,7 @@ public class EscrituraFichaje {
         this.context = context;
     }
 
-    public boolean validadorFichero(String user, Date fechaEntrada, Date horaEntrada,String tipoMarcaje){
+    public boolean validadorFichero(String user, String fechaEntrada, String horaEntrada,String tipoMarcaje){
         File af = new File("/data/data/com.example.app/files/"+fileNameFichaje);
         if (!af.exists()){
             try{
@@ -52,7 +52,7 @@ public class EscrituraFichaje {
     return  cambio;
     }
     //escritura fichero Fichajes
-    public void escrituraFichajes(String user,Date fechaEntrada,Date horaEntrada,String tipoMarcaje){
+    public void escrituraFichajes(String user,String fechaEntrada,String horaEntrada,String tipoMarcaje){
         ObjectOutputStream objectOutput = null;
         ObjectInputStream objectInput = null;
         ArrayList<FichajeHora> listaMarcaje = new ArrayList<FichajeHora>();

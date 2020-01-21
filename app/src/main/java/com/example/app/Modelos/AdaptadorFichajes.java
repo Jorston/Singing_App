@@ -31,8 +31,8 @@ public class AdaptadorFichajes extends RecyclerView.Adapter<AdaptadorFichajes.Fi
     @Override
     //recoge y sete los valores enviado por el fragment
     public void onBindViewHolder(@NonNull FichajesViewHolder holder, int position) {
-        holder.fechaEntrada.setText(sdf.format(listaFichajes.get(position).getFechaEntrada()));
-        holder.horaEntrada.setText(hourFormat.format(listaFichajes.get(position).getHoraEntrada()));
+        holder.fechaEntrada.setText(listaFichajes.get(position).getFechaEntrada());
+        holder.horaEntrada.setText(listaFichajes.get(position).getHoraEntrada());
         holder.tipoHorario.setText(listaFichajes.get(position).getTipoMarcado());
     }
 

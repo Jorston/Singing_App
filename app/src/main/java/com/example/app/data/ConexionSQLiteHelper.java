@@ -58,30 +58,16 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<FichajeHora> mostrarFichajes() throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
         SQLiteDatabase bd = getReadableDatabase();
         Cursor cursor = bd.rawQuery("SELECT * FROM "+TABLA_FICHAJES,null);
         ArrayList<FichajeHora> listadoFichajes = new ArrayList<FichajeHora>();
         if (cursor.moveToFirst()){
             do {
-               listadoFichajes.add(new FichajeHora(cursor.getString(0),dateFormat.parse(cursor.getString(1)),dateFormat.parse(cursor.getString(2)),cursor.getString(3)));
+               listadoFichajes.add(new FichajeHora(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3)));
             }while (cursor.moveToNext());
         }
         return listadoFichajes;
-    }
-
-    void consultarListado(SQLiteDatabase db) {
-        /*db.execSQL();
-        SQLiteDatabase db =conexion.getReadableDatabase();
-        FichajeHora fichajeHora = null;
-        Cursor cursor = db.rawQuery("SELECT * FROM "+ TABLA_FICHAJES,null);
-        while (cursor.moveToNext()){
-            fichajeHora = new FichajeHora();
-            fichajeHora.setFechaEntrada(cursor.getString(0));
-            fichajeHora.setHoraEntrada(cursor.getString(1));
-            fichajeHora.setTipoMarcado(cursor.getString(2));
-            listadoDBFrag.add(fichajeHora);
-        }*/
     }
 
     public void abrir(){
