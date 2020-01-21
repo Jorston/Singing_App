@@ -9,7 +9,4 @@ public class UtilidadesDbFichajes {
     public static final String TIPO_FICHAJE ="tipoFichaje";
     public static final String CREAR_TABLA_FICHAJES =
             "CREATE TABLE "+TABLA_FICHAJES+" ( "+USUARIO+" text,"+FECHA_FICHAJE+" text,"+HORA_FICHAJE+" text,"+TIPO_FICHAJE+" text);";
-
-            //"CREATE TABLE "+TABLA_FICHAJES+"("+FECHA_ENTRADA+" Date,"+HORA_ENTRADA+" Date,"+FECHA_SALIDA+" Date,"+HORA_SALIDA+" Date,"+TIPO_FICHAJE+" text,"+USUARIO+" text, FOREIGN KEY ("+USUARIO+") REFERENCES "+UtilidadesDB.TABLA_USUARIO+"("+UtilidadesDB.CAMPO_USERNICK+"));";
-
 }

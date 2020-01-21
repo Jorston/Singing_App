@@ -13,8 +13,16 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:background="@drawable/border_rectangulo"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp">
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="1dp">
+        <TextView
+            android:id="@+id/usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="usuario"
+            android:layout_marginRight="20dp"/>
 
         <TextView
             android:id="@+id/fechaFichaje"
