@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FormRegister"
-    android:background="@drawable/fondo_dos"
+    android:background="@color/mainBackGround"
     android:orientation="vertical">
 
     <ScrollView
@@ -152,6 +152,14 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="30dp"
                 android:text="Registrarse" />
+            <Button
+                android:id="@+id/btnBaseDatos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="30dp"
+                android:text="INSERT" />
 
         </LinearLayout>
     </ScrollView>

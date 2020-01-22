@@ -3,54 +3,35 @@ package com.example.app;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import com.example.app.Modelos.AdaptadorFichajes;
+import com.example.app.Modelos.FichajeHora;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Tercero.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Tercero#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Tercero extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
+    //declaracion de variables globales
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
+    private TextView usuarioRegistrado;
+    private String recuperamos_variable_string;
+    ArrayList<FichajeHora> listaFichajes;
+    RecyclerView recyclerFichajes;
 
     public Tercero() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Tercero.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Tercero newInstance(String param1, String param2) {
-        Tercero fragment = new Tercero();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -65,8 +46,50 @@ public class Tercero extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tercero, container, false);
+        // inflamos en layout en el fragment
+        View vista = inflater.inflate(R.layout.fragment_tercero, container, false);
+        //variables seteadas deacuerdo el id en el dom
+        usuarioRegistrado = vista.findViewById(R.id.usuarioFichaje);
+        recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
+        usuarioRegistrado.setText(recuperamos_variable_string);
+        listaFichajes = new ArrayList<FichajeHora>();
+        recyclerFichajes = vista.findViewById(R.id.recyclerFichajes);
+        recyclerFichajes.setLayoutManager(new LinearLayoutManager(getContext()));
+        //funcion de lectura del archivo donde estan los ficheros
+        llenarFichaje();
+        try {
+            //pasamos al adaptador ya el listado lleno en la funcion
+            AdaptadorFichajes adapter = new AdaptadorFichajes(listaFichajes);
+            //pintamos el adaptador lleno en el recyclerview
+            recyclerFichajes.setAdapter(adapter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return vista;
+    }
+
+    private void llenarFichaje() {
+        //misma funcion que utilizamos para leer el archivo
+        String fileNameFichaje = "FichajesHora.txt";
+        ObjectInputStream lectura = null;
+        try {
+            lectura = new ObjectInputStream(new FileInputStream("/data/data/com.example.app/files/"+fileNameFichaje));
+            ArrayList<FichajeHora> listaRegistros = (ArrayList<FichajeHora>) lectura.readObject();
+            FichajeHora usuario = new FichajeHora();
+            //recorremos el array el cual volcamos los datos del fichero
+            for (FichajeHora fichados : listaRegistros){
+                //validamos si es el usuario que inicio sesion y mostramos sus marcajes
+                if (recuperamos_variable_string.equals(fichados.getUser())){
+                    listaFichajes.add(fichados);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -93,16 +116,6 @@ public class Tercero extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

@@ -4,7 +4,7 @@
     android:id="@+id/fragmento_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_dos"
+    android:background="@color/mainBackGround"
     tools:context=".Primero">
 
     <FrameLayout
@@ -64,7 +64,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="70dp"
                     android:layout_marginBottom="40dp"
-                    android:background="@color/colorAccent" />
+                    android:background="@color/white_opacity_40" />
             </LinearLayout>
 
             <LinearLayout

@@ -3,20 +3,28 @@ package com.example.app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener,Segundo.OnFragmentInteractionListener,Tercero.OnFragmentInteractionListener,Cuarto.OnFragmentInteractionListener,Quinto.OnFragmentInteractionListener {
     Button boton1,boton2,boton3,boton4,boton5;
-
+    String recuperamos_variable_string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        recuperamos_variable_string = getIntent().getStringExtra("usuario");
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(getApplicationContext(), Primero.class);
+        bundle.putString("usuarioLogin",recuperamos_variable_string);
+        intent.putExtras(bundle);
 
         boton1 = findViewById(R.id.btn1);
         boton2 = findViewById(R.id.btn2);
