@@ -55,10 +55,11 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         this.getWritableDatabase().insert(UtilidadesDbFichajes.TABLA_FICHAJES,null,fichajes);
     }
 
-    public ArrayList<FichajeHora> mostrarFichajes() throws ParseException {
+    public ArrayList<FichajeHora> mostrarFichajes(String usuario) throws ParseException {
 
         SQLiteDatabase bd = getReadableDatabase();
         Cursor cursor = bd.rawQuery("SELECT * FROM "+TABLA_FICHAJES,null);
+        //Cursor cursor = bd.rawQuery("SELECT * FROM "+TABLA_FICHAJES+" where "+UtilidadesDbFichajes.USUARIO+" = "+"'"+usuario+"'",null);
         ArrayList<FichajeHora> listadoFichajes = new ArrayList<FichajeHora>();
         if (cursor.moveToFirst()){
             do {

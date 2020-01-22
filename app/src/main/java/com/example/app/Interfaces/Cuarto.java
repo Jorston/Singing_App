@@ -73,7 +73,7 @@ public class Cuarto extends Fragment {
         fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         ConexionSQLiteHelper conexion = new ConexionSQLiteHelper(getActivity());
         try {
-            listAdapterDatosBD = new ListAdapterDatosBD(conexion.mostrarFichajes());
+            listAdapterDatosBD = new ListAdapterDatosBD(conexion.mostrarFichajes(recuperamos_variable_string));
             fichajesrecycler.setAdapter(listAdapterDatosBD);
         } catch (ParseException e) {
             e.printStackTrace();
