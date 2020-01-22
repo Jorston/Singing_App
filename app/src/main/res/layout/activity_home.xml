@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="12dp"
-                android:drawableTop="@drawable/listado"
+                android:drawableTop="@drawable/clock"
                 android:background="#f5f5f5"
                 android:layout_weight="1"/>
 
@@ -46,37 +46,38 @@
                 android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
+                android:drawableTop="@drawable/info"
+                android:paddingTop="12dp"
                 android:layout_weight="1"
-                android:background="#f5f5f5"
-                android:text="btn2" />
+                android:background="#f5f5f5"/>
 
             <Button
                 android:id="@+id/btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
+                android:drawableTop="@drawable/document"
+                android:paddingTop="12dp"
                 android:layout_weight="1"
-                android:background="#f5f5f5"
-                android:text="btn3" />
+                android:background="#f5f5f5"/>
 
             <Button
                 android:id="@+id/btn4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
+                android:drawableTop="@drawable/database"
+                android:paddingTop="12dp"
                 android:layout_weight="1"
-                android:background="#f5f5f5"
-                android:text="btn4" />
+                android:background="#f5f5f5"/>
 
             <Button
                 android:id="@+id/btn5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
+                android:drawableTop="@drawable/chatbox"
+                android:paddingTop="12dp"
                 android:layout_weight="1"
-                android:background="#f5f5f5"
-                android:text="btn5" />
+                android:background="#f5f5f5"/>
+
         </LinearLayout>
     </FrameLayout>
 

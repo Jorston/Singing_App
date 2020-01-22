@@ -5,23 +5,57 @@
     android:layout_height="match_parent"
     android:background="@color/mainBackGround"
     tools:context=".Interfaces.Quinto">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
+        android:id="@+id/contenedor_general"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LISTADO DE RECYCLERVIEW"
-        android:textSize="20dp"
-        android:textColor="#f5f5f5"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        android:textAlignment="center"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:background="#fafafa"
-        />
+        android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="6dp"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:text="Envianos tu Insidencia"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textColor="#fff"/>
+            <EditText
+                android:id="@+id/edit_text"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:inputType="text|textMultiLine"
+                android:background="#fff"
+                android:hint="Mensaje ..."
+                android:gravity="top"/>
+            <Button
+                android:layout_marginTop="30dp"
+                android:id="@+id/btnEntrada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/border_style"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="Enviar"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    </FrameLayout>
 </FrameLayout>

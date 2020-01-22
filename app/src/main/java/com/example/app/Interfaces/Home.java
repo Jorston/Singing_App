@@ -83,6 +83,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 transactioncinco.replace(R.id.contenedor_general,quinto);
                 transactioncinco.commit();
                 break;
+
         }
     }
 
