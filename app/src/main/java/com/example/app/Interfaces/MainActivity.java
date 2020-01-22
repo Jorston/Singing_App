@@ -1,4 +1,4 @@
-package com.example.app;
+package com.example.app.Interfaces;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.app.data.Escrituras;
+
+import com.example.app.R;
+import com.example.app.DataConexiones.Escrituras;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         botonRegistrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),FormRegister.class );
+                Intent intent = new Intent(getApplicationContext(), FormRegister.class );
                 startActivity(intent);
             }
         });
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         botonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),WebViewActivity.class );
+                Intent intent = new Intent(getApplicationContext(), WebViewActivity.class );
                 startActivity(intent);
             }
         });

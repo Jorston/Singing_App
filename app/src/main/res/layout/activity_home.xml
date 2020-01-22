@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home"
+    tools:context=".Interfaces.Home"
     android:background="@color/mainBackGround">
     <FrameLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         <fragment
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.example.app.Primero"
+            android:name="com.example.app.Interfaces.Primero"
             tools:layout="@layout/fragment_primero">
 
         </fragment>

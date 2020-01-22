@@ -1,17 +1,14 @@
-package com.example.app;
+package com.example.app.Interfaces;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-import com.example.app.data.ConexionWebview;
-
-import java.io.IOException;
-import java.sql.SQLOutput;
+import com.example.app.R;
+import com.example.app.DataConexiones.ConexionWebview;
 
 public class WebViewActivity extends AppCompatActivity {
     ConexionWebview conexionWebview;

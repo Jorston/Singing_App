@@ -1,4 +1,4 @@
-package com.example.app;
+package com.example.app.Interfaces;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,8 +11,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.app.data.ConexionSQLiteHelper;
-import com.example.app.data.EscrituraFichaje;
+import com.example.app.R;
+import com.example.app.DataConexiones.ConexionSQLiteHelper;
+import com.example.app.DataConexiones.EscrituraFichaje;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

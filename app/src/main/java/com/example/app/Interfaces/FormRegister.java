@@ -1,4 +1,4 @@
-package com.example.app;
+package com.example.app.Interfaces;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,8 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.app.data.ConexionSQLiteHelper;
-import com.example.app.data.Escrituras;
+
+import com.example.app.R;
+import com.example.app.DataConexiones.ConexionSQLiteHelper;
+import com.example.app.DataConexiones.Escrituras;
 
 public class FormRegister extends AppCompatActivity {
     //declaracion de variables globales e instancia de objeto Escritura
