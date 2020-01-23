@@ -160,6 +160,14 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="30dp"
                 android:text="INSERT" />
+            <Button
+                android:id="@+id/btnBDRoom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="30dp"
+                android:text="INSERT BD Room" />
 
         </LinearLayout>
     </ScrollView>
