@@ -1,4 +1,4 @@
-package com.example.app.data;
+package com.example.app.DataConexiones;
 
 public class UtilidadesDbFichajes {
     //constantes campos y tabla de DB Fichajes

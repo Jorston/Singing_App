@@ -1,4 +1,4 @@
-package com.example.app.Modelos;
+package com.example.app.ModelosAdaptadores;
 
 import android.view.LayoutInflater;
 import android.view.View;

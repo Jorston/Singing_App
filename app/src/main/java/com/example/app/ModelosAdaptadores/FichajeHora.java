@@ -1,7 +1,6 @@
-package com.example.app.Modelos;
+package com.example.app.ModelosAdaptadores;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class FichajeHora implements Serializable {
     private String user,tipoMarcado,fechaEntrada, horaEntrada;

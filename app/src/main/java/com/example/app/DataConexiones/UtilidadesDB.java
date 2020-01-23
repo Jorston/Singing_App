@@ -1,4 +1,4 @@
-package com.example.app.data;
+package com.example.app.DataConexiones;
 
 import static  android.provider.BaseColumns._ID;
 

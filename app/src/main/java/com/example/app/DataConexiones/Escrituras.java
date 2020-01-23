@@ -1,7 +1,7 @@
-package com.example.app.data;
+package com.example.app.DataConexiones;
 
 import android.content.Context;
-import com.example.app.Modelos.MformRegister;
+import com.example.app.ModelosAdaptadores.MformRegister;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

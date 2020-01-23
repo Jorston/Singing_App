@@ -1,8 +1,8 @@
-package com.example.app.data;
+package com.example.app.DataConexiones;
 
 import android.content.Context;
 
-import com.example.app.Modelos.FichajeHora;
+import com.example.app.ModelosAdaptadores.FichajeHora;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,9 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class EscrituraFichaje {
     //variables globales

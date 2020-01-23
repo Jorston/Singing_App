@@ -1,31 +1,48 @@
-package com.example.app;
+package com.example.app.Interfaces;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-public class Segundo extends Fragment {
+import com.example.app.ModelosAdaptadores.FichajeHora;
+import com.example.app.ModelosAdaptadores.ListAdapterDatosBD;
+import com.example.app.R;
+import com.example.app.DataConexiones.ConexionSQLiteHelper;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+
+public class Cuarto extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
+    // declaracion de variables globales
     private String mParam1;
     private String mParam2;
-
+    private TextView usuarioRegistrado;
+    private String recuperamos_variable_string;
+    ArrayList<FichajeHora> listadoDBFrag;
     private OnFragmentInteractionListener mListener;
+    RecyclerView fichajesrecycler;
+    private ConexionSQLiteHelper conexion;
+    ListAdapterDatosBD listAdapterDatosBD;
 
-    public Segundo() {
+
+    public Cuarto() {
         // Required empty public constructor
     }
 
-    public static Segundo newInstance(String param1, String param2) {
-        Segundo fragment = new Segundo();
+    public static Cuarto newInstance(String param1, String param2) {
+        Cuarto fragment = new Cuarto();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -46,10 +63,29 @@ public class Segundo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_segundo, container, false);
+        //usuarioFichaje
+        View vista = inflater.inflate(R.layout.fragment_cuarto, container, false);
+        //usuarioRegistrado = vista.findViewById(R.id.usuarioFichaje);
+        recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
+        //usuarioRegistrado.setText(recuperamos_variable_string);
+        listadoDBFrag = new ArrayList<>();
+        fichajesrecycler = vista.findViewById(R.id.recyclerFichajesDb);
+        fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        ConexionSQLiteHelper conexion = new ConexionSQLiteHelper(getActivity());
+        try {
+            listAdapterDatosBD = new ListAdapterDatosBD(conexion.mostrarFichajes(recuperamos_variable_string));
+            fichajesrecycler.setAdapter(listAdapterDatosBD);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        /////////////////////////////consultarListado();
+        return vista;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

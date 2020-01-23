@@ -1,4 +1,4 @@
-package com.example.app.data;
+package com.example.app.DataConexiones;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,14 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.app.Modelos.FichajeHora;
+import com.example.app.ModelosAdaptadores.FichajeHora;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
-import static com.example.app.data.UtilidadesDbFichajes.TABLA_FICHAJES;
+import static com.example.app.DataConexiones.UtilidadesDbFichajes.TABLA_FICHAJES;
 
 public class ConexionSQLiteHelper extends SQLiteOpenHelper {
     public static final String BASEDATOS = "usuariosLogin.db";
@@ -57,10 +55,11 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         this.getWritableDatabase().insert(UtilidadesDbFichajes.TABLA_FICHAJES,null,fichajes);
     }
 
-    public ArrayList<FichajeHora> mostrarFichajes() throws ParseException {
+    public ArrayList<FichajeHora> mostrarFichajes(String usuario) throws ParseException {
 
         SQLiteDatabase bd = getReadableDatabase();
         Cursor cursor = bd.rawQuery("SELECT * FROM "+TABLA_FICHAJES,null);
+        //Cursor cursor = bd.rawQuery("SELECT * FROM "+TABLA_FICHAJES+" where "+UtilidadesDbFichajes.USUARIO+" = "+"'"+usuario+"'",null);
         ArrayList<FichajeHora> listadoFichajes = new ArrayList<FichajeHora>();
         if (cursor.moveToFirst()){
             do {

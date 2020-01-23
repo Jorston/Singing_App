@@ -1,4 +1,4 @@
-package com.example.app;
+package com.example.app.Interfaces;
 
 import android.content.Context;
 import android.net.Uri;
@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.example.app.Modelos.AdaptadorFichajes;
-import com.example.app.Modelos.FichajeHora;
+import com.example.app.ModelosAdaptadores.AdaptadorFichajes;
+import com.example.app.ModelosAdaptadores.FichajeHora;
+import com.example.app.R;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;

@@ -1,4 +1,4 @@
-package com.example.app;
+package com.example.app.Interfaces;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,9 +10,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener,Segundo.OnFragmentInteractionListener,Tercero.OnFragmentInteractionListener,Cuarto.OnFragmentInteractionListener,Quinto.OnFragmentInteractionListener {
+import com.example.app.R;
+
+public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener {
     Button boton1,boton2,boton3,boton4,boton5;
     String recuperamos_variable_string;
 
@@ -82,6 +83,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 transactioncinco.replace(R.id.contenedor_general,quinto);
                 transactioncinco.commit();
                 break;
+
         }
     }
 
