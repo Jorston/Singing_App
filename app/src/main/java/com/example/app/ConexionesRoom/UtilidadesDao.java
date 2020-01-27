@@ -13,6 +13,9 @@ public interface UtilidadesDao {
     @Insert
     public void agregarUsuario(UserRoom user);
 
+    @Insert
+    public  void agregarFichaje(FichajeRoom fichaje);
+
     /*@Query ("SELECT * FROM usersRoom")
     public ArrayList<UserRoom> mostrarUsuarios();*/
 }
