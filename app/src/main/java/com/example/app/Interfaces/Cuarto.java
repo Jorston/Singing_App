@@ -68,19 +68,6 @@ public class Cuarto extends Fragment {
         //usuarioRegistrado = vista.findViewById(R.id.usuarioFichaje);
         recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
         //usuarioRegistrado.setText(recuperamos_variable_string);
-        listadoDBFrag = new ArrayList<>();
-        fichajesrecycler = vista.findViewById(R.id.recyclerFichajesDb);
-        fichajesrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        ConexionSQLiteHelper conexion = new ConexionSQLiteHelper(getActivity());
-        try {
-            listAdapterDatosBD = new ListAdapterDatosBD(conexion.mostrarFichajes(recuperamos_variable_string));
-            fichajesrecycler.setAdapter(listAdapterDatosBD);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-
-        /////////////////////////////consultarListado();
         return vista;
     }
 

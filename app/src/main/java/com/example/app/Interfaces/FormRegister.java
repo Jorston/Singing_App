@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.example.app.ConexionesRoom.MetodosRoom;
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
-import com.example.app.DataConexiones.ConexionSQLiteHelper;
 import com.example.app.DataConexiones.Escrituras;
 
 public class FormRegister extends AppCompatActivity {
@@ -18,7 +17,7 @@ public class FormRegister extends AppCompatActivity {
     //declaracion de variables globales e instancia de objeto Escritura y demas objetos
     Escrituras escrituras = new Escrituras();
 
-    Button buton,btnInsert,btnInsertRoom;
+    Button buton,btnInsertRoom;
 
     TextView nombre,apellidos,correo,userNick,contrasenha,repContrasenha;
 
@@ -48,8 +47,6 @@ public class FormRegister extends AppCompatActivity {
 
         buton = findViewById(R.id.btnFormRegister);
 
-        btnInsert = findViewById(R.id.btnBaseDatos);
-
         btnInsertRoom = findViewById(R.id.btnBDRoom);
 
         //ponemos valor al contexto mediante del mismo Activity
@@ -73,23 +70,6 @@ public class FormRegister extends AppCompatActivity {
             }
         });
 
-        // boton FormRegister Insertar ejecuta metodo insercion en base de datos
-        btnInsert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ConexionSQLiteHelper helper = new ConexionSQLiteHelper(getApplicationContext());
-
-                helper.abrir();
-
-                helper.insertar(nombre.getText().toString(),apellidos.getText().toString(),correo.getText().toString(),userNick.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
-
-                helper.cerrar();
-
-                showMessage("usuario insertado en la base de datos");
-            }
-        });
-
         btnInsertRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,8 +85,6 @@ public class FormRegister extends AppCompatActivity {
             }
         });
     }
-
-
 
     //metodo simplifica toask y lo ejecuta en una funcion
     public void showMessage(String message){
