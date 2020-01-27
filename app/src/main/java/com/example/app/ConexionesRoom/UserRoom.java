@@ -1,5 +1,6 @@
 package com.example.app.ConexionesRoom;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -7,7 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity (tableName = "usersRoom")
 public class UserRoom {
 
-    @PrimaryKey@ColumnInfo
+    @PrimaryKey @NonNull
     private String userNick;
 
     @ColumnInfo
