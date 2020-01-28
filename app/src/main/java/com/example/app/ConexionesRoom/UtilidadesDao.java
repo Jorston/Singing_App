@@ -4,8 +4,7 @@ package com.example.app.ConexionesRoom;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-
-import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface UtilidadesDao {
@@ -16,6 +15,9 @@ public interface UtilidadesDao {
     @Insert
     public  void agregarFichaje(FichajeRoom fichaje);
 
-    /*@Query ("SELECT * FROM usersRoom")
-    public ArrayList<UserRoom> mostrarUsuarios();*/
+    @Query ("SELECT * FROM usersRoom")
+    public List<UserRoom> mostrarUsuarios();
+
+    @Query("SELECT * FROM fichajesRoom")
+    public List<FichajeRoom> mostrarFichajes();
 }

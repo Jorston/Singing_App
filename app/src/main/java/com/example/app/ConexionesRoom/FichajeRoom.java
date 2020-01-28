@@ -1,22 +1,21 @@
 package com.example.app.ConexionesRoom;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "fichajesRoom",foreignKeys = @ForeignKey(entity = UserRoom.class,
-        parentColumns = "userNick",
-        childColumns = "usuario", onDelete = ForeignKey.CASCADE))
+@Entity (tableName = "fichajesRoom")
 
 public class FichajeRoom {
 
     @PrimaryKey (autoGenerate = true)
     private int posicion;
 
-    @ColumnInfo (name = "usuario")
+    @ForeignKey(entity = UserRoom.class, parentColumns = "userNick" , childColumns = "usuario")
     private String usuario;
 
     @ColumnInfo (name = "fechaFichaje")

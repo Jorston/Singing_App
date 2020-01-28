@@ -1,5 +1,6 @@
 package com.example.app.Interfaces;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.app.ConexionesRoom.FichajeRoom;
+import com.example.app.ConexionesRoom.MyDatabaseRoom;
+import com.example.app.ConexionesRoom.UserRoom;
 import com.example.app.ModelosAdaptadores.FichajeHora;
 import com.example.app.ModelosAdaptadores.ListAdapterDatosBD;
 import com.example.app.R;
@@ -19,6 +23,7 @@ import com.example.app.DataConexiones.ConexionSQLiteHelper;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cuarto extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -28,13 +33,9 @@ public class Cuarto extends Fragment {
     // declaracion de variables globales
     private String mParam1;
     private String mParam2;
-    private TextView usuarioRegistrado;
     private String recuperamos_variable_string;
-    ArrayList<FichajeHora> listadoDBFrag;
+    private TextView usersRoom,fichajesRoom;
     private OnFragmentInteractionListener mListener;
-    RecyclerView fichajesrecycler;
-    private ConexionSQLiteHelper conexion;
-    ListAdapterDatosBD listAdapterDatosBD;
 
 
     public Cuarto() {
@@ -62,12 +63,48 @@ public class Cuarto extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        //usuarioFichaje
+
         View vista = inflater.inflate(R.layout.fragment_cuarto, container, false);
-        //usuarioRegistrado = vista.findViewById(R.id.usuarioFichaje);
+
         recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
-        //usuarioRegistrado.setText(recuperamos_variable_string);
+
+        usersRoom = vista.findViewById(R.id.usuariosRoom);
+
+        fichajesRoom = vista.findViewById(R.id.fichajesRoom);
+
+        List<UserRoom> listadoRoom = Primero.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+
+        String info = "";
+
+        for (UserRoom user : listadoRoom){
+
+            String nombre = user.getNombre();
+
+            String correo = user.getCorreo();
+
+            String userNick = user.getUserNick();
+
+            info = info + "\n"+"nombre: "+nombre+"\n correo: "+correo+"\n userNick: "+userNick+"\n";
+        }
+
+        usersRoom.setText(info);
+
+
+
+        List<FichajeRoom> listadoFichajesRoom = Primero.myDatabaseRoom.utilidadesDao().mostrarFichajes();
+
+        String fichaje = "";
+
+        for (FichajeRoom fichajeR : listadoFichajesRoom){
+            String usuario = fichajeR.getUsuario();
+            String diaFichaje = fichajeR.getDiaFichaje();
+            String horaFichaje = fichajeR.getHorafichaje();
+            String tipoFichaje = fichajeR.getTipoFichaje();
+
+            fichaje = fichaje+"\n"+usuario+"  "+diaFichaje+"  "+horaFichaje+"  "+tipoFichaje+"\n";
+        }
+
+        fichajesRoom.setText(fichaje);
         return vista;
     }
 
