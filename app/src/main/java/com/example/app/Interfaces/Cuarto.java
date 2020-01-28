@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ public class Cuarto extends Fragment {
     private String recuperamos_variable_string;
     private TextView usersRoom,fichajesRoom;
     private OnFragmentInteractionListener mListener;
+    public static MyDatabaseRoom myDatabaseRoom;
 
 
     public Cuarto() {
@@ -66,13 +68,15 @@ public class Cuarto extends Fragment {
 
         View vista = inflater.inflate(R.layout.fragment_cuarto, container, false);
 
+        myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
         recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
 
         usersRoom = vista.findViewById(R.id.usuariosRoom);
 
         fichajesRoom = vista.findViewById(R.id.fichajesRoom);
 
-        List<UserRoom> listadoRoom = FormRegister.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+        List<UserRoom> listadoRoom = Cuarto.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
 
         String info = "";
 
@@ -91,7 +95,7 @@ public class Cuarto extends Fragment {
 
 
 
-        List<FichajeRoom> listadoFichajesRoom = FormRegister.myDatabaseRoom.utilidadesDao().mostrarFichajes();
+        List<FichajeRoom> listadoFichajesRoom = Cuarto.myDatabaseRoom.utilidadesDao().mostrarFichajes();
 
         String fichaje = "";
 
