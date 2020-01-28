@@ -72,7 +72,7 @@ public class Cuarto extends Fragment {
 
         fichajesRoom = vista.findViewById(R.id.fichajesRoom);
 
-        List<UserRoom> listadoRoom = Primero.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+        List<UserRoom> listadoRoom = FormRegister.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
 
         String info = "";
 
@@ -91,14 +91,18 @@ public class Cuarto extends Fragment {
 
 
 
-        List<FichajeRoom> listadoFichajesRoom = Primero.myDatabaseRoom.utilidadesDao().mostrarFichajes();
+        List<FichajeRoom> listadoFichajesRoom = FormRegister.myDatabaseRoom.utilidadesDao().mostrarFichajes();
 
         String fichaje = "";
 
         for (FichajeRoom fichajeR : listadoFichajesRoom){
+
             String usuario = fichajeR.getUsuario();
+
             String diaFichaje = fichajeR.getDiaFichaje();
+
             String horaFichaje = fichajeR.getHorafichaje();
+
             String tipoFichaje = fichajeR.getTipoFichaje();
 
             fichaje = fichaje+"\n"+usuario+"  "+diaFichaje+"  "+horaFichaje+"  "+tipoFichaje+"\n";
