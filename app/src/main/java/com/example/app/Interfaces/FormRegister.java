@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.app.ConexionesRoom.MetodosRoom;
+import com.example.app.ConexionesRoom.MetodosUtilidadesRoom;
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
 import com.example.app.DataConexiones.Escrituras;
@@ -24,6 +25,8 @@ public class FormRegister extends AppCompatActivity {
     public static MyDatabaseRoom myDatabaseRoom;
 
     final MetodosRoom metodosRoom = new MetodosRoom();
+
+    final MetodosUtilidadesRoom metodosUtilidadesRoom = new MetodosUtilidadesRoom();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,22 +88,24 @@ public class FormRegister extends AppCompatActivity {
 
                 }else {
 
-                    metodosRoom.insertarUserRoom(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
+                    if (!(metodosUtilidadesRoom.validacionContrasenha(contrasenha.getText().toString(),repContrasenha.getText().toString()))){
 
-                    showMessage("UsuarioRoom insertado en la base de datos");
+                        showMessage("LAS CONTRASEÑAS NO COINCIDEN");
 
-                    myDatabaseRoom.close();
+                        repContrasenha.setText("");
+
+                    }else {
+
+                        metodosRoom.insertarUserRoom(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
+
+                        showMessage("UsuarioRoom insertado en la base de datos");
+
+                        myDatabaseRoom.close();
+                    }
                 }
             }
         });
 
-
-        correo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showMessage("presionamos el text correo");
-            }
-        });
     }
 
     //metodo simplifica toask y lo ejecuta en una funcion
