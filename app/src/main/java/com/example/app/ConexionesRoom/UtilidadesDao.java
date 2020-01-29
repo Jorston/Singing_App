@@ -20,4 +20,7 @@ public interface UtilidadesDao {
 
     @Query("SELECT * FROM fichajesRoom")
     public List<FichajeRoom> mostrarFichajes();
+
+    @Query("select userNick from usersRoom")
+    public List<UserRoom> verificarUsuarios();
 }
