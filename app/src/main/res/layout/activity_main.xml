@@ -22,6 +22,18 @@
                 android:layout_height="190dp"
                 android:layout_marginTop="20dp"
                 app:srcCompat="@drawable/user_gimp" />
+            <TextView
+                android:id="@+id/tAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:paddingLeft="50dp"
+                android:paddingRight="15dp"
+                android:text="Eres admin"
+                android:textSize="15sp"
+                android:textColor="#BEADAF"
+                android:textStyle="italic" />
 
         </FrameLayout>
 
