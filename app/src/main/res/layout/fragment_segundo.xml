@@ -27,20 +27,21 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:textStyle="bold"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:text="Empleado:"
+                    android:text="Usuario:"
+                    android:textSize="22dp"
                     android:textColor="#99FFFFFF" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/nombreUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:paddingBottom="10dp"
-                    android:text="Nombre Empleado"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:text="Nombre Usuario"
                     android:textColor="#99FFFFFF" />
             </LinearLayout>
 
@@ -60,9 +61,9 @@
                     android:id="@+id/imageView3"
                     android:src="@drawable/user_flaticon"
                     android:layout_width="wrap_content"
-                    android:layout_height="250dp"
+                    android:layout_height="245dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="80dp"
                     android:layout_marginBottom="40dp"
                     android:background="@color/white_opacity_40" />
             </LinearLayout>
@@ -77,35 +78,20 @@
                 android:layout_marginBottom="76dp"
                 android:background="#66FFFFFF"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/textView23"
+                    android:id="@+id/tDescripcion"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Descripcion:" />
-
-                <MultiAutoCompleteTextView
-                    android:id="@+id/multiAutoCompleteTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="MultiAutoCompleteTextView" />
-
-                <MultiAutoCompleteTextView
-                    android:id="@+id/multiAutoCompleteTextView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="MultiAutoCompleteTextView" />
-
-                <MultiAutoCompleteTextView
-                    android:id="@+id/multiAutoCompleteTextView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="MultiAutoCompleteTextView" />
+                    android:layout_height="244dp"
+                    android:inputType="text|textMultiLine"
+                    android:background="#f5f5f5"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:hint="Descripcion ..."
+                    android:text="Lorem ipsum dolor sit amet consectetur adipiscing elit, senectus primis elementum nascetur sem habitasse. Varius porttitor vehicula posuere conubia sodales litora primis quis, convallis ad curabitur neque nulla augue gravida, cursus egestas bibendum suscipit auctor porta est."
+                    android:enabled="true"
+                    android:gravity="top"/>
             </LinearLayout>
 
         </FrameLayout>
