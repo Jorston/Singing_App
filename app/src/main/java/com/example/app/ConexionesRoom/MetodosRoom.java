@@ -54,30 +54,18 @@ public class MetodosRoom {
 
         for (UserRoom users : listaUsuarios){
 
-            System.out.println("USUARIOS: "+users.getUserNick()+"\n"+users.getContrasenha());
-
             if ((user.equals(users.getUserNick())) && (contrasenha.equals(users.getContrasenha()))){
-
-                System.out.println("CONTADOR ES EQUAL : "+contador);
 
                 contador++;
 
-            }else {
-
-                System.out.println("CONTADOR ES NOOOEQUAL : "+contador);
             }
         }
-
         //metodo auxiliar para validar el usuario que hara login
         if (contador>0){
-
-            System.out.println("CONTADOR VERDA ES : "+contador);
 
             cambio=true;
 
         }else{
-
-            System.out.println("CONTADOR FALSO ES : "+contador);
 
             cambio=false;
         }
@@ -85,4 +73,32 @@ public class MetodosRoom {
         return cambio;
     }
 
+    //validacion userRegistre Formulario de Registro
+    public boolean verificarFormulario(String userNick){
+        int acumulador = 0;
+
+        boolean interruptor = false;
+
+        List<UserRoom> listaNicks= MainActivity.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+
+        for (UserRoom usersNicks : listaNicks){
+
+            if (usersNicks.getUserNick().equals(userNick)){
+
+                acumulador++;
+
+            }
+        }
+        //metodo auxiliar para validar el usuario que hara login
+        if (acumulador>0){
+
+            interruptor=true;
+
+        }else{
+
+            interruptor=false;
+        }
+
+        return interruptor;
+    }
 }

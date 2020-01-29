@@ -77,11 +77,28 @@ public class FormRegister extends AppCompatActivity {
                 //instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
                 myDatabaseRoom = Room.databaseBuilder(getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
-                metodosRoom.insertarUserRoom(nombre.getText().toString(),apellidos.getText().toString(),correo.getText().toString(),userNick.getText().toString(),contrasenha.getText().toString(),repContrasenha.getText().toString());
+                if (metodosRoom.verificarFormulario(userNick.getText().toString())){
 
-                showMessage("UsuarioRoom insertado en la base de datos");
+                    showMessage("EL NICK YA ESTA SIENDO UTILIZADO");
 
-                myDatabaseRoom.close();
+                    userNick.setText("");
+
+                }else {
+
+                    metodosRoom.insertarUserRoom(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
+
+                    showMessage("UsuarioRoom insertado en la base de datos");
+
+                    myDatabaseRoom.close();
+                }
+            }
+        });
+
+
+        correo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMessage("presionamos el text correo");
             }
         });
     }

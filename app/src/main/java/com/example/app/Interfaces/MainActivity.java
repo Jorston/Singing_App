@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             }
             }
         });
+
         //registro nuevo usuario FormRegister
         botonRegistrate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         //registro con google
         botonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     //metodo atajo para el toast vista usuario
     protected void showMessage(String message){
 
