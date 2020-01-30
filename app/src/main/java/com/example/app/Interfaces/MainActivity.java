@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
         myDatabaseRoom = Room.databaseBuilder(this,MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
     } //fin oncreate
     @Override
     public void onClick(View v) {
@@ -138,6 +139,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.tAdmin:
 
+                Intent admin = new Intent(getApplicationContext(), AdminLogin.class);
+
+                startActivity(admin);
 
                 break;
 
