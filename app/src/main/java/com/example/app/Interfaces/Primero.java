@@ -151,6 +151,7 @@ public class Primero extends Fragment {
 
             }
         });
+
         return vista;
     }
 

@@ -40,7 +40,7 @@ public class MetodosRoom {
 
         fichajeRoom.setTipoFichaje(tipoFichaje);
 
-        Primero.myDatabaseRoom.utilidadesDao().agregarFichaje(fichajeRoom);
+        Primero.myDatabaseRoom.utilidadesDaoFichajes().agregarFichaje(fichajeRoom);
     }
 
     //validacion de usuario en el login de MainActivity

@@ -7,4 +7,6 @@ import androidx.room.RoomDatabase;
 public abstract class MyDatabaseRoom extends RoomDatabase {
 
     public abstract UtilidadesDao utilidadesDao();
+
+    public  abstract UtilidadesDaoFichajes utilidadesDaoFichajes();
 }

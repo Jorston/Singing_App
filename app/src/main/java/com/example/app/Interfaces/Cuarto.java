@@ -1,39 +1,22 @@
 package com.example.app.Interfaces;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.app.ConexionesRoom.FichajeRoom;
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.ConexionesRoom.UserRoom;
-import com.example.app.ModelosAdaptadores.FichajeHora;
-import com.example.app.ModelosAdaptadores.ListAdapterDatosBD;
 import com.example.app.R;
-import com.example.app.DataConexiones.ConexionSQLiteHelper;
-
-import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Cuarto extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    // declaracion de variables globales
-    private String mParam1;
-    private String mParam2;
+
     private String recuperamos_variable_string;
     private TextView usersRoom,fichajesRoom;
     private OnFragmentInteractionListener mListener;
@@ -44,22 +27,9 @@ public class Cuarto extends Fragment {
         // Required empty public constructor
     }
 
-    public static Cuarto newInstance(String param1, String param2) {
-        Cuarto fragment = new Cuarto();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -95,7 +65,7 @@ public class Cuarto extends Fragment {
 
 
 
-        List<FichajeRoom> listadoFichajesRoom = Cuarto.myDatabaseRoom.utilidadesDao().mostrarFichajes();
+        List<FichajeRoom> listadoFichajesRoom = Cuarto.myDatabaseRoom.utilidadesDaoFichajes().mostrarFichajes();
 
         String fichaje = "";
 
@@ -113,15 +83,8 @@ public class Cuarto extends Fragment {
         }
 
         fichajesRoom.setText(fichaje);
+
         return vista;
-    }
-
-
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
