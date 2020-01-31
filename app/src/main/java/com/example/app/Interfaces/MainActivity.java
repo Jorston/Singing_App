@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intento);
 
                 break;
-
+            //LOGINADMIN
             case R.id.tAdmin:
 
                 Intent admin = new Intent(getApplicationContext(), AdminLogin.class);

@@ -58,7 +58,9 @@ public class Cuarto extends Fragment {
 
             String userNick = user.getUserNick();
 
-            info = info + "\n"+"nombre: "+nombre+"\n correo: "+correo+"\n userNick: "+userNick+"\n";
+            int rolUsuario = user.getRolUsuario();
+
+            info = info + "\n"+"nombre: "+nombre+"\n correo: "+correo+"\n userNick: "+userNick+"\n"+"el rol es: "+rolUsuario+"\n";
         }
 
         usersRoom.setText(info);

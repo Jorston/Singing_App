@@ -101,4 +101,21 @@ public class MetodosRoom {
 
         return interruptor;
     }
+
+    //validacion userRegistre Formulario de Registro
+    public void insertRol(){
+
+        List<UserRoom> listaNicks= FormRegister.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+
+        for (UserRoom usersNicks : listaNicks){
+
+            if (usersNicks.getUserNick().equals("Erick")){
+
+                usersNicks.setRolUsuario(1);
+
+            }
+
+            FormRegister.myDatabaseRoom.utilidadesDao().update(usersNicks);
+        }
+    }
 }

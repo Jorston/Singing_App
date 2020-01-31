@@ -5,15 +5,30 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.example.app.ConexionesRoom.MetodosRoomAdmin;
+import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
 
 public class AdminLoginFragment extends Fragment implements AdminHomeFragment.OnFragmentInteractionListener{
 
     Button btnLogin;
+
+    TextView textuser, textpassword;
+
+    ProgressBar progressBar;
+
+    public static MyDatabaseRoom myDatabaseRoom;
+
+    final MetodosRoomAdmin metodosRoom = new MetodosRoomAdmin();
 
     private OnFragmentInteractionListener mListener;
 
@@ -30,22 +45,69 @@ public class AdminLoginFragment extends Fragment implements AdminHomeFragment.On
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View vista = inflater.inflate(R.layout.fragment_admin_login, container, false);
 
+        myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
         btnLogin = vista.findViewById(R.id.btnLoginAdmin);
+
+        textuser = vista.findViewById(R.id.textUserAdmin);
+
+        textpassword = vista.findViewById(R.id.textPasswordAdmin);
+
+        progressBar = vista.findViewById(R.id.progressBar);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Fragment adminHome = new AdminHomeFragment();
+                btnLogin.setEnabled(false);
 
-                FragmentTransaction transactionuno = getActivity().getSupportFragmentManager().beginTransaction();
+                //condicion de si existe el usuario le damos acceso sino no puede intrar a la aplicacion
+                if (metodosRoom.validarUsuariosAdmin(textuser.getText().toString(),textpassword.getText().toString())){
 
-                transactionuno.replace(R.id.contenedorAdmin,adminHome);
+                    progressBar.setVisibility(View.VISIBLE);
 
-                transactionuno.commit();
+                    new CountDownTimer(2000,1000){
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                            try {
+
+                                Thread.sleep(1000);
+
+                            }catch(InterruptedException e) {
+
+                                e.printStackTrace();
+                            }
+                        }
+
+                        public void onFinish(){
+                            progressBar.setVisibility(View.GONE);
+                        }
+
+                    }.start();
+
+                    Fragment adminHome = new AdminHomeFragment();
+
+                    FragmentTransaction transactionuno = getActivity().getSupportFragmentManager().beginTransaction();
+
+                    transactionuno.replace(R.id.contenedorAdmin,adminHome);
+
+                    transactionuno.commit();
+
+                    showMessage("Usuario Administrador aceptado");
+
+                }else{
+
+                    btnLogin.setEnabled(true);
+
+                    showMessage("Usted no es Administrador");
+
+                }
             }
 
         });
@@ -84,5 +146,12 @@ public class AdminLoginFragment extends Fragment implements AdminHomeFragment.On
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    //metodo atajo para el toast vista usuario
+    protected void showMessage(String message){
+
+        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
     }
 }

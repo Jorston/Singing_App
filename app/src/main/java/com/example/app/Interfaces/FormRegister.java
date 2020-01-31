@@ -103,6 +103,8 @@ public class FormRegister extends AppCompatActivity {
                         myDatabaseRoom.close();
                     }
                 }
+
+                metodosRoom.insertRol();
             }
         });
 

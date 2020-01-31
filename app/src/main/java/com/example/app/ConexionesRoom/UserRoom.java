@@ -27,6 +27,17 @@ public class UserRoom {
     @ColumnInfo (name = "repContrasenha" )
     private String repContrasenha;
 
+    @ColumnInfo (name = "rolUsuario")
+    private  int rolUsuario;
+
+    public int getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(int rolUsuario) {
+        this.rolUsuario = rolUsuario;
+    }
+
     public String getNombre() {
         return nombre;
     }
