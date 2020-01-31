@@ -4,55 +4,32 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import com.example.app.R;
 
-public class AdminLoginFragment extends Fragment implements AdminHomeFragment.OnFragmentInteractionListener{
-
-    Button btnLogin;
+public class AdminHomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public AdminLoginFragment() {
+    public AdminHomeFragment() {
         // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View vista = inflater.inflate(R.layout.fragment_admin_login, container, false);
-
-        btnLogin = vista.findViewById(R.id.btnLoginAdmin);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Fragment adminHome = new AdminHomeFragment();
-
-                FragmentTransaction transactionuno = getActivity().getSupportFragmentManager().beginTransaction();
-
-                transactionuno.replace(R.id.contenedorAdmin,adminHome);
-
-                transactionuno.commit();
-            }
-
-        });
-
+        View vista = inflater.inflate(R.layout.fragment_admin_home, container, false);
         return vista;
     }
 
+    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -74,11 +51,6 @@ public class AdminLoginFragment extends Fragment implements AdminHomeFragment.On
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 
     public interface OnFragmentInteractionListener {

@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import com.example.app.R;
 
-public class AdminLogin extends AppCompatActivity implements AdminLoginFragment.OnFragmentInteractionListener {
+public class AdminLogin extends AppCompatActivity implements AdminLoginFragment.OnFragmentInteractionListener,AdminHomeFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
