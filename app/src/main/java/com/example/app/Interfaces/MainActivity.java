@@ -3,6 +3,8 @@ package com.example.app.Interfaces;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (metodosRoom.validarUsuarios(textuser.getText().toString(),textpassword.getText().toString())){
 
                     progressBar.setVisibility(View.VISIBLE);
+
+                    progressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#369C6C"), PorterDuff.Mode.SRC_IN);
 
                     new CountDownTimer(2000,1000){
 
