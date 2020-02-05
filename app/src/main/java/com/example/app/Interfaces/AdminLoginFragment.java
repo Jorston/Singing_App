@@ -1,6 +1,8 @@
 package com.example.app.Interfaces;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -57,6 +59,8 @@ public class AdminLoginFragment extends Fragment implements AdminHomeFragment.On
         textpassword = vista.findViewById(R.id.textPasswordAdmin);
 
         progressBar = vista.findViewById(R.id.progressBar);
+
+        progressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#369C6C"), PorterDuff.Mode.SRC_IN);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
