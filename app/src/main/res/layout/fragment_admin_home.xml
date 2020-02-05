@@ -16,7 +16,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
                 android:gravity="center"
                 android:text="Insidencias"
                 android:textSize="30dp"
@@ -29,23 +28,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
-                    android:orientation="horizontal">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerMensajesFirebase"
+                                android:layout_width="match_parent"
+                                android:layout_height="250dp"
+                                android:layout_marginLeft="8dp"
 
+                                android:layout_marginRight="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="#fafafa" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerFichajes"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="95dp"
-                        android:background="#fafafa"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="65dp"/>
-                </LinearLayout>
             </LinearLayout>
 
 
@@ -54,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-            android:layout_marginTop="6dp">
+>
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"

@@ -34,7 +34,7 @@ public class AdaptadorFirebaseIncidencias extends RecyclerView.Adapter<Adaptador
     public void onBindViewHolder(@NonNull AdaptadorFirebaseIncidencias.ListaInsidenciasHolder holder, int position) {
         holder.tusuario.setText(listaMensajesFirebase.get(position).getNombre());
         holder.tmensaje.setText(listaMensajesFirebase.get(position).getMensaje());
-        holder.tfecha.setText(listaMensajesFirebase.get(position).getFecha());
+        holder.tfecha.setText(listaMensajesFirebase.get(position).getFecha().substring(0,10));
 
     }
 

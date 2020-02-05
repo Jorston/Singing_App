@@ -3,26 +3,30 @@ package com.example.app.Interfaces;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.app.ConexionMetodosFirebase.UserMensajeFirebase;
+import com.example.app.ModelosAdaptadores.AdaptadorFirebaseIncidencias;
 import com.example.app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
 
 public class AdminHomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    ArrayList<UserMensajeFirebase> listaMensajeFireba;
+
+    RecyclerView recyclerMensajesFirebase;
 
     DatabaseReference mRootReference;
 
@@ -42,32 +46,16 @@ public class AdminHomeFragment extends Fragment {
 
         mRootReference = FirebaseDatabase.getInstance().getReference();
 
+        recyclerMensajesFirebase = vista.findViewById(R.id.recyclerMensajesFirebase);
+
+        recyclerMensajesFirebase.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
         //lisener de los datos que estan en firebase
         mRootReference.child("Mensajes Insidencias").child("usuarios").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                String usuarios = "";
-                String mensajes = "";
-
-                for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    mRootReference.child("usuarios").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            UserMensajeFirebase userMensajeFirebase = snapshot.getValue(UserMensajeFirebase.class);
-                            String nombre = userMensajeFirebase.getNombre();
-                            Log.e("nombres",nombre);
-                            String mensaje = userMensajeFirebase.getMensaje();
-                            String fecha = userMensajeFirebase.getFecha();
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                  //  usuarios = usuarios+"nombre: "+nombre+
-                }
+                llenadoDatos(dataSnapshot);
 
             }
 
@@ -77,9 +65,41 @@ public class AdminHomeFragment extends Fragment {
             }
         });
 
-
-
         return vista;
+    }
+
+    private void llenadoDatos(@NonNull DataSnapshot dataSnapshot) {
+        listaMensajeFireba= new ArrayList<UserMensajeFirebase>();
+
+        for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+            mRootReference.child("usuarios").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    UserMensajeFirebase userMensajeFirebase = snapshot.getValue(UserMensajeFirebase.class);
+
+                    userMensajeFirebase.getNombre();
+
+                    userMensajeFirebase.getMensaje();
+
+                    userMensajeFirebase.getFecha();
+
+                    listaMensajeFireba.add(userMensajeFirebase);
+
+                    AdaptadorFirebaseIncidencias adaptadorFirebaseIncidencias = new AdaptadorFirebaseIncidencias(listaMensajeFireba);
+
+                    recyclerMensajesFirebase.setAdapter(adaptadorFirebaseIncidencias);
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
