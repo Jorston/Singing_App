@@ -4,12 +4,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import com.example.app.ConexionesRoom.FichajeRoom;
+import com.example.app.ConexionesRoom.MyDatabaseRoom;
+import com.example.app.ModelosAdaptadores.AdaptadorRoomFichaje;
 import com.example.app.R;
+import java.util.List;
 
 public class Segundo extends Fragment {
 
@@ -19,6 +25,11 @@ public class Segundo extends Fragment {
 
     private String recuperamos_variable_string;
 
+    RecyclerView recyclerFichajesRoom;
+
+    AdaptadorRoomFichaje adaptadorRoomFichaje;
+
+    public static MyDatabaseRoom myDatabaseRoom;
 
 
     public Segundo() {
@@ -33,14 +44,23 @@ public class Segundo extends Fragment {
 
         View vista = inflater.inflate(R.layout.fragment_segundo, container, false);
 
-        //recuperacion de dato enviado por activity Main
         recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
 
-        nombreUsuario = vista.findViewById(R.id.nombreUsuario);
+        recyclerFichajesRoom = vista.findViewById(R.id.recyclerFichajesRoom);
+
+        nombreUsuario = vista.findViewById(R.id.usuarioFichaje);
+
         nombreUsuario.setText(recuperamos_variable_string);
 
+        recyclerFichajesRoom.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
+        myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
+        List<FichajeRoom> listRoom = Segundo.myDatabaseRoom.utilidadesDaoFichajes().mostrarFichajes();
+
+        adaptadorRoomFichaje = new AdaptadorRoomFichaje(listRoom);
+
+        recyclerFichajesRoom.setAdapter(adaptadorRoomFichaje);
 
         return vista;
     }
