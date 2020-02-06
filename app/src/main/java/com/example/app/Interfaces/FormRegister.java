@@ -52,9 +52,6 @@ public class FormRegister extends AppCompatActivity {
 
         btnInsertRoom = findViewById(R.id.btnBDRoom);
 
-        //ponemos valor al contexto mediante del mismo Activity
-        escrituras.setContext(this);
-
         // boton FormRegister Registro ejecuta metodo validador y escritura de archivo
         buton.setOnClickListener(new View.OnClickListener() {
             @Override
