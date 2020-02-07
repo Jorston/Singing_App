@@ -118,9 +118,5 @@ public class MetodosRoom {
             FormRegister.myDatabaseRoom.utilidadesDao().update(usersNicks);
         }
     }
-
-    public void showFichajes(String usuario){
-        hola
-
-    }
+    
 }

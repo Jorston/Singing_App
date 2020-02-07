@@ -67,7 +67,7 @@ public class Cuarto extends Fragment {
 
 
 
-        List<FichajeRoom> listadoFichajesRoom = Cuarto.myDatabaseRoom.utilidadesDaoFichajes().mostrarFichajes();
+        List<FichajeRoom> listadoFichajesRoom = Cuarto.myDatabaseRoom.utilidadesDaoFichajes().mostrarTodosFichajes();
 
         String fichaje = "";
 
