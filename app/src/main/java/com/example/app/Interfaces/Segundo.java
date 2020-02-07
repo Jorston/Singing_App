@@ -56,7 +56,7 @@ public class Segundo extends Fragment {
 
         myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
-        List<FichajeRoom> listRoom = Segundo.myDatabaseRoom.utilidadesDaoFichajes().mostrarFichajes();
+        List<FichajeRoom> listRoom = Segundo.myDatabaseRoom.utilidadesDaoFichajes().mostrarFichajes(recuperamos_variable_string);
 
         adaptadorRoomFichaje = new AdaptadorRoomFichaje(listRoom);
 

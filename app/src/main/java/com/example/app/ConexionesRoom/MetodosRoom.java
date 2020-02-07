@@ -119,8 +119,4 @@ public class MetodosRoom {
         }
     }
 
-    public void showFichajes(String usuario){
-        hola
-
-    }
 }

@@ -11,7 +11,10 @@ public interface UtilidadesDaoFichajes {
     @Insert
     public  void agregarFichaje(FichajeRoom fichaje);
 
+    @Query("SELECT * FROM fichajesRoom where usuario ==:user")
+    public List<FichajeRoom> mostrarFichajes(String user);
+
     @Query("SELECT * FROM fichajesRoom")
-    public List<FichajeRoom> mostrarFichajes();
+    public List<FichajeRoom> mostrarTodosFichajes();
 
 }
