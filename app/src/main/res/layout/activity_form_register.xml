@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormRegister"
+    tools:context=".Interfaces.FormRegister"
     android:background="@color/mainBackGround"
     android:orientation="vertical">
 
@@ -152,14 +152,15 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="30dp"
                 android:text="Registrarse" />
+    
             <Button
-                android:id="@+id/btnBaseDatos"
+                android:id="@+id/btnBDRoom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="30dp"
-                android:text="INSERT" />
+                android:text="INSERT BD Room" />
 
         </LinearLayout>
     </ScrollView>
