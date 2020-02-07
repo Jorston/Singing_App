@@ -118,5 +118,5 @@ public class MetodosRoom {
             FormRegister.myDatabaseRoom.utilidadesDao().update(usersNicks);
         }
     }
-
+    
 }
