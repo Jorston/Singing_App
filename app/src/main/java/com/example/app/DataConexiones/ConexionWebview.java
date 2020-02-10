@@ -1,9 +1,7 @@
 package com.example.app.DataConexiones;
 
 import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -23,29 +21,42 @@ public class ConexionWebview {
     }
 
     public void downloadURL(String web){
-        HttpURLConnection con;
-        URL url;
-        String resultado;
-        resultado = "";
-        try{
-            url = new URL(web);
-            con = (HttpURLConnection) url.openConnection();
-            InputStream inputStream = con.getInputStream();
-            int data = inputStream.read();
-            while( data != -1){
-                resultado += (char) data;
-                data = inputStream.read();
 
+        HttpURLConnection con;
+
+        URL url;
+
+        String resultado;
+
+        resultado = "";
+
+        try{
+
+            url = new URL(web);
+
+            con = (HttpURLConnection) url.openConnection();
+
+            InputStream inputStream = con.getInputStream();
+
+            int data = inputStream.read();
+
+            while( data != -1){
+
+                resultado += (char) data;
+
+                data = inputStream.read();
             }
         } catch (MalformedURLException e) {
+
             e.printStackTrace();
+
         } catch (IOException e) {
+
             e.printStackTrace();
         }
 
         Log.i("RESULT", resultado);
-        System.out.println("RESULTADOOOOOOO DE DOWNLOAD");
+
         mWeb.postValue(resultado);
-        System.out.println("RESULTADOOOOOOO DE DOWNLOAD1111111111111111111111111");
     }
 }

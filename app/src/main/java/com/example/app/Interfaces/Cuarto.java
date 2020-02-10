@@ -18,8 +18,11 @@ import java.util.List;
 public class Cuarto extends Fragment {
 
     private String recuperamos_variable_string;
+
     private TextView usersRoom,fichajesRoom;
+
     private OnFragmentInteractionListener mListener;
+
     public static MyDatabaseRoom myDatabaseRoom;
 
 

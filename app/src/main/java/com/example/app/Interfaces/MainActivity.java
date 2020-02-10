@@ -5,6 +5,7 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.app.ConexionPSQL.ConexionPsql;
 import com.example.app.ConexionesRoom.MetodosRoom;
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
@@ -61,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
         myDatabaseRoom = Room.databaseBuilder(this,MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
+        //ejecucion de asynctask coneccion con posgresSQL
+        miHiloPsql hilo = new miHiloPsql();
+
+        hilo.execute();
 
     } //fin oncreate
     @Override
@@ -152,6 +159,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } //fin switch
 
         } //fin del onclick
+
+    /*public class miHilo extends AsyncTask<String,Void,String>{*/
+
+    ConexionPsql conexionPsql = new ConexionPsql();
+
+    public  class miHiloPsql extends AsyncTask<String,Void,String>{
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            conexionPsql.conectar();
+
+            System.out.println("DESPUEEEEES DEL METODOOOOOOOO DOINBACKGFRO");
+
+            return null;
+        }
+    }
+
 
     //metodo atajo para el toast vista usuario
     protected void showMessage(String message){
