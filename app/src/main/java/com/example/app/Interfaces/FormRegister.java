@@ -15,9 +15,6 @@ import com.example.app.DataConexiones.Escrituras;
 
 public class FormRegister extends AppCompatActivity {
 
-    //declaracion de variables globales e instancia de objeto Escritura y demas objetos
-    Escrituras escrituras = new Escrituras();
-
     Button buton,btnInsertRoom;
 
     TextView nombre,apellidos,correo,userNick,contrasenha,repContrasenha;
