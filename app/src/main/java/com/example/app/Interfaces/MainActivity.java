@@ -64,11 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
         myDatabaseRoom = Room.databaseBuilder(this,MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
-        //ejecucion de asynctask coneccion con posgresSQL
-        miHiloPsql hilo = new miHiloPsql();
-
-        hilo.execute();
-
     } //fin oncreate
     @Override
     public void onClick(View v) {
@@ -159,24 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } //fin switch
 
         } //fin del onclick
-
-    /*public class miHilo extends AsyncTask<String,Void,String>{*/
-
-    ConexionPsql conexionPsql = new ConexionPsql();
-
-    public  class miHiloPsql extends AsyncTask<String,Void,String>{
-
-        @Override
-        protected String doInBackground(String... strings) {
-
-            conexionPsql.conectar();
-
-            System.out.println("DESPUEEEEES DEL METODOOOOOOOO DOINBACKGFRO");
-
-            return null;
-        }
-    }
-
 
     //metodo atajo para el toast vista usuario
     protected void showMessage(String message){

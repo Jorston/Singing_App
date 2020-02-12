@@ -19,6 +19,9 @@ public class ConexionPsql {
 
             Statement statement = conect.createStatement();
 
+           /* statement.executeUpdate("insert into userspostsql(userNick,nombre,apellidos,correo,contrasenha,repcontrasenha,rolUsuario) \n" +
+                    "            values ('NickPruebaSerio2','jorgePruebaSerio','apellidoPruebaSerio','correoPruebaSerio@gma.com','1234','1234',0);");*/
+
             System.out.println("ENTRAMOS AL TRY");
 
         }catch (SQLException e) {
