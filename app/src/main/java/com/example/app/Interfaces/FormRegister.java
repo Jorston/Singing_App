@@ -3,10 +3,14 @@ package com.example.app.Interfaces;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.app.ConexionPSQL.ConexionPsql;
@@ -21,9 +25,11 @@ import java.sql.Statement;
 
 public class FormRegister extends AppCompatActivity {
 
-    Button buton,btnInsertRoom;
+    Button btnInsertRoom;
 
     TextView nombre,apellidos,correo,userNick,contrasenha,repContrasenha;
+
+    ProgressBar progressBar;
 
     public static MyDatabaseRoom myDatabaseRoom;
 
@@ -57,13 +63,39 @@ public class FormRegister extends AppCompatActivity {
 
         repContrasenha = findViewById(R.id.textRepContrasenha);
 
-        buton = findViewById(R.id.btnFormRegister);
+        progressBar = findViewById(R.id.progressBarForm);
 
         btnInsertRoom = findViewById(R.id.btnBDRoom);
 
         btnInsertRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //thread busqueda de usuario
+                progressBar.setVisibility(View.VISIBLE);
+
+                progressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#369C6C"), PorterDuff.Mode.SRC_IN);
+
+                new CountDownTimer(3000,1000){
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                        try {
+
+                            Thread.sleep(3000);
+
+                        }catch(InterruptedException e) {
+
+                            e.printStackTrace();
+                        }
+                    }
+
+                    public void onFinish(){
+                        progressBar.setVisibility(View.GONE);
+                    }
+
+                }.start();
 
                 //ejecucion de asynctask coneccion con posgresSQL
                 final miHiloPsql hilo = new miHiloPsql(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
@@ -189,7 +221,6 @@ public class FormRegister extends AppCompatActivity {
                         metodosRoom.insertarUserRoom(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
 
                         auxAceptedUser++;
-
                     }
                 }
 
