@@ -2,7 +2,10 @@ package com.example.app.Interfaces;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 import android.view.LayoutInflater;
@@ -11,10 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.app.ConexionPSQL.ConexionPsql;
 import com.example.app.ConexionesRoom.MetodosRoom;
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
-import com.example.app.DataConexiones.EscrituraFichaje;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,6 +37,9 @@ public class Primero extends Fragment {
     TextView textUsuario,textFecha;
 
     final Date date = new Date();
+
+    //declaramos variables para usarlas en el contexto
+    String recuperamos_variable_string,fechaComoCadena,horaComoCadena;
 
     public static MyDatabaseRoom myDatabaseRoom;
 
@@ -50,15 +59,6 @@ public class Primero extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-       //instaciamos objeto escritura para utilizar sus metodos
-        final EscrituraFichaje escritura = new EscrituraFichaje();
-
-        //declaramos variables para usarlas en el contexto
-        final String recuperamos_variable_string,fechaComoCadena,horaComoCadena;
-
-        //le damos valor al objeto escritura con el contexto activity
-        escritura.setContext(getActivity());
 
         //construccion de formateo de fecha
         final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -92,30 +92,21 @@ public class Primero extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //metodo validador que escibira el archivo si no existe
-                if (escritura.validadorFichero(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada")){
 
-                    escritura.lecturaFichajes();
+             //instacia de postgres
+             final hiloRegisterHoras hilos = new hiloRegisterHoras();
 
-                    showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
+             hilos.execute();
 
-                }else {
 
-                    escritura.escrituraFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada");
+            //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
+            myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
-                    escritura.lecturaFichajes();
+            metodosRoom.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada");
 
-                    showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
-                }
+            showMessage("fichaje Room introducido correctamente en la BD");
 
-                //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
-                myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
-
-                metodosRoom.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"entrada");
-
-                showMessage("fichaje Room introducido correctamente en la BD");
-
-                myDatabaseRoom.close();
+            myDatabaseRoom.close();
 
             }
         });
@@ -125,34 +116,69 @@ public class Primero extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //metodo validador que escibira el archivo si no existe
-                if (escritura.validadorFichero(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida")){
+            //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
+            myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
-                    escritura.lecturaFichajes();
+            metodosRoom.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida");
 
-                    showMessage("El archivo fichaje no existia fue creado tu fichaje fue "+fechaComoCadena+" "+ horaComoCadena);
+            showMessage("fichaje Room introducido correctamente en la BD");
 
-                }else {
-                    escritura.escrituraFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida");
-
-                    escritura.lecturaFichajes();
-
-                    showMessage("El archivo ya existia fue sobreescrito"+fechaComoCadena+" "+ horaComoCadena);
-                }
-
-                //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
-                myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
-
-                metodosRoom.insertarFichajes(recuperamos_variable_string,fechaComoCadena,horaComoCadena,"salida");
-
-                showMessage("fichaje Room introducido correctamente en la BD");
-
-                myDatabaseRoom.close();
+            myDatabaseRoom.close();
 
             }
         });
 
         return vista;
+    }
+
+    //clase multitarea
+    public class hiloRegisterHoras extends AsyncTask<String,Void,String> {
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected String doInBackground(String... strings) {
+
+            final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+            final java.util.Date fechaActual = new java.util.Date();
+
+            //conexion para PSQL Instanciamos objetos
+            ConexionPsql conexionPsql = new ConexionPsql();
+
+            Connection con = null;
+
+            Statement statement;
+
+            con = conexionPsql.conectar();
+
+            //si coneccion insertamos en PSQL
+            if (con != null) {
+                try{
+
+                    String inserFichajeTabla = "insert into fichajesPostSQL(diafichaje,horafichaje,tipofichaje,usuarioNick) values (?,?,?,?);";
+
+                    PreparedStatement insertFichaje;
+
+                    insertFichaje = con.prepareStatement(inserFichajeTabla);
+
+                    insertFichaje.setDate(1, new java.sql.Date(fechaActual.getTime()));
+
+                    insertFichaje.setDate(2, new java.sql.Date(fechaActual.getTime()));
+
+                    insertFichaje.setString(3,"entrada");
+
+                    insertFichaje.setString(4,recuperamos_variable_string);
+
+                } catch (Exception e) {
+
+                    System.out.println("error al insertar el marcaje en la tabla");
+
+                    e.printStackTrace();
+                }
+
+            }
+            return null;
+        }
     }
 
     //metodo atajo para el toast vista usuario

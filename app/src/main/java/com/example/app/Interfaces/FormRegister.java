@@ -20,6 +20,7 @@ import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -35,11 +36,13 @@ public class FormRegister extends AppCompatActivity {
 
     final MetodosRoom metodosRoom = new MetodosRoom();
 
-    int auxUserRoom = 0;
+    boolean auxUserRoom = false;
 
-    int auxContraseña = 0;
+    boolean auxContraseña = false;
 
-    int auxAceptedUser = 0;
+    boolean auxAceptedUser = false;
+
+    boolean userInterruptor = true;
 
     final MetodosUtilidadesRoom metodosUtilidadesRoom = new MetodosUtilidadesRoom();
 
@@ -71,19 +74,25 @@ public class FormRegister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //ejecucion de asynctask coneccion con posgresSQL
+                final miHiloPsql hilo = new miHiloPsql(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
+
+                //Ejecutamos el hilo de la coneccion
+                hilo.execute();
+
                 //thread busqueda de usuario
                 progressBar.setVisibility(View.VISIBLE);
 
                 progressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#369C6C"), PorterDuff.Mode.SRC_IN);
 
-                new CountDownTimer(3000,1000){
+                new CountDownTimer(100,100){
 
                     @Override
                     public void onTick(long millisUntilFinished) {
 
                         try {
 
-                            Thread.sleep(3000);
+                            Thread.sleep(50);
 
                         }catch(InterruptedException e) {
 
@@ -96,12 +105,6 @@ public class FormRegister extends AppCompatActivity {
                     }
 
                 }.start();
-
-                //ejecucion de asynctask coneccion con posgresSQL
-                final miHiloPsql hilo = new miHiloPsql(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
-
-                //Ejecutamos el hilo de la coneccion
-                hilo.execute();
 
             }//fin de onclick
 
@@ -152,14 +155,6 @@ public class FormRegister extends AppCompatActivity {
 
             Statement statement;
 
-            PreparedStatement preparedStatement;
-
-            //insercion a PSQL en Asyntask
-            String insertUser = "insert into userspostsql(userNick,nombre,apellidos,correo,contrasenha,repcontrasenha,rolUsuario) values (?,?,?,?,?,?,?);";
-
-            //instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
-            myDatabaseRoom = Room.databaseBuilder(getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
-
             con = conexionPsql.conectar();
 
             //si coneccion insertamos en PSQL
@@ -167,28 +162,88 @@ public class FormRegister extends AppCompatActivity {
 
                 try {
 
-                    //statement = con.createStatement();
+                    PreparedStatement preparedStatement;
 
-                    preparedStatement = con.prepareStatement(insertUser);
+                    PreparedStatement contraNovalida;
+
+                    PreparedStatement userValidado;
+
+                    //insercion a PSQL en Asyntask
+                    String verifUser = "SELECT * FROM userspostsql WHERE (usernick = ?)";
+
+                    String contraNoiguales = "SELECT * FROM userspostsql WHERE (contrasenha = ?)";
+
+                    String insertUser = "insert into userspostsql(userNick,nombre,apellidos,correo,contrasenha,repcontrasenha,rolUsuario) values (?,?,?,?,?,?,?);";
+
+                    //statement validar contraseñas iguales
+                    contraNovalida = con.prepareStatement(contraNoiguales);
+
+                    contraNovalida.setString(1,repContrasenha.getText().toString());
+
+                    ResultSet contraValidator = contraNovalida.executeQuery();
+
+                    //statement validar el usuario ya existente
+                    preparedStatement = con.prepareStatement(verifUser);
 
                     preparedStatement.setString(1, userNick.getText().toString());
 
-                    preparedStatement.setString(2, nombre.getText().toString());
+                    ResultSet resultSet = preparedStatement.executeQuery();
 
-                    preparedStatement.setString(3, apellidos.getText().toString());
+                    if (contraValidator.next()==false){
 
-                    preparedStatement.setString(4, correo.getText().toString());
+                        System.out.println("ENTRAMOS AL IF DE CONTRASEÑA");
 
-                    preparedStatement.setString(5, contrasenha.getText().toString());
+                        auxContraseña = true;
 
-                    preparedStatement.setString(6, repContrasenha.getText().toString());
+                        userInterruptor = false;
 
-                    preparedStatement.setInt(7, 0);
+                        auxUserRoom = false;
 
-                    preparedStatement.executeUpdate();
 
-                    //ResultSet resultSet = preparedStatement.executeU();
+                    }else {
+                        System.out.println("ENTRAMOS AL ELSE DE CONTRASEÑA");
 
+                        userInterruptor = true;
+
+                        auxContraseña = false;
+                    }
+
+                    if (userInterruptor){
+
+                        if(resultSet.next() == false){
+
+                            userValidado = con.prepareStatement(insertUser);
+
+                            userValidado.setString(1,userNick.getText().toString());
+
+                            userValidado.setString(2, nombre.getText().toString());
+
+                            userValidado.setString(3, apellidos.getText().toString());
+
+                            userValidado.setString(4, correo.getText().toString());
+
+                            userValidado.setString(5, contrasenha.getText().toString());
+
+                            userValidado.setString(6, repContrasenha.getText().toString());
+
+                            userValidado.setInt(7, 0);
+
+                            userValidado.executeUpdate();
+
+                            System.out.println("ENTRAMOS AL IF DE USER");
+
+                            auxAceptedUser = true;
+
+
+                        }else {
+                            auxUserRoom = true;
+
+                            auxContraseña = false;
+
+                            System.out.println("ENTRAMOS AL ELSE DE USER");
+                        }
+
+                    }
 
                 } catch (SQLException e) {
 
@@ -206,21 +261,29 @@ public class FormRegister extends AppCompatActivity {
 
             }else{//Insertamos en Room si no hay coneccion
 
+                //instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
+                myDatabaseRoom = Room.databaseBuilder(getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
+
                 if (metodosRoom.verificarFormulario(userNick.getText().toString())){
 
-                    auxUserRoom++;
+                    auxUserRoom = true;
+
+                    System.out.println("CONTADOR DE NICK "+auxUserRoom);
 
                 }else {
 
                     if (!(metodosUtilidadesRoom.validacionContrasenha(contrasenha.getText().toString(),repContrasenha.getText().toString()))){
 
-                        auxContraseña++;
+                        auxContraseña = true;
+
+                        System.out.println("CONTADOR DE CONTASEÑA"+auxContraseña);
 
                     }else {
 
                         metodosRoom.insertarUserRoom(nombre.getText().toString(), apellidos.getText().toString(), correo.getText().toString(), userNick.getText().toString(), contrasenha.getText().toString(), repContrasenha.getText().toString());
 
-                        auxAceptedUser++;
+                        auxAceptedUser = true;
                     }
                 }
 
@@ -238,19 +301,19 @@ public class FormRegister extends AppCompatActivity {
 
             super.onPostExecute(s);
 
-            if (auxUserRoom > 0){
+            if (auxUserRoom){
 
                 showMessage("el usuario ya existe");
 
                 userNick.setText("");
             }
-            if (auxContraseña > 0){
+            if (auxContraseña){
 
                 showMessage("las contraseñas no coinciden");
 
                 repContrasenha.setText("");
             }
-            if (auxAceptedUser > 0){
+            if (auxAceptedUser){
 
                 showMessage("usuario registrado");
 

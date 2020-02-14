@@ -16,6 +16,7 @@ public class ConexionPsql {
             Class.forName("org.postgresql.Driver");
 
             conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
+            //conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
 
             Statement statement = conect.createStatement();
 
