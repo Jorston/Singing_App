@@ -32,11 +32,7 @@ public class Primero extends Fragment {
 
     View vista;
 
-    MainActivity mainActivity;
-
     TextView textUsuario,textFecha;
-
-    final Date date = new Date();
 
     //declaramos variables para usarlas en el contexto
     String recuperamos_variable_string,fechaComoCadena,horaComoCadena;
@@ -54,7 +50,6 @@ public class Primero extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // mainActivity = new MainActivity();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -94,7 +89,7 @@ public class Primero extends Fragment {
 
 
              //instacia de postgres
-             final hiloRegisterHoras hilos = new hiloRegisterHoras();
+             final hiloRegisterHoras hilos = new hiloRegisterHoras(fechaComoCadena,horaComoCadena,"entrada",recuperamos_variable_string);
 
              hilos.execute();
 
@@ -116,6 +111,11 @@ public class Primero extends Fragment {
             @Override
             public void onClick(View v) {
 
+            //instacia de postgres
+            final hiloRegisterHoras hilos = new hiloRegisterHoras( fechaComoCadena,horaComoCadena,"salida",recuperamos_variable_string);
+
+            hilos.execute();
+
             //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
             myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
@@ -134,20 +134,31 @@ public class Primero extends Fragment {
     //clase multitarea
     public class hiloRegisterHoras extends AsyncTask<String,Void,String> {
 
-        @RequiresApi(api = Build.VERSION_CODES.O)
+        private final String fechaActual;
+
+        private final String horaActual;
+
+        private final String tipoFichajeActual;
+
+        private final String usuarioActual;
+
+        public hiloRegisterHoras(String fechaActual, String horaActual, String tipoFichajeActual, String usuarioActual) {
+
+            this.fechaActual = fechaActual;
+
+            this.horaActual = horaActual;
+
+            this.tipoFichajeActual = tipoFichajeActual;
+
+            this.usuarioActual = usuarioActual;
+        }
+
         @Override
         protected String doInBackground(String... strings) {
-
-            final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-
-            final java.util.Date fechaActual = new java.util.Date();
-
             //conexion para PSQL Instanciamos objetos
             ConexionPsql conexionPsql = new ConexionPsql();
 
             Connection con = null;
-
-            Statement statement;
 
             con = conexionPsql.conectar();
 
@@ -161,13 +172,15 @@ public class Primero extends Fragment {
 
                     insertFichaje = con.prepareStatement(inserFichajeTabla);
 
-                    insertFichaje.setDate(1, new java.sql.Date(fechaActual.getTime()));
+                    insertFichaje.setString(1, fechaActual);
 
-                    insertFichaje.setDate(2, new java.sql.Date(fechaActual.getTime()));
+                    insertFichaje.setString(2, horaActual);
 
-                    insertFichaje.setString(3,"entrada");
+                    insertFichaje.setString(3,tipoFichajeActual);
 
                     insertFichaje.setString(4,recuperamos_variable_string);
+
+                    insertFichaje.executeUpdate();
 
                 } catch (Exception e) {
 
@@ -175,6 +188,8 @@ public class Primero extends Fragment {
 
                     e.printStackTrace();
                 }
+
+            }else{
 
             }
             return null;
