@@ -3,7 +3,6 @@ package com.example.app.ConexionPSQL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class ConexionPsql {
 
@@ -15,31 +14,17 @@ public class ConexionPsql {
 
             Class.forName("org.postgresql.Driver");
 
-<<<<<<< HEAD
             conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
-            //conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
-            //conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
-            //conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
-=======
-<<<<<<< HEAD
-            conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
-            //conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
-=======
-            //conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
-            conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
->>>>>>> ConexionRoom
-
-            Statement statement = conect.createStatement();
+            //conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.85:5432/postgres","postgres","admin@123");
 
            /* statement.executeUpdate("insert into userspostsql(userNick,nombre,apellidos,correo,contrasenha,repcontrasenha,rolUsuario) \n" +
                     "            values ('NickPruebaSerio2','jorgePruebaSerio','apellidoPruebaSerio','correoPruebaSerio@gma.com','1234','1234',0);");*/
->>>>>>> ConexionRoom
 
             System.out.println("ENTRAMOS AL TRY");
 
         }catch (SQLException e) {
 
-            System.out.println("ERROR UNO AL CONECTARO CON BD");
+            System.out.println("ERROR UNO AL CONECTARO CON BD\n"+e);
 
         }catch (ClassNotFoundException e) {
 

@@ -3,9 +3,7 @@ package com.example.app.Interfaces;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 import android.view.LayoutInflater;
@@ -20,7 +18,6 @@ import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -190,6 +187,8 @@ public class Primero extends Fragment {
                 }
 
             }else{
+
+
 
             }
             return null;

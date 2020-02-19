@@ -38,11 +38,9 @@ public class FormRegister extends AppCompatActivity {
 
     boolean auxUserRoom = false;
 
-    boolean auxContraseña = false;
-
     boolean auxAceptedUser = false;
 
-    boolean userInterruptor = true;
+    boolean auxContraseña = false;
 
     final MetodosUtilidadesRoom metodosUtilidadesRoom = new MetodosUtilidadesRoom();
 
@@ -189,32 +187,11 @@ public class FormRegister extends AppCompatActivity {
 
                     ResultSet resultSet = preparedStatement.executeQuery();
 
-                    if (contraValidator.next()==false){
-
-                        System.out.println("ENTRAMOS AL IF DE CONTRASEÑA");
-
-                        auxContraseña = true;
-
-                        userInterruptor = false;
-
-                        auxUserRoom = false;
-
-
-                    }else {
-                        System.out.println("ENTRAMOS AL ELSE DE CONTRASEÑA");
-
-                        userInterruptor = true;
-
-                        auxContraseña = false;
-                    }
-
-                    if (userInterruptor){
-
-                        if(resultSet.next() == false){
+                    if (resultSet.next() == false) {
 
                             userValidado = con.prepareStatement(insertUser);
 
-                            userValidado.setString(1,userNick.getText().toString());
+                            userValidado.setString(1, userNick.getText().toString());
 
                             userValidado.setString(2, nombre.getText().toString());
 
@@ -230,20 +207,20 @@ public class FormRegister extends AppCompatActivity {
 
                             userValidado.executeUpdate();
 
-                            System.out.println("ENTRAMOS AL IF DE USER");
-
                             auxAceptedUser = true;
 
+                            auxUserRoom = false;
 
-                        }else {
-                            auxUserRoom = true;
+                            System.out.println("ENTRAMOS AL IF DE USER");
 
-                            auxContraseña = false;
 
-                            System.out.println("ENTRAMOS AL ELSE DE USER");
-                        }
+                    } else {
 
+                        auxUserRoom = true;
+
+                        System.out.println("ENTRAMOS AL ELSE DE USER");
                     }
+
 
                 } catch (SQLException e) {
 
@@ -307,12 +284,7 @@ public class FormRegister extends AppCompatActivity {
 
                 userNick.setText("");
             }
-            if (auxContraseña){
 
-                showMessage("las contraseñas no coinciden");
-
-                repContrasenha.setText("");
-            }
             if (auxAceptedUser){
 
                 showMessage("usuario registrado");
