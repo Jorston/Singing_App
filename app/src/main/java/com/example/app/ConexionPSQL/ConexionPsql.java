@@ -15,10 +15,25 @@ public class ConexionPsql {
 
             Class.forName("org.postgresql.Driver");
 
+<<<<<<< HEAD
             conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
             //conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
             //conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
             //conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
+=======
+<<<<<<< HEAD
+            conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
+            //conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
+=======
+            //conect = DriverManager.getConnection("jdbc:postgresql://192.168.0.22:5432/evelyn","evelyn","berezin");
+            conect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/","postgres","admin@123");
+>>>>>>> ConexionRoom
+
+            Statement statement = conect.createStatement();
+
+           /* statement.executeUpdate("insert into userspostsql(userNick,nombre,apellidos,correo,contrasenha,repcontrasenha,rolUsuario) \n" +
+                    "            values ('NickPruebaSerio2','jorgePruebaSerio','apellidoPruebaSerio','correoPruebaSerio@gma.com','1234','1234',0);");*/
+>>>>>>> ConexionRoom
 
             System.out.println("ENTRAMOS AL TRY");
 
