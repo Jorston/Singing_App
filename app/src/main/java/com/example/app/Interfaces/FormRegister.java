@@ -3,6 +3,7 @@ package com.example.app.Interfaces;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
@@ -24,9 +25,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class FormRegister extends AppCompatActivity {
+public class FormRegister extends AppCompatActivity{
 
-    Button btnInsertRoom;
+    Button btnInsertRoom,botonEliminar,botonActualizar;
 
     TextView nombre,apellidos,correo,userNick,contrasenha,repContrasenha;
 
@@ -67,6 +68,26 @@ public class FormRegister extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBarForm);
 
         btnInsertRoom = findViewById(R.id.btnBDRoom);
+
+        botonEliminar = findViewById(R.id.btnEliminar);
+
+        botonEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+
+                Intent intent = new Intent(getApplicationContext(), DeleteUpdate.class);
+
+                //envio de texto con el valor del usuario
+                //bundle.putString("usuario",textuser.getText().toString());
+
+                intent.putExtras(bundle);
+
+                startActivity(intent);
+
+                finish();
+            }
+        });
 
         btnInsertRoom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +131,7 @@ public class FormRegister extends AppCompatActivity {
 
     }//fin oncreate
 
-   //classe multitarea
+    //classe multitarea
     public class miHiloPsql extends AsyncTask<String,Void,String> {
 
         private final String nombrea;
