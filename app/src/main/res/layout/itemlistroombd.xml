@@ -8,22 +8,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="25dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/border_rectangulo">
 
         <TextView
-            android:id="@+id/fechaEntrada"
+            android:id="@+id/fechaEntradaRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="200dp"
             android:textSize="15dp"
             android:text="20-01-01"/>
         <TextView
-            android:id="@+id/horaEntrada"
+            android:id="@+id/horaEntradaRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="200dp"
@@ -31,7 +31,7 @@
             android:text="00:00:00"
             android:layout_marginRight="20dp"/>
         <TextView
-            android:id="@+id/tipoHorario"
+            android:id="@+id/tipoHorarioRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingRight="200dp"
