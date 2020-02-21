@@ -43,7 +43,7 @@
                     android:gravity="center">
 
                     <EditText
-                        android:id="@+id/textnick"
+                        android:id="@+id/textnickDelete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -54,7 +54,7 @@
             </TableLayout>
 
             <Button
-                android:id="@+id/Delete"
+                android:id="@+id/botonDelete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
