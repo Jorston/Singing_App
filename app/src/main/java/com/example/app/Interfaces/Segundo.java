@@ -4,51 +4,65 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.TextView;
+import com.example.app.ConexionesRoom.FichajeRoom;
+import com.example.app.ConexionesRoom.MyDatabaseRoom;
+import com.example.app.ModelosAdaptadores.AdaptadorRoomFichaje;
 import com.example.app.R;
+import java.util.List;
 
 public class Segundo extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private TextView nombreUsuario;
+
+    private String recuperamos_variable_string;
+
+    RecyclerView recyclerFichajesRoom;
+
+    AdaptadorRoomFichaje adaptadorRoomFichaje;
+
+    public static MyDatabaseRoom myDatabaseRoom;
+
 
     public Segundo() {
         // Required empty public constructor
     }
 
-    public static Segundo newInstance(String param1, String param2) {
-        Segundo fragment = new Segundo();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_segundo, container, false);
+
+        View vista = inflater.inflate(R.layout.fragment_segundo, container, false);
+
+        recuperamos_variable_string = getActivity().getIntent().getStringExtra("usuario");
+
+        recyclerFichajesRoom = vista.findViewById(R.id.recyclerFichajesRoom);
+
+        nombreUsuario = vista.findViewById(R.id.usuarioFichaje);
+
+        nombreUsuario.setText(recuperamos_variable_string);
+
+        recyclerFichajesRoom.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
+        myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
+        List<FichajeRoom> listRoom = Segundo.myDatabaseRoom.utilidadesDaoFichajes().mostrarFichajes(recuperamos_variable_string);
+
+        adaptadorRoomFichaje = new AdaptadorRoomFichaje(listRoom);
+
+        recyclerFichajesRoom.setAdapter(adaptadorRoomFichaje);
+
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
