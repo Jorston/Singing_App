@@ -1,17 +1,34 @@
 package com.example.app.Interfaces;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.example.app.ConexionPSQL.ConexionPsql;
 import com.example.app.R;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DeUpdate extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    Button botonUpdate;
+
+    TextView nombreUpdateAntiguo,nombreUpdateNuevo;
+
+    View vista;
+
+    boolean interruptor;
 
     public DeUpdate() {
         // Required empty public constructor
@@ -35,14 +52,102 @@ public class DeUpdate extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_de_update, container, false);
+        vista = inflater.inflate(R.layout.fragment_de_update, container, false);
+
+        botonUpdate = vista.findViewById(R.id.btnActualizarCambio);
+
+        nombreUpdateAntiguo = vista.findViewById(R.id.textUpdatenombreAnt);
+
+        nombreUpdateNuevo = vista.findViewById(R.id.textUpdatenombreNuevo);
+
+        botonUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //instacia de postgres
+                final hiloUpdatenombre updatenicks= new hiloUpdatenombre(nombreUpdateNuevo.getText().toString(),nombreUpdateAntiguo.getText().toString());
+
+                updatenicks.execute();
+
+            }
+        });
+
+        return vista;
+    }
+
+    //clase multitarea
+    public class hiloUpdatenombre extends AsyncTask<String,Void,String> {
+
+        private final String nombreAntiguo;
+
+        private final String nombreNuevo;
+
+        public hiloUpdatenombre(String nombreAntiguo, String nombreNuevo) {
+
+            this.nombreAntiguo = nombreAntiguo;
+
+            this.nombreNuevo = nombreNuevo;
+        }
+
+        @SuppressLint("WrongThread")
+        @Override
+        protected String doInBackground(String... strings) {
+
+            //conexion para PSQL Instanciamos objetos
+            ConexionPsql conexionPsql = new ConexionPsql();
+
+            Connection con = null;
+
+            con = conexionPsql.conectar();
+
+            //si coneccion insertamos en PSQL
+            if (con != null){
+
+                try {
+
+                    //primer valor es el nuevo que entrada en la tabla
+                    String updateUsername = "UPDATE userspostsql set usernick = ? where usernick = ? ;";
+
+                    PreparedStatement prepaupdateUsername;
+
+                    prepaupdateUsername = con.prepareStatement(updateUsername);
+
+                    prepaupdateUsername.setString(1, nombreUpdateNuevo.getText().toString());
+
+                    prepaupdateUsername.setString(2, nombreUpdateAntiguo.getText().toString());
+
+                    prepaupdateUsername.executeUpdate();
+
+                    interruptor = true;
+
+                } catch (SQLException e) {
+
+                    e.printStackTrace();
+                }
+
+            }else{
+
+            }
+
+            return null;
+        }
+
+        protected void onPostExecute(String s) {
+
+            super.onPostExecute(s);
+
+            if (interruptor){
+                showMessage("nick actualizado");
+            }
+
+        }
     }
 
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    //metodo atajo para el toast vista usuario
+    protected void showMessage(String message){
+
+        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
     }
 
     @Override
