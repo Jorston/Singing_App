@@ -1,5 +1,6 @@
 package com.example.app.ConexionesRoom;
 
+import com.example.app.Interfaces.Delete;
 import com.example.app.Interfaces.FormRegister;
 import com.example.app.Interfaces.MainActivity;
 import com.example.app.Interfaces.Primero;
@@ -117,6 +118,14 @@ public class MetodosRoom {
 
             FormRegister.myDatabaseRoom.utilidadesDao().update(usersNicks);
         }
+    }
+
+    public void eliminarUser(String usuario){
+
+        UserRoom usuarioEliminar = new UserRoom();
+        usuarioEliminar.setUserNick(usuario);
+
+        Delete.myDatabaseRoom.utilidadesDao().deleteUser(usuarioEliminar);
     }
     
 }

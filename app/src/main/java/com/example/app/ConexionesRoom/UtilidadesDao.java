@@ -1,6 +1,7 @@
 package com.example.app.ConexionesRoom;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -17,6 +18,9 @@ public interface UtilidadesDao {
 
     @Query ("SELECT * FROM usersRoom")
     public List<UserRoom> mostrarUsuarios();
+
+    @Delete
+    public void deleteUser(UserRoom usuario);
 
 
 }

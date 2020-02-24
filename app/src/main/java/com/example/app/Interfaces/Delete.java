@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.app.ConexionPSQL.ConexionPsql;
+import com.example.app.ConexionesRoom.MetodosRoom;
+import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 
 public class Delete extends Fragment {
 
@@ -30,6 +32,10 @@ public class Delete extends Fragment {
     View vista;
 
     boolean interruptor;
+
+    public static MyDatabaseRoom myDatabaseRoom;
+
+    final MetodosRoom metodosRoom = new MetodosRoom();
 
     public Delete() {
         // Required empty public constructor
@@ -69,8 +75,6 @@ public class Delete extends Fragment {
                 hiloEliminacion.execute();
             }
         });
-
-
 
         return vista;
     }
@@ -118,7 +122,13 @@ public class Delete extends Fragment {
                     e.printStackTrace();
                 }
             }else{
-                
+
+                //instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
+                myDatabaseRoom = Room.databaseBuilder(getContext(), MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
+                metodosRoom.eliminarUser(nickEliminar.getText().toString());
+
+                interruptor = true;
             }
 
             return null;
