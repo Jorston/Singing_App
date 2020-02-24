@@ -1,5 +1,6 @@
 package com.example.app.ConexionesRoom;
 
+import com.example.app.Interfaces.DeUpdate;
 import com.example.app.Interfaces.Delete;
 import com.example.app.Interfaces.FormRegister;
 import com.example.app.Interfaces.MainActivity;
@@ -123,9 +124,32 @@ public class MetodosRoom {
     public void eliminarUser(String usuario){
 
         UserRoom usuarioEliminar = new UserRoom();
+
         usuarioEliminar.setUserNick(usuario);
 
         Delete.myDatabaseRoom.utilidadesDao().deleteUser(usuarioEliminar);
     }
-    
+
+    public void actualizarUserNick(String usuarioAntiguo,String usuarioNuevo ){
+
+        List<UserRoom> listaActualizable= DeUpdate.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+
+        for (UserRoom nickUpdate : listaActualizable){
+
+            if (nickUpdate.getUserNick().equals(usuarioAntiguo)){
+
+                System.out.println("EN EL IF SI SON VERDA "+nickUpdate.getUserNick()+" "+usuarioAntiguo);
+
+                nickUpdate.setUserNick(usuarioNuevo);
+
+                System.out.println("VALOR DEL NUEVO NICK "+usuarioNuevo);
+
+                DeUpdate.myDatabaseRoom.utilidadesDao().actualizarNick(nickUpdate);
+
+                System.out.println("LA MATRIS ES "+nickUpdate.getUserNick());
+            }
+            System.out.println("LA CAMBIASO ES "+nickUpdate.getUserNick());
+
+        }
+    }
 }

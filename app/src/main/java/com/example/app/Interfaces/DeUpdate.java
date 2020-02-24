@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.app.ConexionPSQL.ConexionPsql;
+import com.example.app.ConexionesRoom.MetodosRoom;
+import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.R;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +32,10 @@ public class DeUpdate extends Fragment {
     View vista;
 
     boolean interruptor;
+
+    public static MyDatabaseRoom myDatabaseRoom;
+
+    final MetodosRoom metodosRoom = new MetodosRoom();
 
     public DeUpdate() {
         // Required empty public constructor
@@ -127,6 +134,17 @@ public class DeUpdate extends Fragment {
 
             }else{
 
+                //instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
+                myDatabaseRoom = Room.databaseBuilder(getContext().getApplicationContext(), MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
+                metodosRoom.actualizarUserNick(nombreUpdateAntiguo.getText().toString(),nombreUpdateNuevo.getText().toString());
+
+                System.out.println("VALOR DE ANT "+nombreUpdateAntiguo.getText().toString()+"OTRO NOMBRE "+ nombreUpdateNuevo.getText().toString());
+
+                myDatabaseRoom.close();
+
+                interruptor = true;
+
             }
 
             return null;
@@ -142,7 +160,6 @@ public class DeUpdate extends Fragment {
 
         }
     }
-
 
     //metodo atajo para el toast vista usuario
     protected void showMessage(String message){

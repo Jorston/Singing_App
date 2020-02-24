@@ -128,6 +128,8 @@ public class Delete extends Fragment {
 
                 metodosRoom.eliminarUser(nickEliminar.getText().toString());
 
+                myDatabaseRoom.close();
+
                 interruptor = true;
             }
 

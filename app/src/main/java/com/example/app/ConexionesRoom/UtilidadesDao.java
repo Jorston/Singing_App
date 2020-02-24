@@ -22,5 +22,7 @@ public interface UtilidadesDao {
     @Delete
     public void deleteUser(UserRoom usuario);
 
+    @Update
+    public void actualizarNick( UserRoom user);
 
 }
