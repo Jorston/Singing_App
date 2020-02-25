@@ -121,6 +121,7 @@ public class MetodosRoom {
         }
     }
 
+    //eliminar usuario
     public void eliminarUser(String usuario){
 
         UserRoom usuarioEliminar = new UserRoom();
@@ -130,7 +131,8 @@ public class MetodosRoom {
         Delete.myDatabaseRoom.utilidadesDao().deleteUser(usuarioEliminar);
     }
 
-    public void actualizarUserNick(String usuarioAntiguo,String usuarioNuevo ){
+    //actualizar nombre mediante el nick
+    public void updateUserNick(String usuarioAntiguo,String usuarioNuevo ){
 
         List<UserRoom> listaActualizable= DeUpdate.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
 
@@ -138,18 +140,10 @@ public class MetodosRoom {
 
             if (nickUpdate.getUserNick().equals(usuarioAntiguo)){
 
-                System.out.println("EN EL IF SI SON VERDA "+nickUpdate.getUserNick()+" "+usuarioAntiguo);
-
-                nickUpdate.setUserNick(usuarioNuevo);
-
-                System.out.println("VALOR DEL NUEVO NICK "+usuarioNuevo);
-
-                DeUpdate.myDatabaseRoom.utilidadesDao().actualizarNick(nickUpdate);
-
-                System.out.println("LA MATRIS ES "+nickUpdate.getUserNick());
+                nickUpdate.setNombre(usuarioNuevo);
             }
-            System.out.println("LA CAMBIASO ES "+nickUpdate.getUserNick());
 
+            DeUpdate.myDatabaseRoom.utilidadesDao().actualizarNick(nickUpdate);
         }
     }
 }

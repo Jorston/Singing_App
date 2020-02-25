@@ -135,11 +135,9 @@ public class DeUpdate extends Fragment {
             }else{
 
                 //instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
-                myDatabaseRoom = Room.databaseBuilder(getContext().getApplicationContext(), MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+                myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(), MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
 
-                metodosRoom.actualizarUserNick(nombreUpdateAntiguo.getText().toString(),nombreUpdateNuevo.getText().toString());
-
-                System.out.println("VALOR DE ANT "+nombreUpdateAntiguo.getText().toString()+"OTRO NOMBRE "+ nombreUpdateNuevo.getText().toString());
+                metodosRoom.updateUserNick(nombreUpdateAntiguo.getText().toString(),nombreUpdateNuevo.getText().toString());
 
                 myDatabaseRoom.close();
 

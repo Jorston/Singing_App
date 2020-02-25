@@ -143,6 +143,8 @@ public class Delete extends Fragment {
             if (interruptor){
 
                 showMessage("Usuario eliminado");
+                
+                nickEliminar.setText("");
 
             }else{
 
