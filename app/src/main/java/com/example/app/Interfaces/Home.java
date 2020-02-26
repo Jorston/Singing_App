@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import com.example.app.R;
 
-public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener {
+public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener,TerceroA.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener {
 
     Button boton1,boton2,boton3,boton4,boton5;
 
@@ -95,11 +95,15 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
             case R.id.btn3:
                 cambioColor("boton3");
 
-                Fragment tercero = new Tercero();
+                //Fragment tercero = new Tercero();
+
+                Fragment terceroA = new TerceroA();
 
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
 
-                transactiontres.replace(R.id.contenedor_general,tercero);
+                //transactiontres.replace(R.id.contenedor_general,tercero);
+
+                transactiontres.replace(R.id.contenedor_general,terceroA);
 
                 transactiontres.commit();
 
