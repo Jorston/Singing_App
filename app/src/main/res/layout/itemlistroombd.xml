@@ -39,5 +39,12 @@
             android:textColor="#2E54ED"
             android:textStyle="bold"
             android:text="------------"/>
+
+        <Button
+            android:id="@+id/btnDetalles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_style"
+            android:text="Detalles" />
     </LinearLayout>
 </LinearLayout>
