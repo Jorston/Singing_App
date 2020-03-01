@@ -17,9 +17,17 @@ public class DeleteUpdate extends AppCompatActivity implements Delete.OnFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Fragment delete = new Delete();
+
+        FragmentTransaction transactionDelete = getSupportFragmentManager().beginTransaction();
+
+        transactionDelete.replace(R.id.contenedor_delete_update,delete);
+
+        transactionDelete.commit();
+
         setContentView(R.layout.activity_delete_update);
 
-        botonActualizar = findViewById(R.id.btnActualizar);
+        botonActualizar = findViewById(R.id.btnActualizarFragment);
 
         botonEliminar = findViewById(R.id.btnEliminarinFragment);
 
@@ -50,7 +58,6 @@ public class DeleteUpdate extends AppCompatActivity implements Delete.OnFragment
 
             }
         });
-
 
     }
 

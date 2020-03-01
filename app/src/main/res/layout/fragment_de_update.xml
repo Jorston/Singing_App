@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Interfaces.FormRegister"
+    tools:context=".Interfaces.DeleteUpdate"
     android:background="@color/mainBackGround"
     android:orientation="vertical">
 
@@ -12,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="#f5f5f5"
         android:orientation="vertical">
@@ -32,9 +31,7 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            >
+            android:layout_height="wrap_content">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -43,18 +40,34 @@
                 android:gravity="center">
 
                 <EditText
-                    android:id="@+id/textnick"
+                    android:id="@+id/textUpdatenombreAnt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="nickUser Update"
+                    android:hint="nombre actual"
+                    android:inputType="textPersonName" />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:gravity="center">
+                <EditText
+                    android:id="@+id/textUpdatenombreNuevo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="nombre nuevo"
                     android:inputType="textPersonName" />
             </TableRow>
+
         </TableLayout>
 
         <Button
-            android:id="@+id/Actualizar"
+            android:id="@+id/btnActualizarCambio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
