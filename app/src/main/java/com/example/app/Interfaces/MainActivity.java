@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -131,6 +132,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tAdmin:
 
                 Intent admin = new Intent(getApplicationContext(), AdminLogin.class);
+
+                MediaPlayer media = MediaPlayer.create(this, R.raw.silbido_whatsapp);
+
+                media.start();
 
                 startActivity(admin);
 
