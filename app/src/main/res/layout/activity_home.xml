@@ -76,6 +76,14 @@
                 android:paddingTop="12dp"
                 android:layout_weight="1"
                 android:background="#f5f5f5"/>
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/settings"
+                android:paddingTop="12dp"
+                android:layout_weight="1"
+                android:background="#f5f5f5"/>
 
         </LinearLayout>
     </FrameLayout>

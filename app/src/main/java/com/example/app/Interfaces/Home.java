@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import com.example.app.R;
 
-public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener,TerceroA.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener {
+public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener,TerceroA.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener, Sexto.OnFragmentInteractionListener {
 
-    Button boton1,boton2,boton3,boton4,boton5;
+    Button boton1,boton2,boton3,boton4,boton5,boton6;
 
     String recuperamos_variable_string;
 
@@ -44,6 +44,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
         boton5 = findViewById(R.id.btn5);
 
+        boton6 = findViewById(R.id.btn6);
+
         boton1.setOnClickListener(this);
 
         boton2.setOnClickListener(this);
@@ -53,6 +55,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
         boton4.setOnClickListener(this);
 
         boton5.setOnClickListener(this);
+
+        boton6.setOnClickListener(this);
 
         boton1.setBackgroundColor(Color.parseColor("#cfcfcf"));
     }
@@ -134,6 +138,19 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 transactioncinco.commit();
 
                 break;
+
+            case R.id.btn6:
+                cambioColor("boton6");
+
+                Fragment sexto = new Sexto();
+
+                FragmentTransaction transactionsexto = getSupportFragmentManager().beginTransaction();
+
+                transactionsexto.replace(R.id.contenedor_general,sexto);
+
+                transactionsexto.commit();
+
+                break;
         }
     }
 
@@ -146,6 +163,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 boton2.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton4.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton5.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton6.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 break;
 
             case"boton2":
@@ -154,6 +172,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 boton3.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton4.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton5.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton6.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 break;
 
             case"boton3":
@@ -162,6 +181,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 boton3.setBackgroundColor(Color.parseColor("#cfcfcf"));
                 boton4.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton5.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton6.setBackgroundColor(Color.parseColor("#f5f5f5"));
 
                 break;
 
@@ -171,6 +191,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 boton3.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton4.setBackgroundColor(Color.parseColor("#cfcfcf"));
                 boton5.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton6.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 break;
 
             case"boton5":
@@ -179,6 +200,16 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 boton3.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton4.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton5.setBackgroundColor(Color.parseColor("#cfcfcf"));
+                boton6.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                break;
+
+            case"boton6":
+                boton1.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton2.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton3.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton4.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton5.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                boton6.setBackgroundColor(Color.parseColor("#cfcfcf"));
                 break;
         }
     }
