@@ -113,6 +113,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }.start();
 
+                MediaPlayer media = MediaPlayer.create(this, R.raw.sheran);
+
+                media.isLooping();
+
+                media.start();
+
                 break;
 
             //FORMREGISTER
@@ -136,10 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tAdmin:
 
                 Intent admin = new Intent(getApplicationContext(), AdminLogin.class);
-
-                MediaPlayer media = MediaPlayer.create(this, R.raw.silbido_whatsapp);
-
-                media.start();
 
                 startActivity(admin);
 
@@ -251,7 +253,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
             }
-
 
             return null;
         }
