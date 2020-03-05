@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -27,7 +28,7 @@ import java.sql.Statement;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     // declaracion variables globales e instancia objeto escritura
-    TextView textuser, textpassword,tBotonAdmin;
+    TextView textuser, textpassword,tBotonAdmin,tBotonVideo;
 
     Button button, botonRegistrate,botonGoogle;
 
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         tBotonAdmin = findViewById(R.id.tAdmin);
 
+        tBotonVideo = findViewById(R.id.tVideo);
+
         progressBar = findViewById(R.id.progressBar);
 
         button = findViewById(R.id.btnLogin);
@@ -68,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonGoogle.setOnClickListener(this);
 
         tBotonAdmin.setOnClickListener(this);
+
+        tBotonVideo.setOnClickListener(this);
 
         //metodo para insertar en BD con Room instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
         myDatabaseRoom = Room.databaseBuilder(this,MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
@@ -108,6 +113,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }.start();
 
+                MediaPlayer media = MediaPlayer.create(this, R.raw.sheran);
+
+                media.isLooping();
+
+                media.start();
+
                 break;
 
             //FORMREGISTER
@@ -135,6 +146,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(admin);
 
                 break;
+            //VIDEOACTIVITY
+            case R.id.tVideo:
+
+                Intent videoActivity = new Intent(getApplicationContext(), VideoActivity.class);
+
+                startActivity(videoActivity);
 
             } //fin switch
 
@@ -236,7 +253,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
             }
-
 
             return null;
         }
