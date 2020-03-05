@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Interfaces.AdminLoginFragment">
+    tools:context=".Interfaces.AdminHomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                 android:id="@+id/MensajeSend"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:inputType="text|textMultiLine"
                 android:background="#fff"
                 android:hint="Mensaje ..."
@@ -91,7 +91,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="40dp"
-                    android:layout_marginTop="20dp"
                     android:layout_marginRight="40dp"
                     android:background="@drawable/background"
                     android:text="Responder" />
