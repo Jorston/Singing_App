@@ -15,6 +15,18 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="217dp">
+            <TextView
+                android:id="@+id/tVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="Promocion"
+                android:textSize="15sp"
+                android:textColor="#000"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView"
