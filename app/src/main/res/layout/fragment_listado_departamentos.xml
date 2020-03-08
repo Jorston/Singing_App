@@ -31,14 +31,26 @@ tools:context=".Interfaces.ListadoDepartamentos">
         android:layout_marginBottom="80dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerMensajesFirebase"
+            android:id="@+id/recyclerDepartEmple"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
 
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:background="#fafafa" />
+
+        <TextView
+            android:id="@+id/textdepart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:text="valor aqui"
+            android:background="#fcfcfc"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="40dp"/>
 
     </LinearLayout>
 

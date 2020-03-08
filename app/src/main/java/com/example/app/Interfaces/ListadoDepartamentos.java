@@ -4,15 +4,31 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.app.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+//import com.google.firebase.firestore.DocumentSnapshot;
+//import com.google.firebase.firestore.EventListener;
+//import com.google.firebase.firestore.FirebaseFirestore;
+//import com.google.firebase.firestore.FirebaseFirestoreException;
+
+//import javax.annotation.Nullable;
 
 public class ListadoDepartamentos extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    RecyclerView recyclerDepartEmpleados;
+
+    //FirebaseFirestore mFirestore;
+
+    TextView textodep;
 
     public ListadoDepartamentos() {
         // Required empty public constructor
@@ -38,6 +54,28 @@ public class ListadoDepartamentos extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_listado_departamentos, container, false);
+
+        textodep = vista.findViewById(R.id.textdepart);
+
+        //mFirestore = FirebaseFirestore.getInstance();
+
+        recyclerDepartEmpleados = vista.findViewById(R.id.recyclerDepartEmple);
+
+        recyclerDepartEmpleados.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
+        /*mFirestore.collection("Empresa") .document("idEmpresa").addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if (documentSnapshot.exists()){
+                    String nombre = documentSnapshot.getString("nombre");
+                    String apellido = documentSnapshot.getString("apellido");
+
+                    System.out.println(" NOMBRE "+nombre+" APELLIDO "+apellido);
+                }
+
+            }
+        });*/
+
         return vista;
     }
 
