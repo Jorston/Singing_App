@@ -106,7 +106,7 @@ public class Sexto extends Fragment {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    
+
                     Log.d("ERROR","ERROR AL SUBIR FOTO");
                 }
             });
