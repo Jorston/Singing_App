@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Interfaces.FragmentPerfilUser">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="@color/mainBackGround"
+       android:orientation="vertical">
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="20dp"
+           android:layout_marginRight="20dp"
+           android:layout_marginBottom="70dp"
+           android:background="#cfcfcf">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_margin="8dp"
+               android:background="#f5f5f5"
+               android:orientation="vertical">
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_marginBottom="30dp"
+                   android:gravity="center"
+                   android:paddingTop="10dp"
+                   android:textSize="30dp"
+                   android:text="Mi perfil"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:id="@+id/textView5"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:paddingBottom="10dp"
+                   android:layout_marginLeft="20dp"
+                   android:textStyle="bold"
+                   android:textSize="25dp"
+                   android:text="Mis datos" />
+
+               <TableLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:paddingBottom="50dp">
+
+                   <TableRow
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginBottom="15dp"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/textV"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="6dp"
+                           android:paddingBottom="6dp"
+                           android:gravity="center"
+                           android:textStyle="bold"
+                           android:textSize="20dp"
+                           android:text="nombre user" />
+                   </TableRow>
+
+                   <TableRow
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_gravity="center"
+                       android:layout_marginBottom="15dp"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/tdererextV"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="6dp"
+                           android:paddingBottom="6dp"
+                           android:gravity="center"
+                           android:textStyle="bold"
+                           android:textSize="20dp"
+                           android:text="apellidos" />
+                   </TableRow>
+
+                   <TableRow
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginBottom="15dp"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/tderdsddderextV"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="6dp"
+                           android:paddingBottom="6dp"
+                           android:gravity="center"
+                           android:textSize="20dp"
+                           android:textStyle="bold"
+                           android:text="userNick" />
+                   </TableRow>
+                   <TableRow
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginBottom="15dp"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/tdereeererrextV"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="6dp"
+                           android:paddingBottom="6dp"
+                           android:gravity="center"
+                           android:textSize="20dp"
+                           android:textStyle="bold"
+                           android:text="correo" />
+                   </TableRow>
+
+                   <TableRow
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginBottom="15dp"
+                       android:gravity="center">
+
+                       <ImageView
+                           android:id="@+id/imageActualizar"
+                           android:layout_width="match_parent"
+                           android:layout_height="300dp"
+                           android:src="@drawable/image"/>
+                   </TableRow>
+
+
+               </TableLayout>
+
+
+           </LinearLayout>
+       </ScrollView>
+
+   </LinearLayout>
+
+</FrameLayout>
+
