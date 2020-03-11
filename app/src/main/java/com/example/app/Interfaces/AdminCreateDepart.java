@@ -61,11 +61,6 @@ public class AdminCreateDepart extends Fragment {
                 crearDepartamento();
             }
         });
-
-
-
-
-
         return vista;
     }
 
@@ -73,10 +68,6 @@ public class AdminCreateDepart extends Fragment {
 
         String parte = textoDepartamento.getText().toString();
 
-        Map<String, Object> datosDepart = new HashMap<>();
-
-       datosDepart.put("nombre","hola mundo");
-
-        mRootReference.child("Departamentoooos").child(parte).push().setValue(datosDepart);
+        mRootReference.child("DepartamentosReal").child(parte).setValue("");
     }
 }
