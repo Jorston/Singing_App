@@ -57,7 +57,7 @@
                        android:gravity="center">
 
                        <TextView
-                           android:id="@+id/textV"
+                           android:id="@+id/nombreRecup"
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:paddingTop="6dp"
@@ -76,7 +76,7 @@
                        android:gravity="center">
 
                        <TextView
-                           android:id="@+id/tdererextV"
+                           android:id="@+id/apellidosRecup"
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:paddingTop="6dp"
@@ -94,7 +94,7 @@
                        android:gravity="center">
 
                        <TextView
-                           android:id="@+id/tderdsddderextV"
+                           android:id="@+id/usernickRecup"
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:paddingTop="6dp"
@@ -111,7 +111,7 @@
                        android:gravity="center">
 
                        <TextView
-                           android:id="@+id/tdereeererrextV"
+                           android:id="@+id/correoRecup"
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:paddingTop="6dp"
@@ -129,7 +129,7 @@
                        android:gravity="center">
 
                        <ImageView
-                           android:id="@+id/imageActualizar"
+                           android:id="@+id/imagenRecup"
                            android:layout_width="match_parent"
                            android:layout_height="300dp"
                            android:src="@drawable/image"/>

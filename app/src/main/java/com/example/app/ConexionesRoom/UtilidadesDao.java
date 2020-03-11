@@ -25,4 +25,7 @@ public interface UtilidadesDao {
     @Update
     public void actualizarNick( UserRoom user);
 
+    @Query("SELECT * FROM usersRoom WHERE userNick=:usuario")
+    public List<UserRoom> selectUsuario(String usuario);
+
 }
