@@ -92,25 +92,32 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                             android:inputType="textPersonName" />
                     </TableRow>
 
-
-
-
-
                 </TableLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerDepartFirebase"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#fafafa" />
+
                 <ImageButton
                     android:id="@+id/btnSubirImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:paddingRight="40dp"
-                    android:paddingLeft="40dp"
-                    android:layout_gravity="center"
                     android:layout_marginBottom="16dp"
-                    android:src="@drawable/archive"/>
+                    android:paddingLeft="40dp"
+                    android:paddingTop="30dp"
+                    android:paddingRight="40dp"
+                    android:paddingBottom="30dp"
+                    android:src="@drawable/archive" />
+
                 <Button
                     android:id="@+id/btndepartfirebase"
                     android:layout_width="match_parent"

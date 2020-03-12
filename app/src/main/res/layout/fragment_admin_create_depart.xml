@@ -28,13 +28,14 @@ tools:context=".Interfaces.AdminCreateDepart">
         android:layout_marginBottom="80dp">
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="20dp"
             android:background="#cfcfcf">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="40dp"
                 android:layout_margin="8dp"
                 android:background="#f5f5f5"
                 android:orientation="vertical">
@@ -42,12 +43,12 @@ tools:context=".Interfaces.AdminCreateDepart">
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="210dp">
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="15dp"
+
                         android:gravity="center">
 
                         <EditText
@@ -66,78 +67,8 @@ tools:context=".Interfaces.AdminCreateDepart">
                         android:layout_marginBottom="15dp"
                         android:gravity="center">
 
-                        <EditText
-                            android:id="@+id/textapellido"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:gravity="center"
-                            android:hint="apellidos"
-                            android:inputType="textPersonName" />
                     </TableRow>
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center">
-
-                        <EditText
-                            android:id="@+id/userNick"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:gravity="center"
-                            android:hint="user"
-                            android:inputType="textPersonName" />
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center">
-
-                        <EditText
-                            android:id="@+id/userCorreo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:gravity="center"
-                            android:hint="micorreo@internt.com"
-                            android:inputType="textEmailAddress" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center">
-
-                        <EditText
-                            android:id="@+id/textcontrasenha"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:gravity="center"
-                            android:hint="contraseña"
-                            android:inputType="textPassword" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="50dp"
-                        android:gravity="center">
-
-                        <EditText
-                            android:id="@+id/textRepContrasenha"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:gravity="center"
-                            android:hint="confirmar contraseña"
-                            android:inputType="textPassword" />
-                    </TableRow>
                 </TableLayout>
                 <Button
                     android:id="@+id/btndepartfirebase"
@@ -145,6 +76,7 @@ tools:context=".Interfaces.AdminCreateDepart">
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
+                    android:layout_marginTop="150dp"
                     android:layout_marginBottom="30dp"
                     android:text="GUARDAR" />
             </LinearLayout>

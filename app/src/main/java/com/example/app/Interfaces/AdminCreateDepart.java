@@ -7,14 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.app.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class AdminCreateDepart extends Fragment {
 
@@ -61,13 +56,14 @@ public class AdminCreateDepart extends Fragment {
                 crearDepartamento();
             }
         });
+
         return vista;
     }
 
     private void crearDepartamento() {
 
-        String parte = textoDepartamento.getText().toString();
+        String departamentocreacion = textoDepartamento.getText().toString();
 
-        mRootReference.child("DepartamentosReal").child(parte).setValue("");
+        mRootReference.child("DepartamentosReal").child(departamentocreacion).setValue("");
     }
 }
