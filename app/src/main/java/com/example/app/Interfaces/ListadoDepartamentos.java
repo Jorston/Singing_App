@@ -3,22 +3,22 @@ package com.example.app.Interfaces;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
+import com.example.app.ModelosAdaptadores.AdaptadorFirebaseDepart;
+import com.example.app.ModelosAdaptadores.AdaptadorListadoDepFirebase;
 import com.example.app.R;
-import com.google.android.gms.tasks.OnSuccessListener;
-//import com.google.firebase.firestore.DocumentSnapshot;
-//import com.google.firebase.firestore.EventListener;
-//import com.google.firebase.firestore.FirebaseFirestore;
-//import com.google.firebase.firestore.FirebaseFirestoreException;
-
-//import javax.annotation.Nullable;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
 
 public class ListadoDepartamentos extends Fragment {
 
@@ -26,9 +26,9 @@ public class ListadoDepartamentos extends Fragment {
 
     RecyclerView recyclerDepartEmpleados;
 
-    //FirebaseFirestore mFirestore;
+    DatabaseReference mRootReference;
 
-    TextView textodep;
+    String contenedor;
 
     public ListadoDepartamentos() {
         // Required empty public constructor
@@ -55,28 +55,61 @@ public class ListadoDepartamentos extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_listado_departamentos, container, false);
 
-        textodep = vista.findViewById(R.id.textdepart);
-
-        //mFirestore = FirebaseFirestore.getInstance();
+        mRootReference = FirebaseDatabase.getInstance().getReference();
 
         recyclerDepartEmpleados = vista.findViewById(R.id.recyclerDepartEmple);
 
         recyclerDepartEmpleados.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
-        /*mFirestore.collection("Empresa") .document("idEmpresa").addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        mRootReference.child("DepartamentosReal").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                if (documentSnapshot.exists()){
-                    String nombre = documentSnapshot.getString("nombre");
-                    String apellido = documentSnapshot.getString("apellido");
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    System.out.println(" NOMBRE "+nombre+" APELLIDO "+apellido);
-                }
+                llenadoDatos(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });*/
+        });
 
         return vista;
+    }
+
+    private void llenadoDatos(DataSnapshot dataSnapshot) {
+
+        final AdaptadorFirebaseDepart.EventListener eventListener;
+
+        eventListener = new AdaptadorFirebaseDepart.EventListener() {
+            @Override
+            public void onEventName(String nombre) {
+               // valorDepart.setText(nombre);
+            }
+        };
+
+        final ArrayList listado = new ArrayList<String>();
+
+        for (final  DataSnapshot snapshot : dataSnapshot.getChildren()){
+            mRootReference.child("DepartamentosReal").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    contenedor = String.valueOf(dataSnapshot.getKey());
+
+                    listado.add(contenedor);
+
+                    AdaptadorListadoDepFirebase adaptadorFirebaseDepart = new AdaptadorListadoDepFirebase(listado,eventListener);
+
+                    recyclerDepartEmpleados.setAdapter(adaptadorFirebaseDepart);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

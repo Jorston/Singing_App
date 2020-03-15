@@ -102,13 +102,13 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
                 cambioColor("boton3");
 
-                Fragment segundo = new ListadoDepartamentos();
+                Fragment terceroAdmin = new FragmentCreateEmpleFirebase();
 
-                FragmentTransaction transactiondos = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transactiontresAmin = getSupportFragmentManager().beginTransaction();
 
-                transactiondos.replace(R.id.contenedor_general,segundo);
+                transactiontresAmin.replace(R.id.contenedor_general,terceroAdmin);
 
-                transactiondos.commit();
+                transactiontresAmin.commit();
 
                 break;
 
@@ -116,13 +116,13 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
                 cambioColor("boton4");
 
-                Fragment cuarto = new FragmentCreateEmpleFirebase();
+                Fragment cuartoAdmin = new ListadoDepartamentos();
 
-                FragmentTransaction transactioncuatro = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transactioncuatroAdmin = getSupportFragmentManager().beginTransaction();
 
-                transactioncuatro.replace(R.id.contenedor_general,cuarto);
+                transactioncuatroAdmin.replace(R.id.contenedor_general,cuartoAdmin);
 
-                transactioncuatro.commit();
+                transactioncuatroAdmin.commit();
 
                 break;
 
