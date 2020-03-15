@@ -13,8 +13,7 @@
         android:background="@drawable/border_rectangulo"
         android:orientation="vertical"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:textAlignment="center">
+        android:paddingBottom="20dp">
 
         <TableLayout
             android:layout_width="match_parent"

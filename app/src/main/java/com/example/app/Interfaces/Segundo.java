@@ -2,6 +2,7 @@ package com.example.app.Interfaces;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -63,6 +64,15 @@ public class Segundo extends Fragment {
         recyclerFichajesRoom.setAdapter(adaptadorRoomFichaje);
 
         return vista;
+    }
+
+    //clase multitarea
+    public class hiloListadoUsers extends AsyncTask<String,Void,String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return null;
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

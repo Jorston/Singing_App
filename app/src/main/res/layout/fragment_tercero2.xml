@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/mainBackGround"
+tools:context=".Interfaces.TerceroA">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="USUARIOS BD PSQL"
+    android:textSize="20dp"
+    android:textColor="#f5f5f5"
+    android:layout_marginTop="30dp"
+    android:textStyle="bold"
+    android:textAlignment="center"/>
+<TextView
+    android:id="@+id/usuarioFichaje"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="usuarios"
+    android:textSize="20dp"
+    android:textColor="#f5f5f5"
+    android:layout_marginTop="60dp"
+    android:layout_marginBottom="40dp"
+    android:textStyle="bold"
+    android:textAlignment="center"/>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerUsers"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="95dp"
+    android:background="#fafafa"
+    android:layout_marginBottom="65dp"/>
+
+
+</FrameLayout>

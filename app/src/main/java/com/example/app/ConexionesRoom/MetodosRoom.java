@@ -1,5 +1,7 @@
 package com.example.app.ConexionesRoom;
 
+import com.example.app.Interfaces.DeUpdate;
+import com.example.app.Interfaces.Delete;
 import com.example.app.Interfaces.FormRegister;
 import com.example.app.Interfaces.MainActivity;
 import com.example.app.Interfaces.Primero;
@@ -118,5 +120,30 @@ public class MetodosRoom {
             FormRegister.myDatabaseRoom.utilidadesDao().update(usersNicks);
         }
     }
-    
+
+    //eliminar usuario
+    public void eliminarUser(String usuario){
+
+        UserRoom usuarioEliminar = new UserRoom();
+
+        usuarioEliminar.setUserNick(usuario);
+
+        Delete.myDatabaseRoom.utilidadesDao().deleteUser(usuarioEliminar);
+    }
+
+    //actualizar nombre mediante el nick
+    public void updateUserNick(String usuarioAntiguo,String usuarioNuevo ){
+
+        List<UserRoom> listaActualizable= DeUpdate.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+
+        for (UserRoom nickUpdate : listaActualizable){
+
+            if (nickUpdate.getUserNick().equals(usuarioAntiguo)){
+
+                nickUpdate.setNombre(usuarioNuevo);
+            }
+
+            DeUpdate.myDatabaseRoom.utilidadesDao().actualizarNick(nickUpdate);
+        }
+    }
 }
