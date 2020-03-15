@@ -44,7 +44,7 @@ tools:context=".Interfaces.Sexto">
                 android:gravity="center"
                 android:orientation="horizontal">
                 <ImageButton
-                    android:id="@+id/downloadImageButton"
+                    android:id="@+id/btnSubirImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -57,7 +57,7 @@ tools:context=".Interfaces.Sexto">
                     android:layout_marginBottom="16dp"
                     android:src="@drawable/archive"/>
                 <ImageButton
-                    android:id="@+id/downloadImageton"
+                    android:id="@+id/btnSettingImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -80,7 +80,7 @@ tools:context=".Interfaces.Sexto">
             android:layout_gravity="center">
             <Button
                 android:layout_marginTop="10dp"
-                android:id="@+id/btnEnviarMensaje"
+                android:id="@+id/btnGuardarImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
