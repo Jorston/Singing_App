@@ -1,6 +1,6 @@
 package com.example.app.ConexionesRoom;
 
-import com.example.app.Interfaces.AdminLoginFragment;
+import com.example.app.Interfaces.AdminLogin;
 import java.util.List;
 
 public class MetodosRoomAdmin {
@@ -12,7 +12,7 @@ public class MetodosRoomAdmin {
 
         boolean cambio = false;
 
-        List<UserRoom> listaUsuarios= AdminLoginFragment.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
+        List<UserRoom> listaUsuarios= AdminLogin.myDatabaseRoom.utilidadesDao().mostrarUsuarios();
 
         for (UserRoom users : listaUsuarios){
 

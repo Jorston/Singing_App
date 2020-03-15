@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import com.example.app.R;
 
-public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener,TerceroA.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener, Sexto.OnFragmentInteractionListener{
+public class AdminHome extends AppCompatActivity implements View.OnClickListener, AdminHomeFragment.OnFragmentInteractionListener,ListadoDepartamentos.OnFragmentInteractionListener {
 
     Button boton1,boton2,boton3,boton4,boton5,boton6;
 
@@ -22,7 +22,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_admin_home);
 
         recuperamos_variable_string = getIntent().getStringExtra("usuario");
 
@@ -34,17 +34,17 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
         intent.putExtras(bundle);
 
-        boton1 = findViewById(R.id.btn1);
+        boton1 = findViewById(R.id.btn1admin);
 
-        boton2 = findViewById(R.id.btn2);
+        boton2 = findViewById(R.id.btn2admin);
 
-        boton3 = findViewById(R.id.btn3);
+        boton3 = findViewById(R.id.btn3admin);
 
-        boton4 = findViewById(R.id.btn4);
+        boton4 = findViewById(R.id.btn4admin);
 
-        boton5 = findViewById(R.id.btn5);
+        boton5 = findViewById(R.id.btn5admin);
 
-        boton6 = findViewById(R.id.btn6);
+        boton6 = findViewById(R.id.btn6admin);
 
         boton1.setOnClickListener(this);
 
@@ -69,11 +69,12 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn1:
+
+            case R.id.btn1admin:
 
                 cambioColor("boton1");
 
-                Fragment primero = new Primero();
+                Fragment primero = new AdminHomeFragment();
 
                 FragmentTransaction transactionuno = getSupportFragmentManager().beginTransaction();
 
@@ -83,52 +84,50 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
                 break;
 
-            case R.id.btn2:
+            case R.id.btn2admin:
+
                 cambioColor("boton2");
 
-                Fragment segundo = new Segundo();
-
-                FragmentTransaction transactiondos = getSupportFragmentManager().beginTransaction();
-
-                transactiondos.replace(R.id.contenedor_general,segundo);
-
-                transactiondos.commit();
-
-                break;
-
-            case R.id.btn3:
-                cambioColor("boton3");
-
-                //Fragment tercero = new Tercero();
-
-                Fragment terceroA = new TerceroA();
+                Fragment tercero = new AdminCreateDepart();
 
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
 
-                //transactiontres.replace(R.id.contenedor_general,tercero);
-
-                transactiontres.replace(R.id.contenedor_general,terceroA);
+                transactiontres.replace(R.id.contenedor_general,tercero);
 
                 transactiontres.commit();
 
                 break;
 
-            case R.id.btn4:
-                cambioColor("boton4");
+            case R.id.btn3admin:
 
-                //Fragment cuarto = new Cuarto();
+                cambioColor("boton3");
 
-                Fragment cuarto = new FragmentPerfilUser();
+                Fragment terceroAdmin = new FragmentCreateEmpleFirebase();
 
-                FragmentTransaction transactioncuatro = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transactiontresAmin = getSupportFragmentManager().beginTransaction();
 
-                transactioncuatro.replace(R.id.contenedor_general,cuarto);
+                transactiontresAmin.replace(R.id.contenedor_general,terceroAdmin);
 
-                transactioncuatro.commit();
+                transactiontresAmin.commit();
 
                 break;
 
-            case R.id.btn5:
+            case R.id.btn4admin:
+
+                cambioColor("boton4");
+
+                Fragment cuartoAdmin = new ListadoDepartamentos();
+
+                FragmentTransaction transactioncuatroAdmin = getSupportFragmentManager().beginTransaction();
+
+                transactioncuatroAdmin.replace(R.id.contenedor_general,cuartoAdmin);
+
+                transactioncuatroAdmin.commit();
+
+                break;
+
+            case R.id.btn5admin:
+
                 cambioColor("boton5");
 
                 Fragment quinto = new Quinto();
@@ -141,7 +140,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
                 break;
 
-            case R.id.btn6:
+            case R.id.btn6admin:
+
                 cambioColor("boton6");
 
                 Fragment sexto = new Sexto();
@@ -155,7 +155,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 break;
         }
     }
-
     public void cambioColor(String cambio){
 
         switch (cambio){
@@ -213,6 +212,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 boton5.setBackgroundColor(Color.parseColor("#f5f5f5"));
                 boton6.setBackgroundColor(Color.parseColor("#cfcfcf"));
                 break;
-        }
+            }
     }
 }
