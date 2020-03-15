@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.example.app.ModelosAdaptadores.AdaptadorFirebaseDepart;
 import com.example.app.R;
 import com.google.firebase.database.DataSnapshot;
@@ -17,13 +18,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
-public class FragmentCreateEmpleFirebase extends Fragment {
+public class FragmentCreateEmpleFirebase extends Fragment{
 
     private AdminHomeFragment.OnFragmentInteractionListener mListener;
 
     RecyclerView recyclerDepartFirebase;
 
     DatabaseReference mRootReference;
+
+    TextView valorDepart;
+
+    String contenedor;
 
     public FragmentCreateEmpleFirebase() {
         // Required empty public constructor
@@ -49,6 +54,8 @@ public class FragmentCreateEmpleFirebase extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_create_emple_firebase, container, false);
 
+        valorDepart = vista.findViewById(R.id.txtValorDepartSelect);
+
         mRootReference = FirebaseDatabase.getInstance().getReference();
 
         recyclerDepartFirebase = vista.findViewById(R.id.recyclerDepartFirebase);
@@ -73,17 +80,26 @@ public class FragmentCreateEmpleFirebase extends Fragment {
 
     private void llenadoDatos(@NonNull DataSnapshot dataSnapshot) {
 
+        final AdaptadorFirebaseDepart.EventListener eventListener;
+
+        eventListener = new AdaptadorFirebaseDepart.EventListener() {
+            @Override
+            public void onEventName(String nombre) {
+                valorDepart.setText(nombre);
+            }
+        };
+
         final ArrayList listado = new ArrayList<String>();
 
         for (final  DataSnapshot snapshot : dataSnapshot.getChildren()){
             mRootReference.child("DepartamentosReal").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String contenedor = String.valueOf(dataSnapshot.getKey());
+                    contenedor = String.valueOf(dataSnapshot.getKey());
 
                     listado.add(contenedor);
 
-                    AdaptadorFirebaseDepart adaptadorFirebaseDepart = new AdaptadorFirebaseDepart(listado);
+                    AdaptadorFirebaseDepart adaptadorFirebaseDepart = new AdaptadorFirebaseDepart(listado,eventListener);
 
                     recyclerDepartFirebase.setAdapter(adaptadorFirebaseDepart);
                 }
@@ -96,4 +112,5 @@ public class FragmentCreateEmpleFirebase extends Fragment {
 
         }
     }
+
 }

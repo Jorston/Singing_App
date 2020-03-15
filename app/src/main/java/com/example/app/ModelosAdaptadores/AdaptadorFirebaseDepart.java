@@ -14,8 +14,9 @@ public class AdaptadorFirebaseDepart extends RecyclerView.Adapter<AdaptadorFireb
     //variables globales
     ArrayList<String> listaDepartFirebase;
 
-    public AdaptadorFirebaseDepart(ArrayList<String> listaDepartFirebase) {
+    public AdaptadorFirebaseDepart(ArrayList<String> listaDepartFirebase, EventListener eventListener) {
         this.listaDepartFirebase = listaDepartFirebase;
+        this.eventListener = eventListener;
     }
 
     @NonNull
@@ -29,12 +30,15 @@ public class AdaptadorFirebaseDepart extends RecyclerView.Adapter<AdaptadorFireb
     public void onBindViewHolder(@NonNull AdaptadorFirebaseDepart.ListaDepartHolder holder, int position) {
 
         holder.departamentText.setText(listaDepartFirebase.get(position));
+
+        holder.setOnClickListeners();
+
     }
 
     @Override
     public int getItemCount() {return listaDepartFirebase.size(); }
 
-    public class ListaDepartHolder extends RecyclerView.ViewHolder {
+    public class ListaDepartHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView departamentText;
 
@@ -43,7 +47,28 @@ public class AdaptadorFirebaseDepart extends RecyclerView.Adapter<AdaptadorFireb
             super(itemView);
 
             departamentText = (TextView) itemView.findViewById(R.id.textdepartamentRecycler);
+        }
 
+        void setOnClickListeners() {departamentText.setOnClickListener(this);}
+
+        @Override
+        public void onClick(View v) {
+
+            switch (v.getId()){
+
+                case R.id.textdepartamentRecycler:
+                    eventListener.onEventName(listaDepartFirebase.get(getAdapterPosition()));
+                    break;
+
+            }
         }
     }
+
+    private EventListener eventListener;
+
+    public interface EventListener {
+        void onEventName(String nombre);
+    }
+
+
 }
