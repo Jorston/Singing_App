@@ -184,6 +184,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
             @Override
             public void onEventName(String nombre) {
                 valorDepart.setText(nombre);
+                showMessage(valorDepart.getText().toString());
             }
         };
 
@@ -225,6 +226,14 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         empleado.put("imagen","ruta-ejemplo.jpg");
 
         mRootReference.child("DepartamentosReal").child(valorTexto).push().setValue(empleado);
+
+        valorDepart.setText("");
+
+        FireNombre.setText("");
+
+        FireApellido.setText("");
+
+        FireCorreo.setText("");
     }
 
     //metodo atajo para el toast vista usuario

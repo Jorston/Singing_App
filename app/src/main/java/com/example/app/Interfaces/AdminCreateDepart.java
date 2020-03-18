@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.example.app.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -54,6 +55,8 @@ public class AdminCreateDepart extends Fragment {
             public void onClick(View v) {
 
                 crearDepartamento();
+
+                showMessage("DEPARTAMENTO CREADO");
             }
         });
 
@@ -65,5 +68,13 @@ public class AdminCreateDepart extends Fragment {
         String departamentocreacion = textoDepartamento.getText().toString();
 
         mRootReference.child("DepartamentosReal").child(departamentocreacion).setValue("");
+
+        textoDepartamento.setText("");
+    }
+
+    //metodo atajo para el toast vista usuario
+    protected void showMessage(String message){
+
+        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
     }
 }
