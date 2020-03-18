@@ -39,4 +39,5 @@ dependencies {
     implementation files('libs/postgresql-42.2.9.jre6.jar')
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
