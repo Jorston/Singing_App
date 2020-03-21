@@ -123,7 +123,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
             }
         });
 
-        mRootReference.child("DepartamentosReal").addValueEventListener(new ValueEventListener() {
+        mRootReference.child("Departamentos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -191,7 +191,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         final ArrayList listado = new ArrayList<String>();
 
         for (final  DataSnapshot snapshot : dataSnapshot.getChildren()){
-            mRootReference.child("DepartamentosReal").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+            mRootReference.child("Departamentos").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     contenedor = String.valueOf(dataSnapshot.getKey());
@@ -225,7 +225,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         empleado.put("imagen","ruta-ejemplo.jpg");
 
-        mRootReference.child("DepartamentosReal").child(valorTexto).push().setValue(empleado);
+        mRootReference.child("Departamentos").child(valorTexto).push().setValue(empleado);
 
         valorDepart.setText("");
 

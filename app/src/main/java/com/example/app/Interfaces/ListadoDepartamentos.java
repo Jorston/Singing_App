@@ -61,7 +61,7 @@ public class ListadoDepartamentos extends Fragment {
 
         recyclerDepartEmpleados.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
-        mRootReference.child("DepartamentosReal").addValueEventListener(new ValueEventListener() {
+        mRootReference.child("Departamentos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -91,7 +91,7 @@ public class ListadoDepartamentos extends Fragment {
         final ArrayList listado = new ArrayList<String>();
 
         for (final  DataSnapshot snapshot : dataSnapshot.getChildren()){
-            mRootReference.child("DepartamentosReal").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
+            mRootReference.child("Departamentos").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     contenedor = String.valueOf(dataSnapshot.getKey());

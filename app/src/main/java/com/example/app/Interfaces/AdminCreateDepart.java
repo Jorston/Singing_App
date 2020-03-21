@@ -67,7 +67,7 @@ public class AdminCreateDepart extends Fragment {
 
         String departamentocreacion = textoDepartamento.getText().toString();
 
-        mRootReference.child("DepartamentosReal").child(departamentocreacion).setValue("");
+        mRootReference.child("Departamentos").child(departamentocreacion).setValue("");
 
         textoDepartamento.setText("");
     }
