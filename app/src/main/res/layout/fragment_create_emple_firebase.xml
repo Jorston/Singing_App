@@ -51,7 +51,7 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                         android:gravity="center">
 
                         <EditText
-                            android:id="@+id/txtDepart"
+                            android:id="@+id/FirebaseNombre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -67,7 +67,7 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                         android:gravity="center">
 
                         <EditText
-                            android:id="@+id/textapellido"
+                            android:id="@+id/FirebaseApellido"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -83,7 +83,7 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                         android:gravity="center">
 
                         <EditText
-                            android:id="@+id/userNick"
+                            android:id="@+id/FirebaseCorreo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -103,7 +103,7 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                     android:layout_marginBottom="8dp"
                     android:background="#fafafa" />
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/FirebaseDepartamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -123,24 +123,23 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                     android:gravity="center"
                     android:textStyle="italic"
                     android:hint="departamento"/>
-
-                <ImageButton
-                    android:id="@+id/btnSubirImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginBottom="16dp"
-                    android:paddingLeft="40dp"
-                    android:paddingTop="30dp"
-                    android:paddingRight="40dp"
-                    android:paddingBottom="30dp"
-                    android:src="@drawable/archive" />
+                <ImageView
+                    android:id="@+id/imageActualizarFirebase"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/image"/>
 
                 <Button
-                    android:id="@+id/btndepartfirebase"
+                    android:id="@+id/btnSubirImageFirebase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="SUBIR FOTO" />
+
+                <Button
+                    android:id="@+id/btnGuardarDepartFirebase"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
