@@ -99,7 +99,7 @@ public class Sexto extends Fragment {
 
             mStorage.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
 
                     Log.d("ERROR","SUBIDE DE FOTO CORRECTA");
                 }
