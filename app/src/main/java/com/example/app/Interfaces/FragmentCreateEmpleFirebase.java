@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 import com.example.app.ModelosAdaptadores.AdaptadorFirebaseDepart;
 import com.example.app.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -153,14 +155,29 @@ public class FragmentCreateEmpleFirebase extends Fragment{
                 @Override
                 public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
 
-                    Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+
+                    /*Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
 
                     Picasso.with(getActivity().getApplicationContext())
                             .load(String.valueOf(downloadUrl))
                             .fit()
                             .centerInside()
                             .into(imageActualizar);
-                    Log.v("downloadUrl", String.valueOf(downloadUrl));
+                    Log.v("downloadUrl", String.valueOf(downloadUrl));*/
+
+                    /*
+                    * storageRef.child("users/me/profile.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                    // Got the download URL for 'users/me/profile.png'
+                    }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                        public void onFailure(@NonNull Exception exception) {
+                         // Handle any errors
+                        }
+                        });
+                                */
 
                     Log.d("SUCCESS","SUBIDA DE FOTO CORRECTA");
                 }

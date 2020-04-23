@@ -68,7 +68,7 @@ public class AdminHomeFragment extends Fragment {
         return vista;
     }
 
-    private void llenadoDatos(@NonNull DataSnapshot dataSnapshot) {
+    private void llenadoDatos(DataSnapshot dataSnapshot) {
         listaMensajeFireba= new ArrayList<UserMensajeFirebase>();
 
         for (final DataSnapshot snapshot : dataSnapshot.getChildren()){

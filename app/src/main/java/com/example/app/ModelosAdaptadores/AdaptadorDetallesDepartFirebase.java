@@ -27,13 +27,13 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
     @Override
     public void onBindViewHolder(@NonNull AdaptadorDetallesDepartFirebase.ListaDetallesDepartHolder holder, int position) {
 
-        holder.nombres.setText(listaDepartDetallesFirebase.get(position).getNombre());
-
-        holder.apellidos.setText(listaDepartDetallesFirebase.get(position).getApellidos());
+        holder.apellidos.setText(listaDepartDetallesFirebase.get(position).getApellido());
 
         holder.correos.setText(listaDepartDetallesFirebase.get(position).getCorreo());
 
-        holder.urlImagen.setText(listaDepartDetallesFirebase.get(position).getUrlImagen());
+        holder.urlImagenes.setText(listaDepartDetallesFirebase.get(position).getImagen());
+
+        holder.nombres.setText(listaDepartDetallesFirebase.get(position).getNombre());
 
     }
 
@@ -44,18 +44,18 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
 
     public class ListaDetallesDepartHolder extends RecyclerView.ViewHolder {
 
-        TextView nombres,apellidos,correos,urlImagen;
+        TextView nombres,apellidos,correos,urlImagenes;
 
         public ListaDetallesDepartHolder(@NonNull View itemView) {
             super(itemView);
-
-            nombres = (TextView) itemView.findViewById(R.id.nombreDeptDetall);
 
             apellidos = (TextView) itemView.findViewById(R.id.apellidosDeptDetall);
 
             correos = (TextView) itemView.findViewById(R.id.correoDeptDetall);
 
-            urlImagen = (TextView) itemView.findViewById(R.id.imageDeptDetall);
+            urlImagenes = (TextView) itemView.findViewById(R.id.imageDeptDetall);
+
+            nombres = (TextView) itemView.findViewById(R.id.nombreDeptDetall);
         }
     }
 }

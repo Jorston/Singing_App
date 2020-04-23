@@ -2,13 +2,13 @@ package com.example.app.ConexionMetodosFirebase;
 
 public class AdminDepartDetalles {
 
-    String nombre;
+    private String nombre;
 
-    String apellidos;
+    private String apellido;
 
-    String correo;
+    private String correo;
 
-    String urlImagen;
+    private String imagen;
 
     public AdminDepartDetalles() {}
 
@@ -20,12 +20,12 @@ public class AdminDepartDetalles {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCorreo() {
@@ -36,11 +36,12 @@ public class AdminDepartDetalles {
         this.correo = correo;
     }
 
-    public String getUrlImagen() {
-        return urlImagen;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setUrlImagen(String urlImagen) {
-        this.urlImagen = urlImagen;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
+

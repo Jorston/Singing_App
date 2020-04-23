@@ -5,9 +5,13 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="330dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/border_rectangulo"
@@ -20,7 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre"
-            android:textSize="30dp"
             android:textStyle="italic"/>
         <TextView
             android:id="@+id/apellidosDeptDetall"
@@ -28,7 +31,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="apellidos"
-            android:textSize="30dp"
             android:textStyle="italic"/>
         <TextView
             android:id="@+id/correoDeptDetall"
@@ -36,8 +38,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="correo"
-            android:textSize="30dp"
-
             android:textStyle="italic"/>
         <TextView
             android:id="@+id/imageDeptDetall"
@@ -45,8 +45,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="link imagen"
-            android:textSize="30dp"
             android:textStyle="italic"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
     </LinearLayout>
 </LinearLayout>
 
