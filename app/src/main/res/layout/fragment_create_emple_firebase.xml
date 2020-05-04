@@ -162,8 +162,6 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
             </LinearLayout>
         </ScrollView>
 
-
-
     </LinearLayout>
 
 

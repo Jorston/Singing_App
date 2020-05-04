@@ -10,9 +10,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="289dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/border_rectangulo"
         android:orientation="vertical"
@@ -21,31 +23,33 @@
         <TextView
             android:id="@+id/nombreDeptDetall"
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="nombre"
-            android:textStyle="italic"/>
+            android:textColor="#372FA7"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/apellidosDeptDetall"
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="apellidos"
-            android:textStyle="italic"/>
+            android:textColor="#372FA7"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/correoDeptDetall"
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="correo"
-            android:textStyle="italic"/>
+            android:textColor="#372FA7"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/imageDeptDetall"
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="link imagen"
-            android:textStyle="italic"/>
+            android:text="link imagen"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
