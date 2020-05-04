@@ -97,10 +97,9 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerDepartFirebase"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="160dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
                     android:background="#fafafa" />
                 <TextView
                     android:id="@+id/FirebaseDepartamento"
@@ -123,11 +122,6 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                     android:gravity="center"
                     android:textStyle="italic"
                     android:hint="departamento"/>
-                <ImageView
-                    android:id="@+id/imageActualizarFirebase"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:src="@drawable/image"/>
 
                 <Button
                     android:id="@+id/btnSubirImageFirebase"
@@ -135,8 +129,27 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="10dp"
                     android:text="SUBIR FOTO" />
+
+                <ImageView
+                    android:id="@+id/imageActualizarFirebase"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/image"/>
+                <EditText
+                    android:id="@+id/valorLinkImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="center"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    android:hint="link imagen"/>
 
                 <Button
                     android:id="@+id/btnGuardarDepartFirebase"
