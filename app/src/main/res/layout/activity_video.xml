@@ -11,8 +11,6 @@ tools:context=".Interfaces.VideoActivity">
     android:orientation="vertical"
     android:background="@color/mainBackGround">
 
-
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -27,9 +25,10 @@ tools:context=".Interfaces.VideoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="322dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
+        android:layout_marginBottom="80dp"
         android:paddingTop="30dp">
 
 
@@ -37,14 +36,6 @@ tools:context=".Interfaces.VideoActivity">
             android:id="@+id/videoPromocion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-
     </LinearLayout>
 
 </LinearLayout>

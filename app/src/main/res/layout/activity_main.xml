@@ -21,10 +21,10 @@
                 android:layout_height="50dp"
                 android:layout_gravity="left"
                 android:gravity="center"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="Promocion"
-                android:textSize="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="10dp"
+                android:text="VIDEO PROMO"
+                android:textSize="18sp"
                 android:textColor="#000"
                 android:textStyle="bold" />
 

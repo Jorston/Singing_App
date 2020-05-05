@@ -28,6 +28,8 @@ public class AdminDetallesListDepart extends AppCompatActivity {
 
     String valorEnviado;
 
+    final String IMAGENDEFAULT = "https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -90,9 +92,9 @@ public class AdminDetallesListDepart extends AppCompatActivity {
 
                     adminDepartDetallesFirebase.setUrlImagen(adminDepartDetallesFirebase.getImagen());
 
-                    if (adminDepartDetallesFirebase.getImagen().equals("https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355")){
+                    if (adminDepartDetallesFirebase.getImagen().equals(IMAGENDEFAULT)){
 
-                        adminDepartDetallesFirebase.setUrlImagen("https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355");
+                        adminDepartDetallesFirebase.setUrlImagen(IMAGENDEFAULT);
 
                         adminDepartDetallesFirebase.getUrlImagen();
                     }
