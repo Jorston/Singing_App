@@ -148,7 +148,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
             Uri uri = data.getData();
 
-            final StorageReference filepath =mStorage.child("fotos").child(uri.getLastPathSegment());
+            final StorageReference filepath = mStorage.child("fotos").child(uri.getLastPathSegment());
 
             filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -223,7 +223,14 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         empleado.put("correo",FireCorreo.getText().toString());
 
-        empleado.put("imagen",hiddenImagen.getText().toString());
+        if (hiddenImagen.getText().toString().equals("")){
+
+            empleado.put("imagen","https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355");
+
+        }else{
+
+            empleado.put("imagen",hiddenImagen.getText().toString());
+        }
 
         mRootReference.child("Departamentos").child(valorTexto).push().setValue(empleado);
 
@@ -236,7 +243,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         FireCorreo.setText("");
 
         Glide.with(getActivity().getApplicationContext())
-                .load("descarga").into(imageActualizar);
+                .load("").into(imageActualizar);
     }
 
     //metodo atajo para el toast vista usuario
