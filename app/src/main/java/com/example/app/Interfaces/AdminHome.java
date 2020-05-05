@@ -76,6 +76,8 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
                 Fragment primero = new AdminHomeFragment();
 
+                AdminLogin.mediaAdmin.start();
+
                 FragmentTransaction transactionuno = getSupportFragmentManager().beginTransaction();
 
                 transactionuno.replace(R.id.contenedor_general,primero);
@@ -89,6 +91,8 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
                 cambioColor("boton2");
 
                 Fragment tercero = new AdminCreateDepart();
+
+                AdminLogin.mediaAdmin.start();
 
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
 
@@ -104,6 +108,8 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
                 Fragment terceroAdmin = new FragmentCreateEmpleFirebase();
 
+                AdminLogin.mediaAdmin.start();
+
                 FragmentTransaction transactiontresAmin = getSupportFragmentManager().beginTransaction();
 
                 transactiontresAmin.replace(R.id.contenedor_general,terceroAdmin);
@@ -118,6 +124,8 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
                 Fragment cuartoAdmin = new ListadoDepartamentos();
 
+                AdminLogin.mediaAdmin.start();
+
                 FragmentTransaction transactioncuatroAdmin = getSupportFragmentManager().beginTransaction();
 
                 transactioncuatroAdmin.replace(R.id.contenedor_general,cuartoAdmin);
@@ -131,6 +139,8 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
                 cambioColor("boton5");
 
                 Fragment quinto = new Quinto();
+
+                AdminLogin.mediaAdmin.start();
 
                 FragmentTransaction transactioncinco = getSupportFragmentManager().beginTransaction();
 

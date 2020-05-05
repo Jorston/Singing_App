@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     final MetodosRoom metodosRoom = new MetodosRoom();
 
+    static MediaPlayer media;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             try {
 
-                                Thread.sleep(700);
+                                Thread.sleep(1000);
 
                             }catch(InterruptedException e) {
 
@@ -112,12 +114,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
 
                     }.start();
-
-                MediaPlayer media = MediaPlayer.create(this, R.raw.sheran);
-
-                media.isLooping();
-
-                media.start();
 
                 break;
 
@@ -182,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             Statement statement;
 
-            con = conexionPsql.conectar();
+            //con = conexionPsql.conectar(); conexion de PSQL
 
             //si coneccion insertamos en PSQL
             if (con != null) {
@@ -231,6 +227,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else{
                 //condicion de si existe el usuario le damos acceso sino no puede intrar a la aplicacion
                 if (metodosRoom.validarUsuarios(textuser.getText().toString(),textpassword.getText().toString())){
+
+                    media = MediaPlayer.create(getApplicationContext(), R.raw.sheran);
+
+                    media.isLooping();
+
+                    media.start();
 
                     validatorUser = true;
 

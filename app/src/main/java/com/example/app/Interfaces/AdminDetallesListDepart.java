@@ -4,11 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.widget.TextView;
 import com.example.app.ConexionMetodosFirebase.AdminDepartDetalles;
-import com.example.app.ConexionMetodosFirebase.UserMensajeFirebase;
 import com.example.app.ModelosAdaptadores.AdaptadorDetallesDepartFirebase;
 import com.example.app.R;
 import com.google.firebase.database.DataSnapshot;
@@ -16,7 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class AdminDetallesListDepart extends AppCompatActivity {
@@ -30,6 +27,8 @@ public class AdminDetallesListDepart extends AppCompatActivity {
     TextView tituloDepart;
 
     String valorEnviado;
+
+    final String IMAGENDEFAULT = "https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,9 +90,19 @@ public class AdminDetallesListDepart extends AppCompatActivity {
 
                     adminDepartDetallesFirebase.getNombre();
 
+                    adminDepartDetallesFirebase.setUrlImagen(adminDepartDetallesFirebase.getImagen());
+
+                    if (adminDepartDetallesFirebase.getImagen().equals(IMAGENDEFAULT)){
+
+                        adminDepartDetallesFirebase.setUrlImagen(IMAGENDEFAULT);
+
+                        adminDepartDetallesFirebase.getUrlImagen();
+                    }
+                    adminDepartDetallesFirebase.getUrlImagen();
+
                     listadoDetallesDepartamentos.add(adminDepartDetallesFirebase);
 
-                    AdaptadorDetallesDepartFirebase adaptador = new AdaptadorDetallesDepartFirebase(listadoDetallesDepartamentos);
+                    AdaptadorDetallesDepartFirebase adaptador = new AdaptadorDetallesDepartFirebase(listadoDetallesDepartamentos,getApplicationContext());
 
                     recyclerDepartDetallesFirebase.setAdapter(adaptador);
                 }

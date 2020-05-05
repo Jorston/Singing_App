@@ -7,8 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +14,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.example.app.ModelosAdaptadores.AdaptadorFirebaseDepart;
 import com.example.app.R;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +27,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +40,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
     DatabaseReference mRootReference;
 
-    TextView valorDepart,FireNombre,FireApellido,FireCorreo;
+    TextView valorDepart,FireNombre,FireApellido,FireCorreo,hiddenImagen;
 
     String contenedor;
 
@@ -94,11 +88,15 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         imageActualizar = vista.findViewById(R.id.imageActualizarFirebase);
 
+        hiddenImagen = vista.findViewById(R.id.valorLinkImagen);
+
         btnSubirFoto = vista.findViewById(R.id.btnSubirImageFirebase);
 
         btnGuardarDatosFire = vista.findViewById(R.id.btnGuardarDepartFirebase);
 
         mRootReference = FirebaseDatabase.getInstance().getReference();
+
+        mStorage = FirebaseStorage.getInstance().getReference();
 
         recyclerDepartFirebase = vista.findViewById(R.id.recyclerDepartFirebase);
 
@@ -117,7 +115,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         btnSubirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent intent = new Intent(Intent.ACTION_PICK);
 
                 intent.setType("image/*");
 
@@ -141,6 +139,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         return vista;
     }
 
+    @Override
     public void  onActivityResult(int requestCode, int resultCode, Intent data){
 
         super.onActivityResult(requestCode,resultCode,data);
@@ -149,49 +148,33 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
             Uri uri = data.getData();
 
-            mStorage = FirebaseStorage.getInstance().getReference().child(mAuth.toString());
+            final StorageReference filepath = mStorage.child("fotos").child(uri.getLastPathSegment());
 
-            mStorage.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
+                    showMessage("la foto se subio con exito en firebase");
 
-                    /*Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                    filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            final Uri descarga = uri;
 
-                    Picasso.with(getActivity().getApplicationContext())
-                            .load(String.valueOf(downloadUrl))
-                            .fit()
-                            .centerInside()
-                            .into(imageActualizar);
-                    Log.v("downloadUrl", String.valueOf(downloadUrl));*/
+                            Glide.with(getActivity().getApplicationContext())
+                                    .load(descarga).into(imageActualizar);
 
-                    /*
-                    * storageRef.child("users/me/profile.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                    // Got the download URL for 'users/me/profile.png'
-                    }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                        public void onFailure(@NonNull Exception exception) {
-                         // Handle any errors
+                            hiddenImagen.setText(descarga.toString());
                         }
-                        });
-                                */
+                    });
 
-                    Log.d("SUCCESS","SUBIDA DE FOTO CORRECTA");
                 }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
 
-                    Log.d("ERROR","ERROR AL SUBIR FOTO");
-                }
             });
 
-            showMessage("la foto se subio con exito en firebase");
-        }
-    }
+        }//fin if
+
+    }//fin del onActivityResult
 
     private void llenadoDatos(@NonNull DataSnapshot dataSnapshot) {
 
@@ -240,7 +223,14 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         empleado.put("correo",FireCorreo.getText().toString());
 
-        empleado.put("imagen","ruta-ejemplo.jpg");
+        if (hiddenImagen.getText().toString().equals("")){
+
+            empleado.put("imagen","https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355");
+
+        }else{
+
+            empleado.put("imagen",hiddenImagen.getText().toString());
+        }
 
         mRootReference.child("Departamentos").child(valorTexto).push().setValue(empleado);
 
@@ -251,6 +241,9 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         FireApellido.setText("");
 
         FireCorreo.setText("");
+
+        Glide.with(getActivity().getApplicationContext())
+                .load("").into(imageActualizar);
     }
 
     //metodo atajo para el toast vista usuario
