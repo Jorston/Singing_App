@@ -88,9 +88,13 @@ public class AdminDetallesListDepart extends AppCompatActivity {
 
                     adminDepartDetallesFirebase.getNombre();
 
+                    adminDepartDetallesFirebase.setUrlImagen(adminDepartDetallesFirebase.getImagen());
+
+                    adminDepartDetallesFirebase.getUrlImagen();
+
                     listadoDetallesDepartamentos.add(adminDepartDetallesFirebase);
 
-                    AdaptadorDetallesDepartFirebase adaptador = new AdaptadorDetallesDepartFirebase(listadoDetallesDepartamentos);
+                    AdaptadorDetallesDepartFirebase adaptador = new AdaptadorDetallesDepartFirebase(listadoDetallesDepartamentos,getApplicationContext());
 
                     recyclerDepartDetallesFirebase.setAdapter(adaptador);
                 }
