@@ -73,6 +73,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
                 cambioColor("boton1");
 
+                MainActivity.media.stop();
+
                 Fragment primero = new Primero();
 
                 FragmentTransaction transactionuno = getSupportFragmentManager().beginTransaction();
@@ -85,6 +87,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
             case R.id.btn2:
                 cambioColor("boton2");
+
+                MainActivity.media.stop();
 
                 Fragment segundo = new Segundo();
 
@@ -101,13 +105,19 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
                 //Fragment tercero = new Tercero();
 
-                Fragment terceroA = new TerceroA();
+                MainActivity.media.stop();
 
-                FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
+                //Fragment terceroA = new TerceroA();
+
+                //FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
 
                 //transactiontres.replace(R.id.contenedor_general,tercero);
 
-                transactiontres.replace(R.id.contenedor_general,terceroA);
+                Fragment cuartos = new Cuarto();
+
+                FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
+
+                transactiontres.replace(R.id.contenedor_general,cuartos);
 
                 transactiontres.commit();
 
@@ -117,6 +127,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
                 cambioColor("boton4");
 
                 //Fragment cuarto = new Cuarto();
+
+                MainActivity.media.stop();
 
                 Fragment cuarto = new FragmentPerfilUser();
 

@@ -55,7 +55,7 @@ tools:context=".Interfaces.Sexto">
                     android:paddingRight="40dp"
                     android:paddingLeft="40dp"
                     android:layout_marginBottom="16dp"
-                    android:src="@drawable/archive"/>
+                    android:src="@drawable/document"/>
                 <ImageButton
                     android:id="@+id/btnSettingImage"
                     android:layout_width="wrap_content"

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     final MetodosRoom metodosRoom = new MetodosRoom();
 
-    MediaPlayer media;
+    static MediaPlayer media;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             Statement statement;
 
-            con = conexionPsql.conectar();
+            //con = conexionPsql.conectar(); conexion de PSQL
 
             //si coneccion insertamos en PSQL
             if (con != null) {

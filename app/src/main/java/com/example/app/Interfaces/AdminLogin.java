@@ -5,6 +5,7 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -27,6 +28,8 @@ public class AdminLogin extends AppCompatActivity {
     public static MyDatabaseRoom myDatabaseRoom;
 
     final MetodosRoomAdmin metodosRoom = new MetodosRoomAdmin();
+
+    static MediaPlayer mediaAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,12 @@ public class AdminLogin extends AppCompatActivity {
                         }
 
                     }.start();
+
+                    mediaAdmin = MediaPlayer.create(getApplicationContext(), R.raw.silbido_whatsapp);
+
+                    mediaAdmin.isLooping();
+
+                    mediaAdmin.start();
 
                     Intent intent = new Intent(getApplicationContext(),AdminHome.class);
 
