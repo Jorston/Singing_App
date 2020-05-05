@@ -20,7 +20,15 @@ public class VideoActivity extends AppCompatActivity {
 
         video = (VideoView) findViewById(R.id.videoPromocion);
 
-        Uri uri = Uri.parse("http://techslides.com/demos/sample-videos/small.mp4");
+        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video1));
+
+        MediaController media = new MediaController(this);
+
+        video.setMediaController(media);
+
+        video.start();
+
+        /*Uri uri = Uri.parse("http://techslides.com/demos/sample-videos/small.mp4");
 
         video.setMediaController(new MediaController(this));
 
@@ -28,7 +36,7 @@ public class VideoActivity extends AppCompatActivity {
 
         video.requestFocus();
 
-        video.start();
+        video.start();*/
 
     }
 }
