@@ -40,7 +40,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
     DatabaseReference mRootReference;
 
-    TextView valorDepart,FireNombre,FireApellido,FireCorreo,hiddenImagen;
+    TextView valorDepart,FireNombre,FireApellido,FireCorreo,hiddenImagen,FireContrasenha;
 
     String contenedor;
 
@@ -85,6 +85,8 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         FireApellido = vista.findViewById(R.id.FirebaseApellido);
 
         FireCorreo = vista.findViewById(R.id.FirebaseCorreo);
+
+        FireContrasenha = vista.findViewById(R.id.FirebaseContrasenha);
 
         imageActualizar = vista.findViewById(R.id.imageActualizarFirebase);
 
@@ -223,6 +225,8 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         empleado.put("correo",FireCorreo.getText().toString());
 
+        empleado.put("contrasenha",FireContrasenha.getText().toString());
+
         if (hiddenImagen.getText().toString().equals("")){
 
             empleado.put("imagen","https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355");
@@ -241,6 +245,8 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         FireApellido.setText("");
 
         FireCorreo.setText("");
+
+        FireContrasenha.setText("");
 
         Glide.with(getActivity().getApplicationContext())
                 .load("").into(imageActualizar);

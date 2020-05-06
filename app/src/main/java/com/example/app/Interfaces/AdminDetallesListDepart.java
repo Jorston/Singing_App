@@ -86,6 +86,8 @@ public class AdminDetallesListDepart extends AppCompatActivity {
 
                     adminDepartDetallesFirebase.getCorreo();
 
+                    adminDepartDetallesFirebase.getContrasenha();
+
                     adminDepartDetallesFirebase.getImagen();
 
                     adminDepartDetallesFirebase.getNombre();

@@ -8,6 +8,8 @@ public class AdminDepartDetalles {
 
     private String correo;
 
+    private String contrasenha;
+
     private String imagen;
 
     private String urlImagen;
@@ -36,6 +38,14 @@ public class AdminDepartDetalles {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getContrasenha() {
+        return contrasenha;
+    }
+
+    public void setContrasenha(String contrasenha) {
+        this.contrasenha = contrasenha;
     }
 
     public String getImagen() {

@@ -37,6 +37,8 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
 
         holder.correos.setText(listaDepartDetallesFirebase.get(position).getCorreo());
 
+        holder.contrasenhaFirebase.setText(listaDepartDetallesFirebase.get(position).getContrasenha());
+
         holder.urlImagenes.setText(listaDepartDetallesFirebase.get(position).getImagen());
 
         holder.nombres.setText(listaDepartDetallesFirebase.get(position).getNombre());
@@ -56,7 +58,7 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
 
     public class ListaDetallesDepartHolder extends RecyclerView.ViewHolder {
 
-        TextView nombres,apellidos,correos,urlImagenes;
+        TextView nombres,apellidos,correos,urlImagenes,contrasenhaFirebase;
 
         ImageView imagenesUSuario;
 
@@ -70,6 +72,8 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
             urlImagenes = (TextView) itemView.findViewById(R.id.imageDeptDetall);
 
             nombres = (TextView) itemView.findViewById(R.id.nombreDeptDetall);
+
+            contrasenhaFirebase = (TextView) itemView.findViewById(R.id.contrasenhaDeptDetall);
 
             imagenesUSuario = (ImageView) itemView.findViewById(R.id.imagenUsuario);
         }

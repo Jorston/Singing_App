@@ -10,56 +10,263 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_rectangulo"
+        android:paddingBottom="15dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imagenUsuario"
+            android:layout_width="400dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            tools:srcCompat="@tools:sample/avatars"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="0dp"
+                android:paddingBottom="0dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/hintnombreDeptDetall"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="10dp"
+                    android:text="name:"
+                    android:gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/hintapellidosDeptDetall"
+                    android:layout_marginTop="10dp"
+                    android:textSize="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="surname:"/>
+                <TextView
+                    android:id="@+id/hintcorreoDeptDetall"
+                    android:layout_marginTop="10dp"
+                    android:textSize="10dp"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="email:"
+                    android:gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/hintcontrasenhaDeptDetall"
+                    android:layout_marginTop="10dp"
+                    android:textSize="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="password:"/>
+                <TextView
+                    android:id="@+id/hintimageDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="link imagen"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nombreDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="nombre"
+                    android:textSize="15dp"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/apellidosDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15dp"
+                    android:text="apellidos"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/correoDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="15dp"
+                    android:text="correo"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/contrasenhaDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="0dp"
+                    android:textSize="15dp"
+                    android:text="contraseña"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/imageDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:text="link imagen" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+    </LinearLayout>
+
+</LinearLayout>
+
+<!--
+    <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_rectangulo"
+        android:paddingBottom="0dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imagenUsuario"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="4dp"
             android:layout_gravity="center_horizontal"
             tools:srcCompat="@tools:sample/avatars" />
         <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="vertical"
-            android:paddingBottom="5dp">
+            android:layout_width="46dp"
+            android:layout_height="110dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="0dp"
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/nombreDeptDetall"
+                android:id="@+id/hintnombreDeptDetall"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="nombre"
-                android:textColor="#372FA7"
-                android:textStyle="bold"/>
+                android:textSize="10dp"
+                android:text="name:"/>
             <TextView
-                android:id="@+id/apellidosDeptDetall"
+                android:id="@+id/hintapellidosDeptDetall"
                 android:layout_marginTop="10dp"
+                android:textSize="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="apellidos"
-                android:textColor="#372FA7"
-                android:textStyle="bold"/>
+                android:text="surname:"/>
             <TextView
-                android:id="@+id/correoDeptDetall"
+                android:id="@+id/hintcorreoDeptDetall"
                 android:layout_marginTop="10dp"
+                android:textSize="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="correo"
-                android:textColor="#372FA7"
-                android:textStyle="bold"/>
+                android:text="email:"/>
             <TextView
-                android:id="@+id/imageDeptDetall"
+                android:id="@+id/hintcontrasenhaDeptDetall"
                 android:layout_marginTop="10dp"
+                android:textSize="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="password:"/>
+            <TextView
+                android:id="@+id/hintimageDeptDetall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:text="link imagen"/>
-
 
         </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nombreDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="nombre"
+                    android:textSize="13dp"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/apellidosDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="13dp"
+                    android:text="apellidos"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/correoDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="13dp"
+                    android:text="correo"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/contrasenhaDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="0dp"
+                    android:textSize="13dp"
+                    android:paddingLeft="10dp"
+                    android:text="contraseña"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/imageDeptDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:text="link imagen" />
+
+            </LinearLayout>
 
     </LinearLayout>
 
@@ -68,4 +275,9 @@
         android:layout_height="5dp">
     </LinearLayout>
 </LinearLayout>
+
+
+-->
+
+
 
