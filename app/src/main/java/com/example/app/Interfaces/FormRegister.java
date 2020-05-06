@@ -174,7 +174,7 @@ public class FormRegister extends AppCompatActivity{
 
             Statement statement;
 
-            con = conexionPsql.conectar();
+            //con = conexionPsql.conectar();
 
             //si coneccion insertamos en PSQL
             if (con != null) {
