@@ -119,11 +119,18 @@ public class FragmentCreateEmpleFirebase extends Fragment{
             @Override
             public void onClick(View v) {
 
-                comprobarDepartmento();
+                if (valorDepart.getText().toString().equals("")){
+                    showMessage("ELIGA UN DEPARTAMENTO");
+                }else{
+                    comprobarDepartmento();
 
-                insertRoomFirebase();
+                    insertRoomFirebase();
 
-                showMessage("EMPLEADO CREADO");
+                    showMessage("EMPLEADO CREADO");
+
+                }
+
+
             }
         });
 
@@ -251,8 +258,6 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         mRootReference.child("Departamentos").child(valorTexto).push().setValue(empleado);
 
-        valorDepart.setText("");
-
         Glide.with(getActivity().getApplicationContext())
                 .load("").into(imageActualizar);
     }
@@ -268,6 +273,8 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         FireCorreo.setText("");
 
         FireNombre.setText("");
+
+        valorDepart.setText("");
 
         FireNombre.setFocusableInTouchMode(true);
 
