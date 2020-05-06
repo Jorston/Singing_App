@@ -92,6 +92,22 @@ tools:context=".Interfaces.FragmentCreateEmpleFirebase">
                             android:inputType="textPersonName" />
                     </TableRow>
 
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="15dp"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/FirebaseContrasenha"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="contraseña"
+                            android:inputType="textPersonName" />
+                    </TableRow>
+
                 </TableLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
