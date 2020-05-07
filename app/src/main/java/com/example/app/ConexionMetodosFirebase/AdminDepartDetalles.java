@@ -14,6 +14,8 @@ public class AdminDepartDetalles {
 
     private String urlImagen;
 
+    private String departamento;
+
     public AdminDepartDetalles() {}
 
     public String getNombre() {
@@ -59,5 +61,13 @@ public class AdminDepartDetalles {
     public String getUrlImagen() { return urlImagen; }
 
     public void setUrlImagen(String urlImagen) { this.urlImagen = urlImagen; }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
 }
 

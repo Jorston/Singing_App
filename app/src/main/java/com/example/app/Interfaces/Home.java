@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import com.example.app.R;
 
-public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener,TerceroA.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener, Sexto.OnFragmentInteractionListener{
+public class Home extends AppCompatActivity implements View.OnClickListener, Primero.OnFragmentInteractionListener, Segundo.OnFragmentInteractionListener, Tercero.OnFragmentInteractionListener,TerceroA.OnFragmentInteractionListener, Cuarto.OnFragmentInteractionListener, Quinto.OnFragmentInteractionListener{
 
     Button boton1,boton2,boton3,boton4,boton5,boton6;
 
@@ -156,13 +156,13 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
             case R.id.btn6:
                 cambioColor("boton6");
 
-                Fragment sexto = new Sexto();
+                /*Fragment sexto = new Sexto();
 
                 FragmentTransaction transactionsexto = getSupportFragmentManager().beginTransaction();
 
                 transactionsexto.replace(R.id.contenedor_general,sexto);
 
-                transactionsexto.commit();
+                transactionsexto.commit();*/
 
                 break;
         }

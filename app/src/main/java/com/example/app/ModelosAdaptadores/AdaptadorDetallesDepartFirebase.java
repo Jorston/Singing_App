@@ -43,11 +43,11 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
 
         holder.nombres.setText(listaDepartDetallesFirebase.get(position).getNombre());
 
+        holder.departamentoFirebase.setText(listaDepartDetallesFirebase.get(position).getDepartamento());
+
         Glide.with(context)
                 .load(listaDepartDetallesFirebase.get(position).getUrlImagen())
                 .into(holder.imagenesUSuario);
-
-       //holder.imagenesUSuario.setImageResource(R.drawable.add_user);
 
     }
 
@@ -58,7 +58,7 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
 
     public class ListaDetallesDepartHolder extends RecyclerView.ViewHolder {
 
-        TextView nombres,apellidos,correos,urlImagenes,contrasenhaFirebase;
+        TextView nombres,apellidos,correos,urlImagenes,contrasenhaFirebase,departamentoFirebase;
 
         ImageView imagenesUSuario;
 
@@ -75,7 +75,10 @@ public class AdaptadorDetallesDepartFirebase extends RecyclerView.Adapter<Adapta
 
             contrasenhaFirebase = (TextView) itemView.findViewById(R.id.contrasenhaDeptDetall);
 
+            departamentoFirebase = (TextView) itemView.findViewById(R.id.departDepartDetall);
+
             imagenesUSuario = (ImageView) itemView.findViewById(R.id.imagenUsuario);
+
         }
     }
 }

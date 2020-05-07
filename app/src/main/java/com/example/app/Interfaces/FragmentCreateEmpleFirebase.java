@@ -247,6 +247,8 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         empleado.put("contrasenha",FireContrasenha.getText().toString());
 
+        empleado.put("departamento",valorTexto);
+
         if (hiddenImagen.getText().toString().equals("")){
 
             empleado.put("imagen","https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355");

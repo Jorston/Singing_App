@@ -47,9 +47,11 @@
                     android:id="@+id/hintapellidosDeptDetall"
                     android:layout_marginTop="10dp"
                     android:textSize="10dp"
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="surname:"/>
+                    android:text="surname:"
+                    android:gravity="center_horizontal" />
                 <TextView
                     android:id="@+id/hintcorreoDeptDetall"
                     android:layout_marginTop="10dp"
@@ -63,9 +65,18 @@
                     android:id="@+id/hintcontrasenhaDeptDetall"
                     android:layout_marginTop="10dp"
                     android:textSize="10dp"
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="password:"/>
+                    android:text="password:"
+                    android:gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/hintDepartamentoDetall"
+                    android:layout_marginTop="10dp"
+                    android:textSize="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="departamento:"/>
                 <TextView
                     android:id="@+id/hintimageDeptDetall"
                     android:layout_width="match_parent"
@@ -118,6 +129,16 @@
                     android:layout_marginBottom="0dp"
                     android:textSize="15dp"
                     android:text="contraseña"
+                    android:textColor="#372FA7"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/departDepartDetall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="0dp"
+                    android:textSize="15dp"
+                    android:text="departamento"
                     android:textColor="#372FA7"
                     android:textStyle="bold" />
 

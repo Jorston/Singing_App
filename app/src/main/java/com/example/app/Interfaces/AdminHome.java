@@ -154,13 +154,13 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
                 cambioColor("boton6");
 
-                Fragment sexto = new Sexto();
+               /* Fragment sexto = new Sexto();
 
                 FragmentTransaction transactionsexto = getSupportFragmentManager().beginTransaction();
 
                 transactionsexto.replace(R.id.contenedor_general,sexto);
 
-                transactionsexto.commit();
+                transactionsexto.commit();*/
 
                 break;
         }
