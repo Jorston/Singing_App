@@ -20,6 +20,9 @@ public class PortadaPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if(getSupportActionBar() != null)
+            getSupportActionBar().hide();
+
         setContentView(R.layout.activity_portada_principal);
 
         progressBarPortada = findViewById(R.id.progresBarPortada);

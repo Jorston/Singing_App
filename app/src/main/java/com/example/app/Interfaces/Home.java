@@ -22,6 +22,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Pri
 
         super.onCreate(savedInstanceState);
 
+        if(getSupportActionBar() != null)
+            getSupportActionBar().hide();
+
         setContentView(R.layout.activity_home);
 
         recuperamos_variable_string = getIntent().getStringExtra("usuario");

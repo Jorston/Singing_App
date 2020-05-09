@@ -22,6 +22,9 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
         super.onCreate(savedInstanceState);
 
+        if(getSupportActionBar() != null)
+            getSupportActionBar().hide();
+
         setContentView(R.layout.activity_admin_home);
 
         recuperamos_variable_string = getIntent().getStringExtra("usuario");

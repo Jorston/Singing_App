@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.app.ConexionMetodosFirebase.LoginFirebaseDepart;
 import com.example.app.ConexionPSQL.ConexionPsql;
 import com.example.app.ConexionesRoom.MetodosRoom;
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
@@ -43,12 +42,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     static MediaPlayer media;
 
-    LoginFirebaseDepart loginFirebaseDepart;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        if(getSupportActionBar() != null)
+        getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
 
@@ -258,10 +258,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
             }
-
-            /*FragmentPerfilUser fragmentPerfilUser = new FragmentPerfilUser();
-
-            fragmentPerfilUser.ValidacionDepart(textuser.getText().toString());*/
 
             return null;
         }
