@@ -16,6 +16,7 @@
            android:layout_marginLeft="20dp"
            android:layout_marginRight="20dp"
            android:layout_marginBottom="70dp"
+           android:visibility="gone"
            android:background="#cfcfcf">
 
            <LinearLayout
@@ -128,6 +129,42 @@
                        android:layout_marginBottom="15dp"
                        android:gravity="center">
 
+                       <TextView
+                           android:id="@+id/departamentoRecup"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="6dp"
+                           android:paddingBottom="6dp"
+                           android:gravity="center"
+                           android:textSize="20dp"
+                           android:textStyle="bold"
+                           android:text="departamento" />
+                   </TableRow>
+
+                   <TableRow
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginBottom="15dp"
+                       android:gravity="center">
+
+                       <TextView
+                           android:id="@+id/urlImagenRecup"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="6dp"
+                           android:paddingBottom="6dp"
+                           android:gravity="center"
+                           android:textSize="20dp"
+                           android:textStyle="bold"
+                           android:text="urlImagen" />
+                   </TableRow>
+
+                   <TableRow
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginBottom="15dp"
+                       android:gravity="center">
+
                        <ImageView
                            android:id="@+id/imagenRecup"
                            android:layout_width="match_parent"
@@ -141,6 +178,23 @@
 
            </LinearLayout>
        </ScrollView>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_gravity="center"
+           android:orientation="vertical" >
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/recyclerPerfilUsuario"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginLeft="8dp"
+               android:layout_marginRight="8dp"
+               android:layout_marginBottom="8dp"
+               android:background="#fafafa" />
+
+       </LinearLayout>
 
    </LinearLayout>
 

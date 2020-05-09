@@ -10,15 +10,13 @@ import java.util.ArrayList;
 
 public class LoginFirebaseDepart {
 
-    DatabaseReference mRootReference;
+   /* DatabaseReference mRootReference;
 
-    String valorDepartTemporal ,usuarioPorDepart;
+    String valorDepartTemporal;
 
-    ArrayList<AdminDepartDetalles> listadoDetallesDepartamentos;
+    ArrayList<AdminDepartDetalles> listadoDetallesDepartamentos,listadoParaEnviarPerfilUser;
 
-    String valor;
-
-    String acumulador;
+    String acumulador,valorAcumulativoDepart,valorDepartFinal;
 
     int contador;
 
@@ -76,9 +74,9 @@ public class LoginFirebaseDepart {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                valor = valorDepartTemporal;
+                valorAcumulativoDepart = valorDepartTemporal;
 
-                obtencionDatosUserDepart(dataSnapshot,valor);
+                obtencionDatosUserDepart(dataSnapshot,valorAcumulativoDepart);
 
             }
 
@@ -89,15 +87,12 @@ public class LoginFirebaseDepart {
         });
     }
 
-
-
-    private int obtencionDatosUserDepart(DataSnapshot dataSnapshot,String valor){
+    private int obtencionDatosUserDepart(DataSnapshot dataSnapshot, final String valor){
 
 
         listadoDetallesDepartamentos = new ArrayList<AdminDepartDetalles>();
 
         for(final DataSnapshot snapshot : dataSnapshot.getChildren()){
-
 
             mRootReference.child(valor).child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                 @Override
@@ -112,8 +107,17 @@ public class LoginFirebaseDepart {
                     if (adminDepartDetallesFirebase.getNombre().equals(acumulador)){
 
                         contador++;
-                        System.out.println("EL CONTADOR VA EN "+contador);
 
+                        String auxDepartamento = adminDepartDetallesFirebase.getDepartamento();
+
+                        System.out.println("EL CONTADOR VA EN "+contador);
+                    }
+
+                    if (contador > 0){
+                        mostradoDetalles(valor);
+                        System.out.println("DENTRO DEL IF");
+                    }else{
+                        System.out.println("FUERA DEL IF");
                     }
                 }
 
@@ -126,5 +130,46 @@ public class LoginFirebaseDepart {
 
         return contador;
     }
+
+
+    public String mostradoDetalles(String valornuevoDepart){
+
+        System.out.println("EL DEPARTAMENTO FINAL ES "+valornuevoDepart);
+
+        String valorDepartFinal = valornuevoDepart;
+
+        //lisener de los datos que estan en firebase
+        mRootReference.child("Departamentos").child(valornuevoDepart).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                llenadoDatosPerfilUser(dataSnapshot);
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        return valorDepartFinal;
+    }
+//
+    private ArrayList<AdminDepartDetalles> llenadoDatosPerfilUser(DataSnapshot dataSnapshot) {
+
+        System.out.println("METODO LLENADO ES "+valorDepartFinal);
+
+        listadoParaEnviarPerfilUser = new ArrayList<AdminDepartDetalles>();
+
+
+
+        return listadoParaEnviarPerfilUser;
+
+
+
+
+
+    }*/
+
 
 }

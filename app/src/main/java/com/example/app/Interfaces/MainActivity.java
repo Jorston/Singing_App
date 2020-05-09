@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     static MediaPlayer media;
 
+    LoginFirebaseDepart loginFirebaseDepart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -257,9 +259,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
 
-            LoginFirebaseDepart loginFirebaseDepart = new LoginFirebaseDepart();
+            /*FragmentPerfilUser fragmentPerfilUser = new FragmentPerfilUser();
 
-            loginFirebaseDepart.ValidacionDepart(textuser.getText().toString());
+            fragmentPerfilUser.ValidacionDepart(textuser.getText().toString());*/
 
             return null;
         }
