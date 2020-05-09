@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.app.ConexionMetodosFirebase.LoginFirebaseDepart;
 import com.example.app.ConexionPSQL.ConexionPsql;
 import com.example.app.ConexionesRoom.MetodosRoom;
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
@@ -255,6 +256,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
             }
+
+            LoginFirebaseDepart loginFirebaseDepart = new LoginFirebaseDepart();
+
+            loginFirebaseDepart.ValidacionDepart(textuser.getText().toString());
 
             return null;
         }

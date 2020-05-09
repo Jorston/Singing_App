@@ -1,19 +1,15 @@
 package com.example.app.Interfaces;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.ConexionesRoom.UserRoom;
 import com.example.app.R;
-
 import java.util.List;
 
 public class FragmentPerfilUser extends Fragment {
@@ -84,5 +80,6 @@ public class FragmentPerfilUser extends Fragment {
         correo.setText("correo: "+stringcorreo);
 
         return vista;
+
     }
 }

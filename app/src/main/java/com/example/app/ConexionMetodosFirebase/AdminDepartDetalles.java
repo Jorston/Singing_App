@@ -18,6 +18,10 @@ public class AdminDepartDetalles {
 
     public AdminDepartDetalles() {}
 
+    public AdminDepartDetalles(String value) {
+
+    }
+
     public String getNombre() {
         return nombre;
     }
