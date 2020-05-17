@@ -21,6 +21,7 @@ public class PortadaPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if(getSupportActionBar() != null)
+
             getSupportActionBar().hide();
 
         setContentView(R.layout.activity_portada_principal);

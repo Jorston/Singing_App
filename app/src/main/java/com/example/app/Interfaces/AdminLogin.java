@@ -37,6 +37,7 @@ public class AdminLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if(getSupportActionBar() != null)
+
             getSupportActionBar().hide();
 
         //inflate fragment para el login

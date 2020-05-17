@@ -126,7 +126,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
                     insertRoomFirebase();
 
-                    showMessage("EMPLEADO CREADO");
+                    //showMessage("EMPLEADO CREADO");
 
                 }
 
@@ -262,6 +262,8 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         Glide.with(getActivity().getApplicationContext())
                 .load("").into(imageActualizar);
+
+        showMessage("EMPLEADO CREADO");
     }
 
     private void insertRoomFirebase(){

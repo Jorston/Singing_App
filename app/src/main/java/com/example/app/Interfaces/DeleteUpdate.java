@@ -17,6 +17,10 @@ public class DeleteUpdate extends AppCompatActivity implements Delete.OnFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
+
         Fragment delete = new Delete();
 
         FragmentTransaction transactionDelete = getSupportFragmentManager().beginTransaction();

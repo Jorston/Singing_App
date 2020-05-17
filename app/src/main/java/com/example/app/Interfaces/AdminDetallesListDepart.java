@@ -37,6 +37,10 @@ public class AdminDetallesListDepart extends AppCompatActivity {
 
         setContentView(R.layout.activity_admin_detalles_list_depart);
 
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
+
         mRootReference = FirebaseDatabase.getInstance().getReference();
 
         recyclerDepartDetallesFirebase = findViewById(R.id.recyclerDetallesDepartAdmin);

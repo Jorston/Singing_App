@@ -20,6 +20,11 @@ public class WebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
+
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
+
          webView = findViewById(R.id.MiWebview);
          webView.getSettings().setJavaScriptEnabled(true);
          conexionWebview = new ConexionWebview();

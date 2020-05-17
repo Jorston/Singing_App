@@ -18,6 +18,10 @@ public class VideoActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_video);
 
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
+
         video = (VideoView) findViewById(R.id.videoPromocion);
 
         video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video1));
