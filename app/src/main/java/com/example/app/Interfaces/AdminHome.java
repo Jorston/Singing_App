@@ -22,6 +22,10 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
         super.onCreate(savedInstanceState);
 
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
+
         setContentView(R.layout.activity_admin_home);
 
         recuperamos_variable_string = getIntent().getStringExtra("usuario");
@@ -154,13 +158,13 @@ public class AdminHome extends AppCompatActivity implements View.OnClickListener
 
                 cambioColor("boton6");
 
-                Fragment sexto = new Sexto();
+               /* Fragment sexto = new Sexto();
 
                 FragmentTransaction transactionsexto = getSupportFragmentManager().beginTransaction();
 
                 transactionsexto.replace(R.id.contenedor_general,sexto);
 
-                transactionsexto.commit();
+                transactionsexto.commit();*/
 
                 break;
         }

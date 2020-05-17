@@ -167,7 +167,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="30dp"
-                android:text="Eliminar" />
+                android:text="OPCIONES" />
 
         </LinearLayout>
     </ScrollView>

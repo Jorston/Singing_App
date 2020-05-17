@@ -26,29 +26,24 @@ tools:context=".Interfaces.AdminCreateDepart">
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginBottom="80dp">
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="20dp"
-            android:background="#cfcfcf">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="40dp"
                 android:layout_margin="8dp"
                 android:background="#f5f5f5"
                 android:orientation="vertical">
 
                 <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="210dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="200dp">
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
+                        android:layout_marginBottom="40dp"
                         android:gravity="center">
 
                         <EditText
@@ -60,14 +55,6 @@ tools:context=".Interfaces.AdminCreateDepart">
                             android:hint="Departamento"/>
                     </TableRow>
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="center">
-
-                    </TableRow>
 
                 </TableLayout>
                 <Button
@@ -76,11 +63,10 @@ tools:context=".Interfaces.AdminCreateDepart">
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:layout_marginTop="150dp"
                     android:layout_marginBottom="30dp"
                     android:text="GUARDAR" />
             </LinearLayout>
-        </ScrollView>
+
 
 
 

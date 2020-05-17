@@ -18,6 +18,10 @@ public class DetalleRecycler extends AppCompatActivity {
 
         setContentView(R.layout.activity_detalle_recycler);
 
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
+
         textoEjempo = (TextView) findViewById(R.id.textDescripcion);
 
         Bundle extras = getIntent().getExtras();
