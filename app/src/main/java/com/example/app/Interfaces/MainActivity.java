@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         super.onCreate(savedInstanceState);
 
+        if(getSupportActionBar() != null)
+
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main);
 
         //obtencion de elementos de la vista mediante id

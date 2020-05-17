@@ -36,6 +36,10 @@ public class AdminLogin extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
+
         //inflate fragment para el login
         setContentView(R.layout.activity_admin_login);
 

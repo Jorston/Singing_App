@@ -1,6 +1,9 @@
 package com.example.app.ConexionesRoom;
 
 import com.example.app.Interfaces.AdminLogin;
+import com.example.app.Interfaces.FormRegister;
+import com.example.app.Interfaces.FragmentCreateEmpleFirebase;
+
 import java.util.List;
 
 public class MetodosRoomAdmin {
@@ -33,5 +36,26 @@ public class MetodosRoomAdmin {
         }
 
         return cambio;
+    }
+
+    //insercion usuario del formulario de registro
+    public void insertarUserRoomAdmin(String nombre, String apellidos, String correo, String userNick, String contrasenha, String repcontrasenha) {
+
+        UserRoom userRoom = new UserRoom();
+
+        userRoom.setNombre(nombre);
+
+        userRoom.setApellidos(apellidos);
+
+        userRoom.setCorreo(correo);
+
+        userRoom.setUserNick(userNick);
+
+        userRoom.setContrasenha(contrasenha);
+
+        userRoom.setRepContrasenha(repcontrasenha);
+
+        FragmentCreateEmpleFirebase.myDatabaseRoom.utilidadesDao().agregarUsuario(userRoom);
+
     }
 }

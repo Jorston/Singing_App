@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.example.app.ConexionesRoom.MetodosRoomAdmin;
+import com.example.app.ConexionesRoom.MyDatabaseRoom;
 import com.example.app.ModelosAdaptadores.AdaptadorFirebaseDepart;
 import com.example.app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,7 +43,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
     DatabaseReference mRootReference;
 
-    TextView valorDepart,FireNombre,FireApellido,FireCorreo,hiddenImagen;
+    TextView valorDepart,FireNombre,FireApellido,FireCorreo,hiddenImagen,FireContrasenha;
 
     String contenedor;
 
@@ -53,6 +56,11 @@ public class FragmentCreateEmpleFirebase extends Fragment{
     private  static  final  int GALLERIA = 1;
 
     private StorageReference mStorage;
+
+    //recursos room
+    public static MyDatabaseRoom myDatabaseRoom;
+
+    final MetodosRoomAdmin metodosRoomAdmin = new MetodosRoomAdmin();
 
     public FragmentCreateEmpleFirebase() {
         // Required empty public constructor
@@ -86,6 +94,8 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         FireCorreo = vista.findViewById(R.id.FirebaseCorreo);
 
+        FireContrasenha = vista.findViewById(R.id.FirebaseContrasenha);
+
         imageActualizar = vista.findViewById(R.id.imageActualizarFirebase);
 
         hiddenImagen = vista.findViewById(R.id.valorLinkImagen);
@@ -102,13 +112,25 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         recyclerDepartFirebase.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
+        //instancia a la conexion y objetos de la clase MyDatabaseRoom de Room y creamos la base de datos
+        myDatabaseRoom = Room.databaseBuilder(getActivity().getApplicationContext(),MyDatabaseRoom.class, "usuariosLoginRoom.db").allowMainThreadQueries().build();
+
         btnGuardarDatosFire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                comprobarDepartmento();
+                if (valorDepart.getText().toString().equals("")){
+                    showMessage("ELIGA UN DEPARTAMENTO");
+                }else{
+                    comprobarDepartmento();
 
-                showMessage("EMPLEADO CREADO");
+                    insertRoomFirebase();
+
+                    //showMessage("EMPLEADO CREADO");
+
+                }
+
+
             }
         });
 
@@ -223,6 +245,10 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         empleado.put("correo",FireCorreo.getText().toString());
 
+        empleado.put("contrasenha",FireContrasenha.getText().toString());
+
+        empleado.put("departamento",valorTexto);
+
         if (hiddenImagen.getText().toString().equals("")){
 
             empleado.put("imagen","https://firebasestorage.googleapis.com/v0/b/appfirebaseproject-b2083.appspot.com/o/default.png?alt=media&token=9b9124ba-98bc-433f-adc7-26ea28c02355");
@@ -234,16 +260,31 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
         mRootReference.child("Departamentos").child(valorTexto).push().setValue(empleado);
 
-        valorDepart.setText("");
+        Glide.with(getActivity().getApplicationContext())
+                .load("").into(imageActualizar);
 
-        FireNombre.setText("");
+        showMessage("EMPLEADO CREADO");
+    }
+
+    private void insertRoomFirebase(){
+
+        metodosRoomAdmin.insertarUserRoomAdmin(FireNombre.getText().toString(),FireApellido.getText().toString(),FireCorreo.getText().toString(),FireNombre.getText().toString(),FireContrasenha.getText().toString(),FireContrasenha.getText().toString());
+
+        FireContrasenha.setText("");
 
         FireApellido.setText("");
 
         FireCorreo.setText("");
 
-        Glide.with(getActivity().getApplicationContext())
-                .load("").into(imageActualizar);
+        FireNombre.setText("");
+
+        valorDepart.setText("");
+
+        FireNombre.setFocusableInTouchMode(true);
+
+        FireNombre.requestFocus();
+
+        myDatabaseRoom.close();
     }
 
     //metodo atajo para el toast vista usuario

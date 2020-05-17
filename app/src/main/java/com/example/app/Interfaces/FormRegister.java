@@ -49,9 +49,12 @@ public class FormRegister extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         //variables enlazada con elementos por medio de id
         setContentView(R.layout.activity_form_register);
+
+        if(getSupportActionBar() != null)
+
+            getSupportActionBar().hide();
 
         nombre = findViewById(R.id.textnombre);
 
@@ -174,7 +177,7 @@ public class FormRegister extends AppCompatActivity{
 
             Statement statement;
 
-            con = conexionPsql.conectar();
+            //con = conexionPsql.conectar();
 
             //si coneccion insertamos en PSQL
             if (con != null) {

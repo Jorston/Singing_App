@@ -9,13 +9,13 @@ tools:context=".Interfaces.AdminDetallesListDepart">
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="10dp"
     android:background="@color/mainBackGround">
 
     <TextView
         android:id="@+id/textDepartSeleccionado"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -26,7 +26,7 @@ tools:context=".Interfaces.AdminDetallesListDepart">
         android:textStyle="bold"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="600dp"
         android:orientation="vertical" >
 
         <androidx.recyclerview.widget.RecyclerView
