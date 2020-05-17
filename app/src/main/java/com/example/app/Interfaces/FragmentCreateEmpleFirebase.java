@@ -126,7 +126,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
 
                     insertRoomFirebase();
 
-                    //showMessage("EMPLEADO CREADO");
+                    showMessage("EMPLEADO CREADO");
 
                 }
 
@@ -176,7 +176,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    showMessage("la foto se subio con exito en firebase");
+                    //showMessage("la foto se subio con exito en firebase");
 
                     filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
@@ -206,7 +206,6 @@ public class FragmentCreateEmpleFirebase extends Fragment{
             @Override
             public void onEventName(String nombre) {
                 valorDepart.setText(nombre);
-                showMessage(valorDepart.getText().toString());
             }
         };
 
@@ -263,7 +262,7 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         Glide.with(getActivity().getApplicationContext())
                 .load("").into(imageActualizar);
 
-        showMessage("EMPLEADO CREADO");
+        //showMessage("EMPLEADO CREADO");
     }
 
     private void insertRoomFirebase(){
@@ -283,8 +282,6 @@ public class FragmentCreateEmpleFirebase extends Fragment{
         FireNombre.setFocusableInTouchMode(true);
 
         FireNombre.requestFocus();
-
-        myDatabaseRoom.close();
     }
 
     //metodo atajo para el toast vista usuario
