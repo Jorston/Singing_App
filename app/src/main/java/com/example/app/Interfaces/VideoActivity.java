@@ -24,7 +24,7 @@ public class VideoActivity extends AppCompatActivity {
 
         video = (VideoView) findViewById(R.id.videoPromocion);
 
-        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video1));
+        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.promo));
 
         MediaController media = new MediaController(this);
 

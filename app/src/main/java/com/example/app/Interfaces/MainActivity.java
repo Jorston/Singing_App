@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //condicion de si existe el usuario le damos acceso sino no puede intrar a la aplicacion
                 if (metodosRoom.validarUsuarios(textuser.getText().toString(),textpassword.getText().toString())){
 
-                    media = MediaPlayer.create(getApplicationContext(), R.raw.sheran);
+                    media = MediaPlayer.create(getApplicationContext(), R.raw.bella);
 
                     media.isLooping();
 
