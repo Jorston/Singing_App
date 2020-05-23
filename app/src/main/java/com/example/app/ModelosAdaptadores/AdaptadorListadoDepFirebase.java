@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.app.Interfaces.AdminDetallesJson;
 import com.example.app.Interfaces.AdminDetallesListDepart;
 import com.example.app.R;
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class AdaptadorListadoDepFirebase extends RecyclerView.Adapter<AdaptadorL
 
         Context context;
 
-        Button botonDetalles;
+        Button botonDetalles,botonDetallesJson;
 
         public ListadosFirebaseHolder(@NonNull View itemView) {
 
@@ -64,9 +65,17 @@ public class AdaptadorListadoDepFirebase extends RecyclerView.Adapter<AdaptadorL
             //implementamos boton para ver detalles de elemento
 
             botonDetalles = (Button) itemView.findViewById(R.id.btnDetallesDepart);
+
+            botonDetallesJson = (Button) itemView.findViewById(R.id.btnDetallesDepartJson);
         }
 
-        void setOnClickListeners() {botonDetalles.setOnClickListener(this);}
+        void setOnClickListeners() {
+
+            botonDetalles.setOnClickListener(this);
+
+            botonDetallesJson.setOnClickListener(this);
+
+        }
 
         @Override
         public void onClick(View v) {
@@ -82,6 +91,14 @@ public class AdaptadorListadoDepFirebase extends RecyclerView.Adapter<AdaptadorL
                     context.startActivity(intent);
 
                     break;
+
+                case R.id.btnDetallesDepartJson:
+
+                    Intent intentDos = new Intent(context, AdminDetallesJson.class);
+
+                    intentDos.putExtra("datoEnviado",textListado.getText());
+
+                    context.startActivity(intentDos);
             }
         }
     }
